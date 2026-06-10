@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal — Amanda Cornett Harris</title>
+  <meta name="description" content="The person behind the professional — horses, community, faith, and family." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--blue:#1753C5;--blue-dark:#0F3D94;--blue-light:#E8F0FE;--bronze:#9A6E3A;--bronze-on-blue:#E8C89D;--charcoal:#1E2A3A;--charcoal-mid:#3D4F63;--footer-text:#B0BFD0;--white:#FFFFFF}
+    body{font-family:'Inter',-apple-system,system-ui,sans-serif;min-height:100vh;background:var(--white);color:var(--charcoal);display:flex;flex-direction:column;line-height:1.5;overflow-x:hidden}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes staggerIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .anim{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.anim.visible{opacity:1;transform:translateY(0)}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;font-size:14px;font-weight:600;text-decoration:none;color:var(--white)}.skip-link:focus{left:16px;top:16px;width:auto;height:auto;z-index:9999;padding:12px 20px;background:var(--blue);color:var(--white)}
+    .site-header{background:var(--blue);padding:48px 56px 44px}.site-header h1{font-size:clamp(36px,5vw,52px);font-weight:800;color:var(--white);letter-spacing:-0.01em;line-height:1.1;margin-bottom:12px}.site-header .tagline{font-size:15px;color:var(--bronze-on-blue);letter-spacing:0.2em;font-weight:600;text-transform:uppercase}
+    .site-nav{background:var(--white);display:flex;justify-content:center;border-bottom:1px solid var(--blue-light);position:relative;z-index:100}
+    .site-nav.sticky{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.35s ease}
+    .site-nav.sticky.hidden{transform:translateY(-100%)}.site-nav.sticky.vis{transform:translateY(0)}
+    .nav-spacer{height:63px;display:none}.nav-spacer.on{display:block}
+    .nav-underline{position:absolute;bottom:0;height:3px;background:var(--blue);border-radius:3px 3px 0 0;transition:left 0.35s ease,width 0.35s ease}
+    .site-nav a{background:transparent;border:none;text-decoration:none;font-family:'Inter',-apple-system,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--charcoal-mid);letter-spacing:0.12em;padding:20px 44px;cursor:pointer;transition:color 0.3s ease;text-transform:uppercase;position:relative;display:inline-block}
+    .site-nav a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--bronze);transition:all 0.3s ease;transform:translateX(-50%)}
+    .site-nav a:hover{color:var(--charcoal)}.site-nav a:hover::after{width:60%}.site-nav a.active{color:var(--blue);font-weight:700}.site-nav a:focus-visible{outline:3px solid var(--bronze);outline-offset:-2px}
+    .hamburger{display:none;position:fixed;top:16px;right:16px;z-index:200;width:48px;height:48px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 16px rgba(23,83,197,0.3)}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:1px}.hamburger span:last-child{width:14px}
+    .mobile-overlay{display:none;position:fixed;inset:0;z-index:300;background:var(--blue);flex-direction:column;align-items:center;justify-content:center}.mobile-overlay.open{display:flex}
+    .mobile-overlay .close-btn{position:absolute;top:20px;right:20px;background:none;border:none;font-size:32px;color:var(--white);cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+    .mobile-overlay a{background:none;border:none;font-size:28px;font-weight:700;color:var(--white);letter-spacing:0.08em;padding:20px 0;cursor:pointer;font-family:'Inter',-apple-system,system-ui,sans-serif;text-decoration:none;animation:staggerIn 0.4s ease both}
+    .mobile-overlay a:nth-child(2){animation-delay:0s}.mobile-overlay a:nth-child(3){animation-delay:0.1s}.mobile-overlay a:nth-child(4){animation-delay:0.2s}.mobile-overlay a:nth-child(5){animation-delay:0.3s}
+    .mobile-overlay a.mob-active{color:var(--bronze-on-blue)}
+    .page-main{flex:1;padding:80px 56px;max-width:900px;margin:0 auto;width:100%}
+    .bronze-bar{width:48px;height:3px;background:var(--bronze);margin-bottom:20px;border-radius:2px}
+    .page-title{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--charcoal);letter-spacing:-0.02em;margin-bottom:24px}
+    .page-body{font-size:18px;color:var(--charcoal-mid);line-height:1.85;margin-bottom:24px}
+    .coming-soon{display:flex;flex-direction:column;align-items:center;text-align:center;padding:60px 0}
+    .coming-soon .icon{margin-bottom:24px}
+    .coming-soon p{font-size:17px;color:var(--charcoal-mid);line-height:1.8;max-width:480px}
+    .coming-soon strong{color:var(--blue);font-style:normal}
+    .site-footer{background:var(--charcoal);padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .site-footer .copy{font-size:13px;color:var(--footer-text);letter-spacing:0.04em}
+    .footer-links{display:flex;align-items:center;gap:20px;font-size:13px}
+    .footer-links a{color:var(--footer-text);text-decoration:underline;text-underline-offset:3px;transition:color 0.3s ease}.footer-links a:hover{color:var(--white)}.footer-links a:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+    .footer-links .sep{color:#3D506E}
+    @media(max-width:768px){.site-header{padding:32px 24px 28px}.site-header h1{font-size:30px}.site-header .tagline{font-size:12px;letter-spacing:0.14em}.site-nav{display:none}.hamburger{display:flex}.page-main{padding:48px 20px}.site-footer{padding:24px 20px;flex-direction:column;align-items:flex-start}.footer-links{flex-direction:column;gap:12px}.footer-links .sep{display:none}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <h1 class="anim" style="transition-delay:0.1s">Amanda Cornett Harris</h1>
+    <p class="tagline anim" style="transition-delay:0.3s">Entrepreneurial Builder · Enterprise Operator · Transformation Leader</p>
+  </header>
+  <nav class="site-nav" id="mainNav" aria-label="Main navigation">
+    <div class="nav-underline" id="navUnderline"></div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact-stories.html">Impact Stories</a>
+    <a href="personal.html" class="active" aria-current="page">Personal</a>
+  </nav>
+  <div class="nav-spacer" id="navSpacer"></div>
+  <button class="hamburger" id="menuOpen" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="close-btn" id="menuClose" aria-label="Close menu">×</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact-stories.html">Impact Stories</a>
+    <a href="personal.html" class="mob-active">Personal</a>
+  </div>
+
+  <main id="main" class="page-main" role="main">
+    <div class="bronze-bar anim" style="transition-delay:0.4s"></div>
+    <h2 class="page-title anim" style="transition-delay:0.5s">Personal</h2>
+
+    <p class="page-body anim" style="transition-delay:0.6s">
+      Accomplished leader. Real person.
+    </p>
+
+    <div class="coming-soon anim" style="transition-delay:0.8s">
+      <div class="icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="20" r="12" stroke="#9A6E3A" stroke-width="2.5" fill="none"/>
+          <path d="M20 32L20 36L28 36L28 32" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M20 36L28 36" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M21 40L27 40" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="14" r="1.5" fill="#9A6E3A"/>
+          <path d="M24 17L24 22" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round"/>
+          <path d="M21 20L27 20" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p style="font-style:italic;font-weight:500">
+        This section is coming soon — built in collaboration with <strong>Claude</strong>.
+      </p>
+      <p style="font-size:14px;margin-top:8px">
+        Horses, community, faith, family, and the outdoors. Check back soon.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="copy">© 2026 Amanda Cornett Harris</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="mailto:amandacornettharris@gmail.com" aria-label="Email Amanda Cornett Harris">amandacornettharris@gmail.com</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
+    </nav>
+  </footer>
+
+  <script>
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+    document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
+    const nav=document.getElementById('mainNav'),ul=document.getElementById('navUnderline');
+    function syncUnderline(){const a=nav.querySelector('a.active');if(a){const n=nav.getBoundingClientRect(),r=a.getBoundingClientRect();ul.style.left=(r.left-n.left)+'px';ul.style.width=r.width+'px'}}
+    syncUnderline();window.addEventListener('resize',syncUnderline);
+    const spacer=document.getElementById('navSpacer');let lastY=window.scrollY;const headerH=document.querySelector('.site-header').offsetHeight;
+    window.addEventListener('scroll',()=>{const y=window.scrollY,d=y>lastY;if(y>headerH){nav.classList.add('sticky');spacer.classList.add('on');nav.classList.toggle('hidden',d);nav.classList.toggle('vis',!d)}else{nav.classList.remove('sticky','hidden','vis');spacer.classList.remove('on')}lastY=y},{passive:true});
+    const overlay=document.getElementById('mobileOverlay');
+    document.getElementById('menuOpen').addEventListener('click',()=>overlay.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click',()=>overlay.classList.remove('open'));
+  </script>
+</body>
+</html>
