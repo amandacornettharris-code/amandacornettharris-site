@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanda Cornett Harris — Entrepreneurial Builder, Enterprise Operator, Transformation Leader</title>
+  <meta name="description" content="Amanda Cornett Harris specializes in turning bold ideas into operating realities. 20+ years transforming customer experiences, building enterprise capabilities, and leading complex organizational change across Fortune 500 environments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1753C5;
+      --blue-dark: #0F3D94;
+      --blue-light: #E8F0FE;
+      --bronze: #9A6E3A;
+      --bronze-on-blue: #E8C89D;
+      --charcoal: #1E2A3A;
+      --charcoal-mid: #3D4F63;
+      --footer-text: #B0BFD0;
+      --white: #FFFFFF;
+    }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      min-height: 100vh;
+      background: var(--white);
+      color: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute; left: -9999px; top: auto;
+      width: 1px; height: 1px; overflow: hidden;
+      font-size: 14px; font-weight: 600; text-decoration: none; color: var(--white);
+    }
+    .skip-link:focus {
+      left: 16px; top: 16px; width: auto; height: auto;
+      z-index: 9999; padding: 12px 20px; background: var(--blue); color: var(--white);
+    }
+
+    /* Animations */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes scaleIn { from { opacity:0; transform:scaleX(0); } to { opacity:1; transform:scaleX(1); } }
+    @keyframes staggerIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    .anim { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+    .anim-scale { opacity: 0; transform: scaleX(0); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .anim-scale.visible { opacity: 1; transform: scaleX(1); }
+    .anim-fade { opacity: 0; transition: opacity 0.5s ease; }
+    .anim-fade.visible { opacity: 1; }
+
+    /* Header */
+    .site-header {
+      background: var(--blue);
+      padding: 48px 56px 44px;
+    }
+    .site-header h1 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 800; color: var(--white);
+      letter-spacing: -0.01em; line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .site-header .tagline {
+      font-size: 15px; color: var(--bronze-on-blue);
+      letter-spacing: 0.2em; font-weight: 600; text-transform: uppercase;
+    }
+
+    /* Nav */
+    .site-nav {
+      background: var(--white);
+      display: flex; justify-content: center;
+      border-bottom: 1px solid var(--blue-light);
+      position: relative;
+      z-index: 100;
+    }
+    .site-nav.sticky {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.35s ease;
+    }
+    .site-nav.sticky.hidden { transform: translateY(-100%); }
+    .site-nav.sticky.visible { transform: translateY(0); }
+    .nav-spacer { height: 63px; display: none; }
+    .nav-spacer.active { display: block; }
+
+    .site-nav button {
+      background: transparent; border: none;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: var(--charcoal-mid);
+      letter-spacing: 0.12em; padding: 20px 44px;
+      cursor: pointer; transition: color 0.3s ease;
+      text-transform: uppercase; position: relative;
+    }
+    .site-nav button::after {
+      content: ''; position: absolute; bottom: 0; left: 50%;
+      width: 0; height: 2px; background: var(--bronze);
+      transition: all 0.3s ease; transform: translateX(-50%);
+    }
+    .site-nav button:hover { color: var(--charcoal); }
+    .site-nav button:hover::after { width: 60%; }
+    .site-nav button.active { color: var(--blue); font-weight: 700; }
+    .site-nav button:focus-visible { outline: 3px solid var(--bronze); outline-offset: -2px; }
+
+    .nav-underline {
+      position: absolute; bottom: 0; height: 3px;
+      background: var(--blue); border-radius: 3px 3px 0 0;
+      transition: left 0.35s ease, width 0.35s ease;
+    }
+
+    /* Main */
+    .site-main {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 100px 24px; text-align: center;
+    }
+    .hero-headline {
+      font-size: clamp(32px, 5vw, 54px); font-weight: 800;
+      color: var(--charcoal); line-height: 1.15;
+      max-width: 700px; margin: 0 auto 28px; letter-spacing: -0.02em;
+    }
+    .hero-headline .hl { color: var(--blue); }
+    .hero-body {
+      font-size: 18px; color: var(--charcoal-mid);
+      line-height: 1.85; max-width: 640px; margin-bottom: 24px;
+    }
+    .divider {
+      width: 60px; height: 3px; background: var(--bronze);
+      border-radius: 2px;
+    }
+    .under-construction {
+      font-size: 15px; color: var(--charcoal-mid); line-height: 1.8;
+      max-width: 480px; margin-bottom: 8px; font-weight: 500; font-style: italic;
+    }
+    .under-construction strong { color: var(--blue); font-style: normal; }
+    .check-back {
+      font-size: 14px; color: var(--charcoal-mid); line-height: 1.8;
+      max-width: 480px; margin-bottom: 48px;
+    }
+
+    /* CTA */
+    .cta {
+      display: inline-block; font-size: 13px; font-weight: 700;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      color: var(--blue); background: transparent;
+      text-decoration: none; letter-spacing: 0.12em;
+      padding: 16px 44px; border: 2px solid var(--blue);
+      text-transform: uppercase; transition: all 0.3s ease; cursor: pointer;
+    }
+    .cta:hover { color: var(--white); background: var(--blue); }
+    .cta:active { background: var(--blue-dark); border-color: var(--blue-dark); }
+    .cta:focus-visible { outline: 3px solid var(--bronze); outline-offset: 3px; }
+
+    /* Footer */
+    .site-footer {
+      background: var(--charcoal); padding: 28px 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .site-footer .copy { font-size: 13px; color: var(--footer-text); letter-spacing: 0.04em; }
+    .footer-links { display: flex; align-items: center; gap: 20px; font-size: 13px; }
+    .footer-links a {
+      color: var(--footer-text); text-decoration: underline;
+      text-underline-offset: 3px; transition: color 0.3s ease;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-links a:focus-visible { outline: 3px solid var(--bronze); outline-offset: 3px; }
+    .footer-links .sep { color: #3D506E; }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none; position: fixed; top: 16px; right: 16px; z-index: 200;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--blue); border: none; cursor: pointer;
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      box-shadow: 0 4px 16px rgba(23,83,197,0.3);
+    }
+    .hamburger span { display: block; width: 20px; height: 2px; background: var(--white); border-radius: 1px; }
+    .hamburger span:last-child { width: 14px; }
+
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: var(--blue); flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay .close-btn {
+      position: absolute; top: 20px; right: 20px;
+      background: none; border: none; font-size: 32px;
+      color: var(--white); cursor: pointer; width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mobile-overlay button {
+      background: none; border: none; font-size: 28px; font-weight: 700;
+      color: var(--white); letter-spacing: 0.08em; padding: 20px 0;
+      cursor: pointer; font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      animation: staggerIn 0.4s ease both;
+    }
+    .mobile-overlay button:nth-child(2) { animation-delay: 0s; }
+    .mobile-overlay button:nth-child(3) { animation-delay: 0.1s; }
+    .mobile-overlay button:nth-child(4) { animation-delay: 0.2s; }
+    .mobile-overlay button:nth-child(5) { animation-delay: 0.3s; }
+    .mobile-overlay button.mob-active { color: var(--bronze-on-blue); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .site-header { padding: 32px 24px 28px; }
+      .site-header h1 { font-size: 30px; }
+      .site-header .tagline { font-size: 12px; letter-spacing: 0.14em; }
+      .site-nav { display: none; }
+      .hamburger { display: flex; }
+      .site-main { padding: 64px 20px; }
+      .hero-headline { font-size: 28px; }
+      .hero-body { font-size: 16px; }
+      .site-footer {
+        padding: 24px 20px; flex-direction: column; align-items: flex-start;
+      }
+      .footer-links { flex-direction: column; gap: 12px; }
+      .footer-links .sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <h1 class="anim" style="transition-delay: 0.1s;">Amanda Cornett Harris</h1>
+    <p class="tagline anim" style="transition-delay: 0.3s;">Entrepreneurial Builder · Enterprise Operator · Transformation Leader</p>
+  </header>
+
+  <!-- Nav -->
+  <nav class="site-nav" id="mainNav" aria-label="Main navigation">
+    <div class="nav-underline" id="navUnderline"></div>
+    <button class="active" data-nav="home" aria-current="page">Home</button>
+    <button data-nav="about">About</button>
+    <button data-nav="impact">Impact Stories</button>
+    <button data-nav="personal">Personal</button>
+  </nav>
+  <div class="nav-spacer" id="navSpacer"></div>
+
+  <!-- Mobile nav -->
+  <button class="hamburger" id="menuOpen" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <button class="close-btn" id="menuClose" aria-label="Close navigation menu">×</button>
+    <button class="mob-active" data-nav="home">Home</button>
+    <button data-nav="about">About</button>
+    <button data-nav="impact">Impact Stories</button>
+    <button data-nav="personal">Personal</button>
+  </div>
+
+  <!-- Main -->
+  <main id="main" class="site-main" role="main">
+    <div class="divider anim-scale" style="margin-bottom:48px; transition-delay:0.5s;"></div>
+
+    <h2 class="hero-headline anim" style="transition-delay: 0.6s;">
+      I specialize in turning bold ideas<br aria-hidden="true" />
+      into <span class="hl">operating realities</span>.
+    </h2>
+
+    <p class="hero-body anim" style="transition-delay: 0.8s;">
+      Throughout my career, I've built new businesses, launched enterprise capabilities,
+      transformed customer experiences, and led complex organizational change across
+      Fortune 500 environments.
+    </p>
+
+    <p class="hero-body anim" style="transition-delay: 1.0s;">
+      My unique background spanning business strategy, product, design, customer
+      experience, and operations allows me to connect vision to execution — and
+      innovation to adoption.
+    </p>
+
+    <p class="hero-body anim" style="transition-delay: 1.2s; margin-bottom: 48px;">
+      Whether creating AI-powered customer experiences, scaling enterprise platforms,
+      leading transformation initiatives, or building businesses outside of corporate
+      life, I am energized by opportunities to create meaningful impact and unlock growth.
+    </p>
+
+    <div class="divider anim-fade" style="margin-bottom:36px; transition-delay:1.4s;"></div>
+
+    <!-- Lightbulb -->
+    <div class="anim" style="margin-bottom:24px; transition-delay:1.5s;" aria-hidden="true">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="20" r="12" stroke="#9A6E3A" stroke-width="2.5" fill="none"/>
+        <path d="M20 32L20 36L28 36L28 32" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M20 36L28 36" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M21 40L27 40" stroke="#9A6E3A" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="14" r="1.5" fill="#9A6E3A"/>
+        <path d="M24 17L24 22" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round"/>
+        <path d="M21 20L27 20" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <p class="under-construction anim-fade" style="transition-delay:1.6s;">
+      Full site under construction — built in collaboration with <strong>Claude</strong>.
+    </p>
+    <p class="check-back anim-fade" style="transition-delay:1.7s;">
+      Check back daily for changes and updates.
+    </p>
+
+    <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer"
+       class="cta anim" style="transition-delay:1.8s;"
+       role="button" aria-label="Connect with Amanda Cornett Harris on LinkedIn (opens in new tab)">
+      Connect on LinkedIn
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <p class="copy">© 2026 Amanda Cornett Harris</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="mailto:amandacornettharris@gmail.com" aria-label="Email Amanda Cornett Harris">amandacornettharris@gmail.com</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Entrance animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.anim, .anim-scale, .anim-fade').forEach(el => observer.observe(el));
+
+    // Nav
+    const nav = document.getElementById('mainNav');
+    const spacer = document.getElementById('navSpacer');
+    const underline = document.getElementById('navUnderline');
+    const buttons = nav.querySelectorAll('button');
+    let lastY = window.scrollY;
+    let headerH = document.querySelector('.site-header').offsetHeight;
+
+    function updateUnderline() {
+      const act = nav.querySelector('button.active');
+      if (act) {
+        const nr = nav.getBoundingClientRect();
+        const ar = act.getBoundingClientRect();
+        underline.style.left = (ar.left - nr.left) + 'px';
+        underline.style.width = ar.width + 'px';
+      }
+    }
+    updateUnderline();
+    window.addEventListener('resize', () => { headerH = document.querySelector('.site-header').offsetHeight; updateUnderline(); });
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => { b.classList.remove('active'); b.removeAttribute('aria-current'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-current', 'page');
+        updateUnderline();
+      });
+    });
+
+    // Scroll-aware sticky nav
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const down = y > lastY;
+      if (y > headerH) {
+        nav.classList.add('sticky');
+        spacer.classList.add('active');
+        nav.classList.toggle('hidden', down);
+        nav.classList.toggle('visible', !down);
+      } else {
+        nav.classList.remove('sticky', 'hidden', 'visible');
+        spacer.classList.remove('active');
+      }
+      lastY = y;
+    }, { passive: true });
+
+    // Mobile menu
+    const overlay = document.getElementById('mobileOverlay');
+    document.getElementById('menuOpen').addEventListener('click', () => overlay.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => overlay.classList.remove('open'));
+    overlay.querySelectorAll('button[data-nav]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        overlay.querySelectorAll('button[data-nav]').forEach(b => b.classList.remove('mob-active'));
+        btn.classList.add('mob-active');
+        // Sync desktop nav
+        const val = btn.dataset.nav;
+        buttons.forEach(b => {
+          b.classList.remove('active'); b.removeAttribute('aria-current');
+          if (b.dataset.nav === val) { b.classList.add('active'); b.setAttribute('aria-current','page'); }
+        });
+        updateUnderline();
+        overlay.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
