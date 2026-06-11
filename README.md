@@ -1,176 +1,73 @@
-# amandacornettharris-site
-Portfolio Site Push
-# Amanda Harris Portfolio Site
+# Amanda Cornett Harris — Portfolio Site
 
-## Who I Am
+**Live site:** [amandacornettharris.ai](https://amandacornettharris.ai)
 
-Amanda Harris is a Business Transformation Architect.
+## Overview
 
-She has spent her career operating at the intersection of product, design, business strategy, customer experience, and organizational transformation.
+Personal portfolio site for Amanda Cornett Harris — Customer Adoption, AI Transformation & Product Strategy Executive. Built in collaboration with Claude.
 
-Amanda is repeatedly asked to step into ambiguous, high-visibility situations where:
+## Tech Stack
 
-* Adoption is low
-* Ownership is fragmented
-* Teams are misaligned
-* Customers struggle to realize value
-* The operating model is breaking down
+- **Frontend:** HTML, CSS, vanilla JavaScript
+- **Fonts:** Inter (Google Fonts)
+- **Hosting:** Netlify (auto-deploys from `main`)
+- **Design System:** Custom — documented in `DESIGN-SYSTEM.md`
 
-Her superpower is creating clarity where complexity exists.
+## Pages
 
-She creates:
+| File | Page | Status |
+|------|------|--------|
+| `index.html` | Home | ✅ Live |
+| `impact-stories.html` | Impact Stories | ✅ Live |
+| `about.html` | About | ✅ Live |
+| `personal.html` | Personal | 🚧 Placeholder |
 
-* Vision
-* Alignment
-* Operating models
-* Adoption strategies
-* Scalable systems
-* Measurable business outcomes
+## Folder Structure
 
-Her work spans enterprise software, AI, customer experience, digital transformation, product strategy, and organizational design.
+```
+amandacornettharris-site/
+├── index.html
+├── about.html
+├── impact-stories.html
+├── personal.html
+├── images/
+│   ├── agentforce-hero.jpg
+│   ├── xd-team-hero.jpg
+│   └── customer-cx-hero.jpg
+├── DESIGN-SYSTEM.md
+└── README.md
+```
 
-This is not the portfolio of a visual designer.
+## Deployment
 
-This is the portfolio of a systems thinker, business leader, and architect of outcomes.
+Every push to `main` auto-deploys to Netlify.
 
----
+**To update a page:**
+1. Edit the file on GitHub (pencil icon)
+2. Paste updated code
+3. Commit to `main`
+4. Netlify deploys in ~60 seconds
 
-## Site Purpose
+## Images
 
-The goal of this website is to position Amanda for senior executive and transformational leadership roles, including:
+Hero images for Impact Story cards should be screenshots of PDF cover slides:
+- `agentforce-hero.jpg` — TDX presentation slide 1 (blue/purple with robot)
+- `xd-team-hero.jpg` — BNSF Experience Design Team slide 1 (green with team photo)
+- `customer-cx-hero.jpg` — BNSF Digital Customer Experience slide 1 (locomotive)
 
-* VP Product
-* VP Product Adoption
-* Chief Customer Officer
-* Chief Product Officer
-* Enterprise Transformation Leader
-* Strategic Advisor
+Place in the `images/` folder at root level.
 
-The site should communicate that Amanda operates comfortably across:
+## Design System
 
-* Product
-* Design
-* Business
-* Customer Success
-* Strategy
-* Operations
+See `DESIGN-SYSTEM.md` for full component documentation including:
+- Color palette
+- Typography
+- Button system (5 variants × 3 sizes × 4 states)
+- Impact Story cards
+- Page chrome (header, nav, footer)
 
----
+## Contact
 
-## Core Narrative
-
-Amanda helps organizations move from complexity to clarity.
-
-She enters environments where:
-
-* Customers are struggling
-* Adoption is failing
-* Trust is low
-* Systems are fragmented
-* Growth is constrained
-
-She leaves behind:
-
-* Clear strategy
-* Aligned stakeholders
-* Improved customer outcomes
-* Sustainable operating models
-* Scalable systems
-
-The site should repeatedly reinforce this transformation pattern.
-
----
-
-## Design Principles
-
-The site should feel:
-
-* Modern
-* Intelligent
-* Executive
-* Confident
-* Warm
-* Human
-* Optimistic
-
-Avoid:
-
-* Startup hype
-* Excessive corporate jargon
-* Generic consulting language
-* Overly playful interactions
-* Trendy design patterns that distract from the story
-
----
-
-## Visual Direction
-
-Primary characteristics:
-
-* Clean and minimal
-* Strong typography
-* Spacious layouts
-* Strategic use of motion
-* Bold use of white space
-* Premium feel
-
-Preferred color direction:
-
-* Blue-forward palette
-* High contrast
-* Crisp and modern
-* Confident but approachable
-
-The design should feel more like a modern executive thought leader than a traditional UX portfolio.
-
----
-
-## Content Priorities
-
-The site should emphasize outcomes over deliverables.
-
-Do not focus on:
-
-* Wireframes
-* Design artifacts
-* Design process for its own sake
-
-Instead focus on:
-
-* Business outcomes
-* Customer outcomes
-* Organizational transformation
-* Cross-functional leadership
-* Systems thinking
-* Product adoption
-* AI transformation
-* Strategic influence
-
-Every project should answer:
-
-1. What was broken?
-2. Why did it matter?
-3. What did Amanda do?
-4. What changed?
-5. What business outcome improved?
-
----
-
-## Tone of Voice
-
-The writing should be:
-
-* Direct
-* Clear
-* Executive
-* Thoughtful
-* Credible
-* Practical
-
-Avoid buzzwords whenever possible.
-
-The reader should leave believing:
-
-"She can walk into a complex organization, understand the system, align stakeholders, and create measurable business impact."
-
-That is the central message of this website.
+Amanda Cornett Harris
+- Email: amandacornettharris@gmail.com
+- LinkedIn: [linkedin.com/in/amandacharris](https://www.linkedin.com/in/amandacharris/)
