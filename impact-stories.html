@@ -1,278 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Impact Stories — Amanda Cornett Harris</title>
-  <meta name="description" content="Real outcomes from real work — building businesses, transforming organizations, and connecting innovation to adoption." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Real outcomes from real work — building businesses, transforming organizations, and connecting innovation to adoption."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --blue:#1753C5;--blue-dark:#0F3D94;--blue-light:#E8F0FE;
-      --bronze:#9A6E3A;--bronze-on-blue:#E8C89D;
-      --charcoal:#1E2A3A;--charcoal-mid:#3D4F63;
-      --footer-text:#B0BFD0;--white:#FFFFFF;
-    }
-    body{
-      font-family:'Inter',-apple-system,system-ui,sans-serif;
-      min-height:100vh;background:var(--white);color:var(--charcoal);
-      display:flex;flex-direction:column;line-height:1.5;overflow-x:hidden;
-    }
-
-    /* Animations */
+    :root{--blue:#1753C5;--blue-dark:#0F3D94;--blue-hover:#1E5FD9;--blue-light:#E8F0FE;--bronze:#9A6E3A;--bronze-on-blue:#E8C89D;--charcoal:#1E2A3A;--charcoal-mid:#3D4F63;--white:#FFFFFF;--gray-icon:#8A95A5;--gray-icon-text:#6B7685;--page-bg:#F4F5F7}
+    body{font-family:'Inter',-apple-system,system-ui,sans-serif;min-height:100vh;background:var(--page-bg);color:var(--charcoal);display:flex;flex-direction:column;line-height:1.5;overflow-x:hidden}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes staggerIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    .anim{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-    .anim.visible{opacity:1;transform:translateY(0)}
-
-    /* Skip */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;font-size:14px;font-weight:600;text-decoration:none;color:var(--white)}
-    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;z-index:9999;padding:12px 20px;background:var(--blue);color:var(--white)}
-
-    /* Header */
-    .site-header{background:var(--blue);padding:48px 56px 44px}
-    .site-header h1{font-size:clamp(36px,5vw,52px);font-weight:800;color:var(--white);letter-spacing:-0.01em;line-height:1.1;margin-bottom:12px}
-    .site-header .tagline{font-size:15px;color:var(--bronze-on-blue);letter-spacing:0.2em;font-weight:600;text-transform:uppercase}
-
-    /* Nav */
-    .site-nav{background:var(--white);display:flex;justify-content:center;border-bottom:1px solid var(--blue-light);position:relative;z-index:100}
-    .site-nav.sticky{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.35s ease}
-    .site-nav.sticky.hidden{transform:translateY(-100%)}
-    .site-nav.sticky.vis{transform:translateY(0)}
-    .nav-spacer{height:63px;display:none}.nav-spacer.on{display:block}
-    .nav-underline{position:absolute;bottom:0;height:3px;background:var(--blue);border-radius:3px 3px 0 0;transition:left 0.35s ease,width 0.35s ease}
-    .site-nav button{background:transparent;border:none;font-family:'Inter',-apple-system,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--charcoal-mid);letter-spacing:0.12em;padding:20px 44px;cursor:pointer;transition:color 0.3s ease;text-transform:uppercase;position:relative}
-    .site-nav button::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--bronze);transition:all 0.3s ease;transform:translateX(-50%)}
-    .site-nav button:hover{color:var(--charcoal)}.site-nav button:hover::after{width:60%}
-    .site-nav button.active{color:var(--blue);font-weight:700}
-    .site-nav button:focus-visible{outline:3px solid var(--bronze);outline-offset:-2px}
-
-    /* Mobile */
-    .hamburger{display:none;position:fixed;top:16px;right:16px;z-index:200;width:48px;height:48px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 4px 16px rgba(23,83,197,0.3)}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:1px}.hamburger span:last-child{width:14px}
-    .mobile-overlay{display:none;position:fixed;inset:0;z-index:300;background:var(--blue);flex-direction:column;align-items:center;justify-content:center}
-    .mobile-overlay.open{display:flex}
-    .mobile-overlay .close-btn{position:absolute;top:20px;right:20px;background:none;border:none;font-size:32px;color:var(--white);cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
-    .mobile-overlay button{background:none;border:none;font-size:28px;font-weight:700;color:var(--white);letter-spacing:0.08em;padding:20px 0;cursor:pointer;font-family:'Inter',-apple-system,system-ui,sans-serif;animation:staggerIn 0.4s ease both}
-    .mobile-overlay button:nth-child(2){animation-delay:0s}.mobile-overlay button:nth-child(3){animation-delay:0.1s}.mobile-overlay button:nth-child(4){animation-delay:0.2s}.mobile-overlay button:nth-child(5){animation-delay:0.3s}
-    .mobile-overlay button.mob-active{color:var(--bronze-on-blue)}
-
-    /* Page content */
+    .anim{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.anim.visible{opacity:1;transform:translateY(0)}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;font-size:14px;font-weight:600;text-decoration:none;color:var(--white)}.skip-link:focus{left:16px;top:16px;width:auto;height:auto;z-index:9999;padding:12px 20px;background:var(--blue);color:var(--white)}
+    .site-header{background:linear-gradient(135deg,#0F2A5E 0%,#1753C5 45%,#2E6DE8 100%)}
+    .header-top{padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .header-top h1{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--white);letter-spacing:-0.01em;line-height:1.1}.header-top h1 a{color:var(--white);text-decoration:none}
+    .header-top .tagline{font-size:12px;color:var(--bronze-on-blue);letter-spacing:0.18em;font-weight:600;text-transform:uppercase;margin-top:6px}
+    .header-cta{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',-apple-system,system-ui,sans-serif;font-size:11px;font-weight:700;color:var(--white);background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.3);border-radius:4px;padding:8px 18px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:all 0.25s cubic-bezier(0.4,0,0.2,1)}
+    .header-cta:hover{color:var(--blue);background:var(--white);border-color:var(--white);box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-1px)}
+    .header-cta:active{color:var(--blue-dark);background:#E8F0FE;transform:translateY(0)}.header-cta:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+    .desktop-nav{display:flex;justify-content:center;border-top:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.08);position:relative;z-index:100}
+    .desktop-nav.sticky{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-top:none;border-bottom:1px solid rgba(0,0,0,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.35s ease}
+    .desktop-nav.sticky a{color:var(--charcoal-mid)}.desktop-nav.sticky a.active{color:var(--blue);border-bottom-color:var(--blue)}.desktop-nav.sticky a:hover{color:var(--charcoal)}
+    .desktop-nav.sticky.hidden{transform:translateY(-100%)}.desktop-nav.sticky.vis{transform:translateY(0)}
+    .nav-spacer{height:52px;display:none}.nav-spacer.on{display:block}
+    .desktop-nav a{padding:16px 36px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-bottom:3px solid transparent;transition:all 0.3s ease;font-family:'Inter',-apple-system,system-ui,sans-serif}
+    .desktop-nav a:hover{color:var(--white);border-bottom-color:rgba(255,255,255,0.3)}.desktop-nav a.active{color:var(--white);font-weight:700;border-bottom-color:var(--white)}.desktop-nav a:focus-visible{outline:3px solid var(--bronze);outline-offset:-2px}
+    .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);border-top:1px solid #E2E6EB;box-shadow:0 -2px 16px rgba(0,0,0,0.06);padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+    .mobile-nav nav{display:flex;justify-content:space-around;align-items:center}
+    .mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;padding:8px 12px;border-radius:8px;transition:all 0.25s ease;-webkit-tap-highlight-color:transparent}
+    .mobile-nav a svg{width:22px;height:22px;stroke:var(--gray-icon);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:all 0.25s ease}
+    .mobile-nav a span{font-size:10px;font-weight:600;color:var(--gray-icon-text);letter-spacing:0.02em;transition:color 0.25s ease}
+    .mobile-nav a.active svg{stroke:var(--blue)}.mobile-nav a.active span{color:var(--blue);font-weight:700}
+    .mobile-nav a:active{background:var(--blue-light)}
     .page-main{flex:1;padding:60px 48px;max-width:1200px;margin:0 auto;width:100%}
-    .page-intro{margin-bottom:16px}
     .bronze-bar{width:48px;height:3px;background:var(--bronze);margin-bottom:20px;border-radius:2px}
     .page-title{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--charcoal);letter-spacing:-0.02em;margin-bottom:12px}
     .page-desc{font-size:18px;color:var(--charcoal-mid);line-height:1.7;max-width:640px}
-
-    /* Cards */
-    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;margin-top:48px}
-    .card{background:var(--white);border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(30,42,58,0.06);transition:box-shadow 0.4s ease,transform 0.4s ease;display:flex;flex-direction:column;cursor:default}
-    .card:hover{box-shadow:0 8px 32px rgba(30,42,58,0.12);transform:translateY(-4px)}
-    .card.expanded{grid-column:1/-1;transform:none}
-    .card.expanded:hover{transform:none}
-
-    .card-hero{width:100%;height:200px;overflow:hidden;position:relative;transition:height 0.4s ease}
-    .card.expanded .card-hero{height:280px}
-    .card-hero img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
-    .card:hover .card-hero img{transform:scale(1.04)}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px;margin-top:48px}
+    .card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(30,42,58,0.06),0 0 0 1px rgba(30,42,58,0.04);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column}
+    .card:hover{box-shadow:0 16px 48px rgba(30,42,58,0.14),0 4px 16px rgba(30,42,58,0.06);transform:translateY(-6px)}
+    .card.expanded{grid-column:1/-1;transform:none}.card.expanded:hover{transform:none}
+    .card-hero{width:100%;height:200px;overflow:hidden;position:relative;transition:height 0.4s ease}.card.expanded .card-hero{height:280px}
+    .card-hero img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);position:relative;z-index:1}
+    .card:hover .card-hero img{transform:scale(1.05)}
+    .card-hero .overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.5) 100%);opacity:0.3;transition:opacity 0.4s ease}.card:hover .card-hero .overlay{opacity:1}
+    .card-hero .tag-badge{position:absolute;top:16px;left:16px;z-index:3;background:rgba(255,255,255,0.95);border-radius:4px;padding:4px 12px;font-size:10px;font-weight:700;color:var(--blue);letter-spacing:0.14em;text-transform:uppercase;backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
     .card-hero .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
-    .card-hero .fallback .tag-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px}
-    .card-hero .fallback .title-label{font-size:16px;font-weight:800;color:var(--white);text-align:center;line-height:1.3;max-width:90%}
-
-    .card-content{padding:28px;flex:1;display:flex;flex-direction:column;transition:padding 0.4s ease}
-    .card.expanded .card-content{padding:32px 40px}
-    .card-tag{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px}
-    .card-headline{font-size:20px;font-weight:800;color:var(--charcoal);line-height:1.25;margin-bottom:14px;letter-spacing:-0.01em;transition:font-size 0.4s ease}
-    .card.expanded .card-headline{font-size:28px}
-    .card-summary{font-size:15px;color:var(--charcoal-mid);line-height:1.75;margin-bottom:20px}
-
-    .card-sections{max-width:720px;overflow:hidden;max-height:0;opacity:0;transition:max-height 0.5s ease,opacity 0.4s ease,margin 0.4s ease;margin-bottom:0}
-    .card.expanded .card-sections{max-height:3000px;opacity:1;margin-bottom:24px}
-    .section-block{margin-bottom:28px}
-    .section-title{font-size:17px;font-weight:700;color:var(--blue);margin-bottom:8px;letter-spacing:0.01em}
-    .section-body{font-size:16px;color:var(--charcoal-mid);line-height:1.85}
-
+    .card-hero .fallback .fl-tag{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px}
+    .card-hero .fallback .fl-title{font-size:16px;font-weight:800;color:var(--white);text-align:center;line-height:1.3;max-width:90%}
+    .card-content{padding:28px;flex:1;display:flex;flex-direction:column;transition:padding 0.4s ease}.card.expanded .card-content{padding:32px 40px}
+    .card-headline{font-size:20px;font-weight:800;color:var(--charcoal);line-height:1.3;margin-bottom:14px;letter-spacing:-0.01em;transition:font-size 0.4s ease}.card.expanded .card-headline{font-size:28px}
+    .card-summary{font-size:14px;color:var(--charcoal-mid);line-height:1.75;margin-bottom:24px}
+    .card-metrics{display:flex;margin-bottom:24px;border-radius:6px;overflow:hidden;border:1px solid #E8ECF0}
+    .card-metric{flex:1;padding:12px 8px;text-align:center;border-right:1px solid #E8ECF0;transition:background 0.3s ease}.card-metric:last-child{border-right:none}.card:hover .card-metric{background:#F8FAFD}
+    .card-metric .mv{font-size:18px;font-weight:800;color:var(--blue);letter-spacing:-0.02em;margin-bottom:2px}.card-metric .ml{font-size:9px;font-weight:600;color:var(--charcoal-mid);letter-spacing:0.08em;text-transform:uppercase}
+    .card-sections{max-width:720px;overflow:hidden;max-height:0;opacity:0;transition:max-height 0.5s ease,opacity 0.4s ease,margin 0.4s ease;margin-bottom:0}.card.expanded .card-sections{max-height:4000px;opacity:1;margin-bottom:24px}
+    .section-block{margin-bottom:28px}.section-title{font-size:17px;font-weight:700;color:var(--blue);margin-bottom:8px}.section-body{font-size:16px;color:var(--charcoal-mid);line-height:1.85}
     .card-cta{margin-top:auto;padding-top:8px}
-    .card-cta button{background:none;border:none;font-family:'Inter',-apple-system,system-ui,sans-serif;font-size:14px;font-weight:700;color:var(--blue);cursor:pointer;padding:8px 0;letter-spacing:0.04em;border-bottom:2px solid transparent;transition:border-color 0.3s ease}
-    .card:hover .card-cta button{border-bottom-color:var(--blue)}
-    .card.expanded .card-cta button{border-bottom-color:var(--blue)}
-
-    /* Footer */
-    .site-footer{background:var(--charcoal);padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-    .site-footer .copy{font-size:13px;color:var(--footer-text);letter-spacing:0.04em}
-    .footer-links{display:flex;align-items:center;gap:20px;font-size:13px}
-    .footer-links a{color:var(--footer-text);text-decoration:underline;text-underline-offset:3px;transition:color 0.3s ease}
-    .footer-links a:hover{color:var(--white)}
-    .footer-links a:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
-    .footer-links .sep{color:#3D506E}
-
-    @media(max-width:768px){
-      .site-header{padding:32px 24px 28px}.site-header h1{font-size:30px}.site-header .tagline{font-size:12px;letter-spacing:0.14em}
-      .site-nav{display:none}.hamburger{display:flex}
-      .page-main{padding:32px 16px}.page-desc{font-size:16px}
-      .cards-grid{grid-template-columns:1fr;gap:24px}
-      .card-hero{height:160px}.card.expanded .card-hero{height:180px}
-      .card-content{padding:20px 16px}.card.expanded .card-content{padding:24px 20px}
-      .card-headline{font-size:18px}.card.expanded .card-headline{font-size:22px}
-      .card-summary{font-size:14px}.section-title{font-size:15px}.section-body{font-size:14px}
-      .site-footer{padding:24px 20px;flex-direction:column;align-items:flex-start}
-      .footer-links{flex-direction:column;gap:12px}.footer-links .sep{display:none}
-    }
+    .card-cta button{display:inline-flex;align-items:center;gap:8px;background:none;font-family:'Inter',-apple-system,system-ui,sans-serif;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer;padding:12px 28px;letter-spacing:0.08em;text-transform:uppercase;border:2px solid var(--blue);border-radius:4px;transition:all 0.25s cubic-bezier(0.4,0,0.2,1)}
+    .card-cta button:hover{color:var(--white);background:var(--blue);box-shadow:0 6px 20px rgba(23,83,197,0.2);transform:translateY(-2px)}
+    .card-cta button:active{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(0)}.card-cta button:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+    .card-cta button svg{transition:transform 0.3s ease}.card-cta button:hover svg{transform:translateX(3px)}
+    .site-footer{background:var(--charcoal);padding:32px 48px;display:flex;flex-direction:column;gap:16px}
+    .footer-disclaimers{display:flex;flex-direction:column;gap:8px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08)}.footer-disclaimers p{font-size:12px;color:#7A8A9E;line-height:1.7;font-style:italic;margin:0}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}.footer-bottom .copy{font-size:13px;color:#8A9AB0;letter-spacing:0.04em;margin:0}
+    .footer-links{display:flex;align-items:center;gap:20px;font-size:13px}.footer-links a{color:#8A9AB0;text-decoration:underline;text-underline-offset:3px;transition:color 0.3s ease}.footer-links a:hover{color:var(--white)}.footer-links .sep{color:#3D506E}
+    @media(max-width:768px){.header-top{padding:24px 20px}.header-top h1{font-size:24px}.header-top .tagline{font-size:10px}.header-cta{font-size:10px;padding:6px 14px}.desktop-nav{display:none}.mobile-nav{display:block}.page-main{padding:32px 16px 120px}.page-desc{font-size:16px}.cards-grid{grid-template-columns:1fr;gap:24px}.card-hero{height:160px}.card.expanded .card-hero{height:180px}.card-content{padding:20px 16px}.card.expanded .card-content{padding:24px 20px}.card-headline{font-size:18px}.card.expanded .card-headline{font-size:22px}.card-summary{font-size:13px}.card-metric .mv{font-size:15px}.section-title{font-size:15px}.section-body{font-size:14px}.site-footer{padding:24px 20px 100px}.footer-bottom{flex-direction:column;align-items:flex-start}.footer-links{flex-direction:column;gap:12px}.footer-links .sep{display:none}}
   </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
-
-  <header class="site-header" role="banner">
-    <h1 class="anim">Amanda Cornett Harris</h1>
-    <p class="tagline anim" style="transition-delay:0.2s">Entrepreneurial Builder · Enterprise Operator · Transformation Leader</p>
+  <header class="site-header"><div class="header-top"><div><h1 class="anim" style="transition-delay:0.1s"><a href="index.html">Amanda Cornett Harris</a></h1><p class="tagline anim" style="transition-delay:0.3s">Entrepreneurial Builder · Enterprise Operator · Transformation Leader</p></div><a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="header-cta anim" style="transition-delay:0.4s"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Let's Connect</a></div>
+    <nav class="desktop-nav" id="mainNav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="impact-stories.html" class="active" aria-current="page">Impact Stories</a><a href="personal.html">Personal</a></nav>
   </header>
-
-  <nav class="site-nav" id="mainNav" aria-label="Main navigation">
-    <div class="nav-underline" id="navUnderline"></div>
-    <button data-nav="home" onclick="window.location='index.html'">Home</button>
-    <button data-nav="about">About</button>
-    <button class="active" data-nav="impact" aria-current="page">Impact Stories</button>
-    <button data-nav="personal">Personal</button>
-  </nav>
   <div class="nav-spacer" id="navSpacer"></div>
-
-  <button class="hamburger" id="menuOpen" aria-label="Open navigation menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="mobile-overlay" id="mobileOverlay">
-    <button class="close-btn" id="menuClose" aria-label="Close menu">×</button>
-    <button data-nav="home" onclick="window.location='index.html'">Home</button>
-    <button data-nav="about">About</button>
-    <button class="mob-active" data-nav="impact">Impact Stories</button>
-    <button data-nav="personal">Personal</button>
-  </div>
+  <div class="mobile-nav"><nav><a href="index.html"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/></svg><span>Home</span></a><a href="about.html"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>About</span></a><a href="impact-stories.html" class="active" aria-current="page"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span>Impact</span></a><a href="personal.html"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span>Personal</span></a></nav></div>
 
   <main id="main" class="page-main" role="main">
-    <div class="page-intro">
-      <div class="bronze-bar anim" style="transition-delay:0.3s"></div>
-      <h2 class="page-title anim" style="transition-delay:0.4s">Impact Stories</h2>
-      <p class="page-desc anim" style="transition-delay:0.5s">Real outcomes from real work — building businesses, transforming organizations, and connecting innovation to adoption.</p>
-    </div>
-
-    <div class="cards-grid" id="cardsGrid">
-
-      <!-- Card 1: Agentforce -->
-      <article class="card anim" style="transition-delay:0.6s" id="card-1">
-        <div class="card-hero" style="background:linear-gradient(135deg,#4338CA 0%,#6D28D9 50%,#7C3AED 100%)">
-          <img src="images/agentforce-hero.jpg" alt="5 Key Mindset Shifts for Building Agentforce Experiences" onerror="this.style.display='none'"/>
-          <div class="fallback"><span class="tag-label">Salesforce</span><span class="title-label">5 Key Mindset Shifts for Building Agentforce Experiences</span></div>
-        </div>
-        <div class="card-content">
-          <span class="card-tag">Salesforce</span>
-          <h3 class="card-headline">5 Key Mindset Shifts for Building Agentforce Experiences</h3>
-          <p class="card-summary">Co-authored by Amanda Harris and presented at Salesforce's TrailblazerDX (TDX), this session shares the five critical mindset shifts required to successfully deliver AI-powered Agentforce experiences — drawn from the real work of redesigning Salesforce Help to integrate Agentforce in just five days.</p>
-          <div class="card-sections">
-            <div class="section-block"><h4 class="section-title">The Challenge</h4><p class="section-body">Salesforce Help receives 60 million visits per year, hosts 755,000 support articles across 85+ products in 17 languages, and generates 2 million support cases annually. Traditional support portals were making customers work too hard to find solutions. Leadership gave the team a clear directive: integrate Agentforce into Salesforce Help AND make self-service easier — in five days.</p></div>
-            <div class="section-block"><h4 class="section-title">Mindset Shift #1: From Navigation to Conversation</h4><p class="section-body">When clicks become turns of a conversation, getting users started is key. The team shifted the entire interface and interaction model — replacing a traditional navigation-heavy portal with a conversation-first experience centered around the question: "How can Agentforce help?"</p></div>
-            <div class="section-block"><h4 class="section-title">Mindset Shift #2: From Content Management to Knowledge Engineering</h4><p class="section-body">With 755K articles across 12+ authoring teams, the shift required rethinking information architecture entirely. Content management became knowledge engineering — leveraging Data Cloud's data model objects graph to make content not just findable, but intelligently retrievable by AI.</p></div>
-            <div class="section-block"><h4 class="section-title">Mindset Shift #3: From Siloed Specialist to Cross-Functional Coalition</h4><p class="section-body">Two separate teams — MIAW (Messaging In-App & Web) and Customer Success — had to become one team overnight. Tooling was simplified to three essentials: Figma for design specs, Google Sheets for feature prioritization, and Slack as the central hub.</p></div>
-            <div class="section-block"><h4 class="section-title">Mindset Shift #4: From User Interface to Flexible Engagement</h4><p class="section-body">The experience shifted from a static interface to flexible engagement where conversation context passes seamlessly to the messaging surface on any site page — maintaining continuity as customers move through the help experience.</p></div>
-            <div class="section-block"><h4 class="section-title">Mindset Shift #5: From Building Features to Designing Outcomes</h4><p class="section-body">The team asked three questions: What do users need to be successful? What does data tell us about their patterns? What warrants keeping? By simplifying the experience, they made space for users to focus on core tasks: finding information and resolving issues. The result is live today at help.salesforce.com — with 397,000+ Agentforce conversations and 534,000+ human-handled requests.</p></div>
-          </div>
-          <div class="card-cta"><button onclick="toggleCard('card-1')" aria-expanded="false">Read the full story →</button></div>
-        </div>
-      </article>
-
-      <!-- Card 2: XD Team -->
-      <article class="card anim" style="transition-delay:0.7s" id="card-2">
-        <div class="card-hero" style="background:linear-gradient(135deg,#65A30D 0%,#4ADE80 50%,#22C55E 100%)">
-          <img src="images/xd-team-hero.jpg" alt="Transforming Experience Design at BNSF" onerror="this.style.display='none'"/>
-          <div class="fallback"><span class="tag-label">BNSF</span><span class="title-label">Transforming Experience Design</span></div>
-        </div>
-        <div class="card-content">
-          <span class="card-tag">BNSF</span>
-          <h3 class="card-headline">Transforming Experience Design</h3>
-          <p class="card-summary">At North America's largest railroad, the Experience Design team, initially unfunded and mission-confused, lacked organizational impact and clear objectives. Through a focus on people and structured processes, I transformed the team into a dynamic 17-person group, driving UX transformation across 40+ portfolios and leading over 320 design initiatives in 2020.</p>
-          <div class="card-sections">
-            <div class="section-block"><h4 class="section-title">Origins</h4><p class="section-body">The Experience Design function at BNSF began as two separate services — Graphical UI & UX (2014) and Design Sprint Format (2015) — that were combined in 2017. Early work included CSS/GEL, RailPass, MAM, Workforce UX, Throughput Planner, and Customer Railcar Management. The team operated through Trackathons and XD Bootcamps but lacked a clear mission, structure, and organizational impact.</p></div>
-            <div class="section-block"><h4 class="section-title">Building a 7-Service Operating Model</h4><p class="section-body">By 2020, I had transformed the team into a structured organization delivering seven distinct services: Design Thinking, User Experience & UI Design, User Research & Systems Thinking, Project Request Assessment & Readiness Enablement, Ideation & Innovation, Tech Evangelism & Remote Support, and Internal Services. The team was supported by pipeline management, two relationship managers, quality checkpoints, and CSAT & NPS accountability.</p></div>
-            <div class="section-block"><h4 class="section-title">2020 Impact by the Numbers</h4><p class="section-body">The team delivered 320+ engagements across 12 departments and 8 divisions. This included 24 UX design projects, 146 icon designs, 43 tech evangelism engagements, 8 user research initiatives, and 7 project readiness assessments with 71 additional requests queued for 2021. The UI Community of Practice alone designed 13 reusable interactive components with a 400% ROI.</p></div>
-            <div class="section-block"><h4 class="section-title">Technology Services Impact</h4><p class="section-body">Key contributions included Joint Facilities delivered on time and on budget, 6 customers using APIs in production with 12 in trial, SIDOL user research and data analysis, Gate System Modernization kiosk UX, and piloting the application review process for App Info Governance. The team also drove 68,669 TRACE/Message Us users and delivered tools including Industry Planner, Customer Local Service Notification, and Geofence.</p></div>
-            <div class="section-block"><h4 class="section-title">Enterprise-Wide Impact</h4><p class="section-body">The team engaged 6 of 10 divisions plus the NOC, forged a ground-breaking partnership with System Safety, and drove HFREI reductions across multiple divisions — the NW Division was on pace for record lows and the RR Division achieved a 15.6% decrease. The team earned a 67 Net Promoter Score on operations engagements, exceeding the consulting industry average of 51. Work spanned HR, Law, Engineering, Transportation, and resulted in 3 patents through the Trackathon program.</p></div>
-            <div class="section-block"><h4 class="section-title">2021 Strategic Focus</h4><p class="section-body">The forward roadmap centered on four priorities: Measured Design (integrating measurement into every service layer), Research as a Pillar (making user research a must-have for high-impact projects), Human-Centered Design Community (educating all of Technology Services on HCD methods), and Expanding Field Contact to reach every division and department by Q3.</p></div>
-          </div>
-          <div class="card-cta"><button onclick="toggleCard('card-2')" aria-expanded="false">Read the full story →</button></div>
-        </div>
-      </article>
-
-      <!-- Card 3: Digital CX -->
-      <article class="card anim" style="transition-delay:0.8s" id="card-3">
-        <div class="card-hero" style="background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#1753C5 100%)">
-          <img src="images/customer-cx-hero.jpg" alt="Creating BNSF's Digital Customer Experience" onerror="this.style.display='none'"/>
-          <div class="fallback"><span class="tag-label">BNSF</span><span class="title-label">Creating BNSF's Digital Customer Experience</span></div>
-        </div>
-        <div class="card-content">
-          <span class="card-tag">BNSF</span>
-          <h3 class="card-headline">Creating BNSF's Digital Customer Experience</h3>
-          <p class="card-summary">I led a transformative initiative at BNSF to unify and modernize the digital customer experience, turning a fragmented tool ecosystem into a cohesive platform grounded in customer insights. By driving cross-functional alignment through design thinking, stakeholder engagement, and iterative validation, I secured a 5-year funded roadmap backed by executive sponsors.</p>
-          <div class="card-sections">
-            <div class="section-block"><h4 class="section-title">My Role</h4><p class="section-body">This initiative spanned three levels of impact. As an Individual Contributor, I served as App PM leading scrum team development, originated the compelling vision, and owned organizational and executive communications to secure buy-in. As a Team Leader, I led PM and scrum team alignment, owned cross-team epic Design Thinking, and served as business leader and SME for app consolidation. As a Program Leader, I influenced at the enterprise level, developed the end-to-end customer experience strategy, created the customer research program, owned cross-business and program alignment, and managed VP+ sponsor communications.</p></div>
-            <div class="section-block"><h4 class="section-title">The Starting Point: App Overload</h4><p class="section-body">BNSF had 94+ customer-facing applications, conceived and developed in silos, largely designed around BNSF's internal structure rather than customer needs. The experience was fragmented — conflicting interfaces, inconsistent navigation, and no unified view. Customers needed to do their jobs: find things easily and get things done. The vision was clear: consolidate the chaos into a cohesive experience designed from login forward.</p></div>
-            <div class="section-block"><h4 class="section-title">The Approach</h4><p class="section-body">The plan combined four parallel workstreams: Customer Research to ground decisions in real user needs, Quick Improvements to build credibility and momentum, Rapid Prototyping & Validation to test ideas before investing in development, and Strong Share Partnerships to align stakeholders across the organization.</p></div>
-            <div class="section-block"><h4 class="section-title">Radical Alignment</h4><p class="section-body">Design Thinking and Design Sprints brought together SMEs, business owners, operations leaders, IT, Product, Engineering, UX, and customer owners — because aligned thinking aligns priorities. Planning together went beyond talking together. And communication was relentless: full program meetings every three weeks ensured everyone heard the same message the same way, which proved less expensive and time-consuming than scattered one-off meetings.</p></div>
-            <div class="section-block"><h4 class="section-title">The Outcome</h4><p class="section-body">The work resulted in a 5-year funded plan to transform BNSF's digital customer experience. New tools launched included Trace, Industry Notifications, Railcar Management, APIs, Profile, Message Us, and Geo-Fence — all within a unified, modern platform. In 2023, the Group Vice President of Consumer Products communicated the new customer tools directly to BNSF's customer base, and the initiative was featured in Rail Talk.</p></div>
-            <div class="section-block"><h4 class="section-title">What I Learned</h4><p class="section-body">Be Bold: put customers first in action, in vision, and when seeking sponsorship. Communicate More: talking together doesn't equal alignment — communicate, repeat, and invite conversation. Be Adaptable: user success is customer success, test ideas before developing, customers want to be asked, no idea is precious, plans will change, and seeking dissent drives better outcomes.</p></div>
-          </div>
-          <div class="card-cta"><button onclick="toggleCard('card-3')" aria-expanded="false">Read the full story →</button></div>
-        </div>
-      </article>
-
+    <div class="page-intro"><div class="bronze-bar anim" style="transition-delay:0.4s"></div><h2 class="page-title anim" style="transition-delay:0.5s">Impact Stories</h2><p class="page-desc anim" style="transition-delay:0.6s">Real outcomes from real work — building businesses, transforming organizations, and connecting innovation to adoption.</p></div>
+    <div class="cards-grid">
+      <article class="card anim" style="transition-delay:0.7s" id="card-1"><div class="card-hero" style="background:linear-gradient(135deg,#4338CA,#7C3AED)"><img src="images/agentforce-hero.jpg" alt="Agentforce" onerror="this.style.display='none'"/><div class="overlay"></div><div class="tag-badge">Salesforce</div><div class="fallback"><span class="fl-tag">Salesforce</span><span class="fl-title">5 Key Mindset Shifts for Building Agentforce Experiences</span></div></div><div class="card-content"><h3 class="card-headline">5 Key Mindset Shifts for Building Agentforce Experiences</h3><p class="card-summary">Co-authored and presented at TDX. Redesigned Salesforce Help to integrate Agentforce in 5 days, achieving 82% self-service resolution and 2.2M+ AI-powered interactions.</p><div class="card-metrics"><div class="card-metric"><div class="mv">82%</div><div class="ml">Self-Service Resolution</div></div><div class="card-metric"><div class="mv">2.2M+</div><div class="ml">AI Interactions</div></div><div class="card-metric"><div class="mv">5 Days</div><div class="ml">Concept to Launch</div></div></div><div class="card-sections"><div class="section-block"><h4 class="section-title">The Challenge</h4><p class="section-body">Salesforce Help receives 60 million visits per year, hosts 755,000 support articles across 85+ products in 17 languages, and generates 2 million support cases annually. Leadership gave the team a clear directive: integrate Agentforce into Salesforce Help AND make self-service easier — in five days.</p></div><div class="section-block"><h4 class="section-title">Mindset Shift #1: From Navigation to Conversation</h4><p class="section-body">When clicks become turns of a conversation, getting users started is key. The team shifted the entire interface and interaction model — replacing a traditional navigation-heavy portal with a conversation-first experience.</p></div><div class="section-block"><h4 class="section-title">Mindset Shift #2: From Content Management to Knowledge Engineering</h4><p class="section-body">With 755K articles across 12+ authoring teams, content management became knowledge engineering — leveraging Data Cloud's data model objects graph to make content intelligently retrievable by AI.</p></div><div class="section-block"><h4 class="section-title">Mindset Shift #3: From Siloed Specialist to Cross-Functional Coalition</h4><p class="section-body">Two separate teams — MIAW and Customer Success — had to become one team overnight. Tooling was simplified to three essentials: Figma, Google Sheets, and Slack.</p></div><div class="section-block"><h4 class="section-title">Mindset Shift #4: From User Interface to Flexible Engagement</h4><p class="section-body">Conversation context passes seamlessly to the messaging surface on any site page — maintaining continuity as customers move through the help experience.</p></div><div class="section-block"><h4 class="section-title">Mindset Shift #5: From Building Features to Designing Outcomes</h4><p class="section-body">By simplifying the experience, they made space for users to focus on core tasks: finding information and resolving issues. The result is live at help.salesforce.com — with 397,000+ Agentforce conversations and 534,000+ human-handled requests.</p></div></div><div class="card-cta"><button onclick="toggleCard('card-1')">Read Story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></article>
+      <article class="card anim" style="transition-delay:0.8s" id="card-2"><div class="card-hero" style="background:linear-gradient(135deg,#0D6B3E,#22C55E)"><img src="images/xd-team-hero.jpg" alt="Experience Design" onerror="this.style.display='none'"/><div class="overlay"></div><div class="tag-badge">BNSF</div><div class="fallback"><span class="fl-tag">BNSF</span><span class="fl-title">Transforming Experience Design</span></div></div><div class="card-content"><h3 class="card-headline">Transforming Experience Design</h3><p class="card-summary">Rebuilt a struggling team into a 17-person strategic consultancy delivering 320+ engagements across 12 departments. Generated patents valued at ~$100M and achieved a 67 NPS.</p><div class="card-metrics"><div class="card-metric"><div class="mv">320+</div><div class="ml">Engagements</div></div><div class="card-metric"><div class="mv">67</div><div class="ml">Net Promoter Score</div></div><div class="card-metric"><div class="mv">~$100M</div><div class="ml">Patent Value</div></div></div><div class="card-sections"><div class="section-block"><h4 class="section-title">Origins</h4><p class="section-body">The Experience Design function began as two separate services combined in 2017. The team lacked a clear mission, structure, and organizational impact.</p></div><div class="section-block"><h4 class="section-title">Building a 7-Service Operating Model</h4><p class="section-body">By 2020, I transformed the team into a structured organization delivering seven distinct services with pipeline management, relationship managers, quality checkpoints, and NPS accountability.</p></div><div class="section-block"><h4 class="section-title">2020 Impact by the Numbers</h4><p class="section-body">320+ engagements across 12 departments and 8 divisions. 24 UX design projects, 146 icon designs, 43 tech evangelism engagements. The UI CoP designed 13 reusable components with a 400% ROI.</p></div><div class="section-block"><h4 class="section-title">Enterprise-Wide Impact</h4><p class="section-body">Engaged 6 of 10 divisions plus the NOC. Drove HFREI reductions — NW Division on pace for record lows, RR Division achieved 15.6% decrease. Earned 67 NPS exceeding industry average of 51. 3 patents through Trackathon.</p></div><div class="section-block"><h4 class="section-title">2021 Strategic Focus</h4><p class="section-body">Four priorities: Measured Design, Research as a Pillar, Human-Centered Design Community, and Expanding Field Contact to every division and department by Q3.</p></div></div><div class="card-cta"><button onclick="toggleCard('card-2')">Read Story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></article>
+      <article class="card anim" style="transition-delay:0.9s" id="card-3"><div class="card-hero" style="background:linear-gradient(135deg,#1E3A5F,#2E6DE8)"><img src="images/customer-cx-hero.jpg" alt="Digital Customer Experience" onerror="this.style.display='none'"/><div class="overlay"></div><div class="tag-badge">BNSF</div><div class="fallback"><span class="fl-tag">BNSF</span><span class="fl-title">Creating BNSF's Digital Customer Experience</span></div></div><div class="card-content"><h3 class="card-headline">Creating BNSF's Digital Customer Experience</h3><p class="card-summary">Unified 94+ fragmented customer applications into a cohesive digital platform. Secured a 5-year funded transformation roadmap launching Trace, Geofence, and Railcar Management.</p><div class="card-metrics"><div class="card-metric"><div class="mv">94+</div><div class="ml">Apps Unified</div></div><div class="card-metric"><div class="mv">5-Year</div><div class="ml">Funded Roadmap</div></div><div class="card-metric"><div class="mv">$23B+</div><div class="ml">Revenue Supported</div></div></div><div class="card-sections"><div class="section-block"><h4 class="section-title">My Role</h4><p class="section-body">Spanned three levels: IC originating the vision and owning exec comms, Team Leader driving cross-team Design Thinking, and Program Leader developing E2E customer experience strategy with VP+ sponsor management.</p></div><div class="section-block"><h4 class="section-title">The Starting Point: App Overload</h4><p class="section-body">94+ customer-facing apps developed in silos. Fragmented interfaces, inconsistent navigation, no unified view. The vision: consolidate chaos into a cohesive experience designed from login forward.</p></div><div class="section-block"><h4 class="section-title">Radical Alignment</h4><p class="section-body">Design Sprints brought together SMEs, business owners, operations, IT, Product, Engineering, UX, and customers. Full program meetings every three weeks — everyone hears the same message the same way.</p></div><div class="section-block"><h4 class="section-title">The Outcome</h4><p class="section-body">5-year funded plan to transform digital CX. Launched Trace, Industry Notifications, Railcar Management, APIs, Profile, Message Us, and Geo-Fence within a unified modern platform.</p></div><div class="section-block"><h4 class="section-title">What I Learned</h4><p class="section-body">Be Bold: customers first in action and vision. Communicate More: talking doesn't equal alignment. Be Adaptable: no idea is precious, plans will change, seeking dissent drives better outcomes.</p></div></div><div class="card-cta"><button onclick="toggleCard('card-3')">Read Story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></article>
     </div>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <p class="copy">© 2026 Amanda Cornett Harris</p>
-    <nav class="footer-links" aria-label="Footer links">
-      <a href="mailto:amandacornettharris@gmail.com" aria-label="Email Amanda Cornett Harris">amandacornettharris@gmail.com</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
-    </nav>
-  </footer>
+  <footer class="site-footer" role="contentinfo"><div class="footer-disclaimers"><p>All work examples shown are accessible via public domain or are summative communications and do not compromise protected company IP.</p><p>This site is actively under construction in collaboration with Claude.</p></div><div class="footer-bottom"><p class="copy">© 2026 Amanda Cornett Harris</p><nav class="footer-links"><a href="mailto:amandacornettharris@gmail.com">amandacornettharris@gmail.com</a><span class="sep">|</span><a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer">LinkedIn ↗</a></nav></div></footer>
 
   <script>
-    // Entrance animations
-    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-    document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
-
-    // Nav underline
-    const nav=document.getElementById('mainNav'),ul=document.getElementById('navUnderline');
-    function syncUnderline(){const a=nav.querySelector('button.active');if(a){const n=nav.getBoundingClientRect(),r=a.getBoundingClientRect();ul.style.left=(r.left-n.left)+'px';ul.style.width=r.width+'px'}}
-    syncUnderline();window.addEventListener('resize',syncUnderline);
-
-    // Scroll-aware sticky nav
-    const spacer=document.getElementById('navSpacer');let lastY=window.scrollY;
-    const headerH=document.querySelector('.site-header').offsetHeight;
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
+    const nav=document.getElementById('mainNav'),spacer=document.getElementById('navSpacer');let lastY=window.scrollY;const headerH=document.querySelector('.site-header').offsetHeight;
     window.addEventListener('scroll',()=>{const y=window.scrollY,d=y>lastY;if(y>headerH){nav.classList.add('sticky');spacer.classList.add('on');nav.classList.toggle('hidden',d);nav.classList.toggle('vis',!d)}else{nav.classList.remove('sticky','hidden','vis');spacer.classList.remove('on')}lastY=y},{passive:true});
-
-    // Card expand/collapse
-    function toggleCard(id){
-      const card=document.getElementById(id);
-      const btn=card.querySelector('.card-cta button');
-      const wasExpanded=card.classList.contains('expanded');
-      // Collapse all
-      document.querySelectorAll('.card').forEach(c=>{c.classList.remove('expanded');c.querySelector('.card-cta button').textContent='Read the full story →';c.querySelector('.card-cta button').setAttribute('aria-expanded','false')});
-      if(!wasExpanded){
-        card.classList.add('expanded');
-        btn.textContent='← Back to all stories';
-        btn.setAttribute('aria-expanded','true');
-        setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),100);
-      }
-    }
-
-    // Mobile menu
-    const overlay=document.getElementById('mobileOverlay');
-    document.getElementById('menuOpen').addEventListener('click',()=>overlay.classList.add('open'));
-    document.getElementById('menuClose').addEventListener('click',()=>overlay.classList.remove('open'));
-    overlay.querySelectorAll('button[data-nav]').forEach(b=>{b.addEventListener('click',()=>overlay.classList.remove('open'))});
+    function toggleCard(id){const c=document.getElementById(id),btn=c.querySelector('.card-cta button'),w=c.classList.contains('expanded');document.querySelectorAll('.card').forEach(x=>{x.classList.remove('expanded');x.querySelector('.card-cta button').innerHTML='Read Story <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'});if(!w){c.classList.add('expanded');btn.textContent='← Back to All Stories';setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),100)}}
   </script>
 </body>
 </html>
