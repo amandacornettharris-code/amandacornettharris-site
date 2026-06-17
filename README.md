@@ -13,7 +13,7 @@ Personal portfolio site for Amanda Cornett Harris — Customer Value, AI Transfo
 ## Tech Stack
 
 - **Frontend:** Standalone HTML files, CSS, vanilla JavaScript
-- **Fonts:** Inter (Google Fonts, weights 400–800)
+- **Fonts:** Inter (Google Fonts, weights 300–800)
 - **Hosting:** Netlify (auto-deploys from `main`)
 - **Design System:** Glass Design System v2.0 — documented in `DESIGN-SYSTEM.md`
 - **No build step.** Every file is self-contained and deployable by copy/paste into GitHub's web editor.
@@ -24,9 +24,9 @@ Personal portfolio site for Amanda Cornett Harris — Customer Value, AI Transfo
 
 | File                  | Page           | Status          |
 |-----------------------|----------------|-----------------|
-| `index.html`          | Home           | ✅ Live          |
-| `impact-stories.html` | Impact Stories | ✅ Live          |
-| `about.html`          | About          | ✅ Live          |
+| `index.html`          | Home           | ✅ Hero brand film |
+| `impact-stories.html` | Impact Stories | ✅ Glass floating cards |
+| `about.html`          | About          | ✅ Bio + testimonials carousel |
 | `personal.html`       | Personal       | 🚧 Placeholder   |
 
 ---
@@ -35,14 +35,16 @@ Personal portfolio site for Amanda Cornett Harris — Customer Value, AI Transfo
 
 This site uses the **Glass Design System v2.0** (Option 2 Plus):
 
-- **Glass chrome** on every page: gradient header, glass nav bar, glass "Let's Connect" CTA, glass footer
-- **Glass cards** for every card and carousel: frosted white panels with backdrop-filter blur
+- **Glass chrome** on every page: gradient header, glass nav bar, centered glass "Let's Connect" CTA, glass footer
+- **Floating glass cards** for every card and carousel: frosted panels with 3-layer depth shadows
 - **Glass metrics strips** inside cards
 - **Glass card buttons** for card CTAs
+- **Hero brand film** on homepage: 7-scene animated narrative
+- **Testimonials carousel** on about page: glass cards on blue gradient, 10s auto-advance
 
 See `DESIGN-SYSTEM.md` for full token values, CSS specs, component patterns, and usage rules.
 
-> **Rule:** Every card and carousel added to the site must use the glass card spec. No flat cards.
+> **Rule:** Every card and carousel added to the site must use the glass card spec with floating shadows. No flat cards.
 
 ---
 
@@ -50,14 +52,14 @@ See `DESIGN-SYSTEM.md` for full token values, CSS specs, component patterns, and
 
 ```
 amandacornettharris-site/
-├── index.html              Home page
-├── about.html              About page
-├── impact-stories.html     Impact Stories page
-├── personal.html           Personal page (placeholder)
+├── index.html              Home — hero brand film
+├── about.html              About — bio card + testimonials carousel
+├── impact-stories.html     Impact Stories — floating glass cards
+├── personal.html           Personal (placeholder)
 ├── images/
-│   ├── agentforce-hero.jpg     TDX slide screenshot (purple)
-│   ├── xd-team-hero.jpg        BNSF XD Team slide (green)
-│   └── customer-cx-hero.jpg    BNSF locomotive slide (blue)
+│   ├── agentforce-hero.jpg
+│   ├── xd-team-hero.jpg
+│   └── customer-cx-hero.jpg
 ├── DESIGN-SYSTEM.md        Component specs, tokens, patterns — v2.0
 ├── CHANGELOG.md            Session-by-session change log
 └── README.md               This file
@@ -72,44 +74,21 @@ Every push to `main` auto-deploys to Netlify (~60 seconds).
 **To update a page:**
 1. Open the file on GitHub (click filename → pencil icon)
 2. Select all (`Cmd+A`), delete, paste updated code
-3. Write a commit message (e.g. `index.html — glass design system v2`)
+3. Write a commit message
 4. Click **Commit changes directly to main**
-5. Netlify deploys automatically
 
-**Recommended commit order when updating all files:**
-1. `DESIGN-SYSTEM.md`
-2. `CHANGELOG.md`
-3. `README.md`
-4. `index.html`
-5. `about.html`
-6. `impact-stories.html`
-7. `personal.html`
-
----
-
-## Images
-
-Hero images for Impact Story cards are screenshots of PDF cover slides. Place in the `images/` folder at root level.
-
-| File                       | Story              | Color    |
-|----------------------------|--------------------|----------|
-| `images/agentforce-hero.jpg` | Salesforce / TDX | Purple   |
-| `images/xd-team-hero.jpg`    | BNSF XD Team     | Green    |
-| `images/customer-cx-hero.jpg`| BNSF Digital CX  | Blue     |
-
-Cards display gradient fallbacks until images are added.
+**Batch update (recommended):** Press `.` on the repo page to open github.dev, edit all files in tabs, commit once.
 
 ---
 
 ## Working with Claude
 
-This site is built in collaboration with Claude (claude.ai). At the start of each session:
+At the start of each session:
+1. Share the GitHub repo URL (public) or paste `DESIGN-SYSTEM.md`
+2. Reference components by name (e.g. "glass card", "testimonials carousel", "hero film")
+3. Claude generates complete, deployable HTML files
 
-1. Share the URL of the GitHub repo (public) or paste the current `DESIGN-SYSTEM.md` content
-2. Reference the component you want to build by name (e.g. "glass card", "glass metrics strip")
-3. Claude will generate complete, deployable HTML files ready to paste into GitHub
-
-**Key constraint:** Files are standalone HTML — no shared CSS files, no build tools, no framework.
+**Key constraint:** Files are standalone HTML — no shared CSS, no build tools, no framework.
 
 ---
 
@@ -118,4 +97,3 @@ This site is built in collaboration with Claude (claude.ai). At the start of eac
 Amanda Cornett Harris
 - Email: amandacornettharris@gmail.com
 - LinkedIn: [linkedin.com/in/amandacharris](https://www.linkedin.com/in/amandacharris/)
-- Phone: 918-208-8884

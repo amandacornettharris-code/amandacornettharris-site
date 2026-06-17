@@ -68,7 +68,7 @@ background: linear-gradient(135deg, #0F2A5E 0%, #1753C5 45%, #2E6DE8 100%);
 ## Glass Component Specifications
 
 ### Glass Card (cards + carousels)
-Every card and carousel on the site uses this exact spec.
+Every card and carousel on the site uses this exact spec. Cards float above the page with layered shadows that create real depth perception.
 
 ```css
 background: rgba(255,255,255,0.55);
@@ -76,37 +76,50 @@ backdrop-filter: blur(20px) saturate(140%);
 -webkit-backdrop-filter: blur(20px) saturate(140%);
 border: 1px solid rgba(255,255,255,0.75);
 border-radius: 10px;
-box-shadow: 0 4px 24px rgba(30,42,58,0.08), inset 0 1px 0 rgba(255,255,255,0.85);
-transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+box-shadow:
+  0 1px 2px rgba(30,42,58,0.04),
+  0 4px 12px rgba(30,42,58,0.06),
+  0 12px 36px rgba(30,42,58,0.1),
+  inset 0 1px 0 rgba(255,255,255,0.85);
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 ```
 
 **Hover state:**
 ```css
-box-shadow: 0 16px 48px rgba(30,42,58,0.14), inset 0 1px 0 rgba(255,255,255,0.9);
-transform: translateY(-5px);
+box-shadow:
+  0 2px 4px rgba(30,42,58,0.04),
+  0 8px 24px rgba(30,42,58,0.08),
+  0 24px 64px rgba(30,42,58,0.16),
+  inset 0 1px 0 rgba(255,255,255,0.9);
+transform: translateY(-8px);
 ```
 
 ### Glass Header CTA Button ("Let's Connect")
+Centered below name using `flex-direction: column` with `gap: 14px`. No absolute positioning.
+
 ```css
+display: inline-flex;
+align-items: center;
+gap: 7px;
+font-size: 12px;
+font-weight: 600;
+color: rgba(255,255,255,0.9);
 background: rgba(255,255,255,0.12);
 backdrop-filter: blur(16px) saturate(200%);
 -webkit-backdrop-filter: blur(16px) saturate(200%);
 border: 1px solid rgba(255,255,255,0.25);
 border-radius: 4px;
-padding: 8px 18px;
-font-size: 12px;
-font-weight: 600;
-color: rgba(255,255,255,0.9);
+padding: 8px 20px;
 letter-spacing: 0.3px;
 text-transform: uppercase;
 box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 8px rgba(0,0,0,0.2);
 ```
 
-**Hover state:**
+**Hover state (no vertical movement):**
 ```css
-background: rgba(255,255,255,0.17);
-border-color: rgba(255,255,255,0.35);
-transform: translateY(calc(-50% - 1px));
+background: rgba(255,255,255,0.2);
+border-color: rgba(255,255,255,0.4);
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.25);
 ```
 
 ### Glass Nav Bar
@@ -340,6 +353,99 @@ Tabs: Home (house) · About (person) · Impact (lightning bolt) · Personal (hea
 
 ---
 
+---
+
+## Hero Brand Film (index.html)
+
+7-scene animated narrative (~90 seconds) that auto-plays on page load.
+
+### Scenes
+1. **The Problem** — Line fracture, chaos words, glass card with failures
+2. **The Pattern** — Blue light, connecting lines, "Few connect all three"
+3. **The Journey** — Railroad → Supply Chain → Industrial Operations → Enterprise Software
+4. **The Next Transformation** — AI as organizational transformation, not technology
+5. **Your AI Story** — Agentforce, Customer 0, Agentic Service, Command Center, etc.
+6. **The Evidence** — Metrics animate in (2.2M+, 82%, $100M+, 584K+, 2.8B+)
+7. **The Close** — Name, pillars, values, impact line
+
+### Controls
+- Pause/play button (bottom-right)
+- Replay button (bottom-right)
+- Keyboard: Space = pause/play, Escape = replay
+- Auto-pauses on prefers-reduced-motion; shows static fallback
+
+### Film Container
+```css
+background: linear-gradient(135deg, #0F2A5E 0%, #1753C5 45%, #2E6DE8 100%);
+min-height: 70vh;
+/* Same frosted orb accents as header */
+```
+
+### Scene Transitions
+```css
+transition: opacity 1s ease;
+```
+
+### Impact Line (Scene 7 final)
+```css
+font-size: clamp(22px, 3.5vw, 32px);
+font-weight: 800;
+color: #fff;
+letter-spacing: -0.02em;
+transition: opacity 1s ease;
+```
+
+---
+
+## Testimonials Carousel (about.html)
+
+Glass cards on blue gradient wrapper. 10-second auto-advance.
+
+### Section Wrapper
+Uses the same Glass Banner spec as construction banner:
+```css
+background: linear-gradient(135deg, rgba(15,42,94,0.88) 0%, rgba(23,83,197,0.88) 45%, rgba(46,109,232,0.88) 100%);
+backdrop-filter: blur(24px) saturate(160%);
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 10px;
+```
+
+### Cards Inside Carousel (dark bg variant)
+```css
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(20px) saturate(140%);
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 10px;
+box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
+```
+
+### Dot Indicators
+- Inactive: `background: rgba(255,255,255,0.3); width: 8px; height: 8px; border-radius: 50%`
+- Active: `background: #fff; transform: scale(1.3)`
+
+### Arrow Buttons
+Glass spec matching header CTA, white chevrons, 36px circles.
+
+### Quote Typography
+- Quote mark: 64px Georgia, white at 20% opacity
+- Quote text: 17px, weight 400, italic, white at 92% opacity
+- Name: 15px, weight 700, white
+- Title: 13px, white at 70% opacity
+
+### Behavior
+- 10-second auto-advance
+- Pauses on hover
+- Touch/swipe on mobile (40px threshold)
+- Dots are clickable, arrows advance manually
+
+### Adding/Removing Testimonials
+Copy or delete a `<div class="t-card">...</div>` block. Update `aria-label` counts. Dots regenerate automatically.
+
+### Adding Photos
+Replace initials avatar with: `<img class="t-avatar" src="images/name.jpg" alt="Name" style="object-fit:cover"/>`
+
+---
+
 ## Impact Story Cards
 
 ### Structure
@@ -467,6 +573,16 @@ amandacornettharris-site/
 ---
 
 ## Changelog
+
+### v2.1 — June 17, 2026
+- Hero brand film added to homepage (7 scenes, ~90 seconds)
+- Testimonials carousel added to about page (glass cards on blue gradient)
+- Floating card shadows: 3-layer depth replaces single shadow
+- Header CTA centered below name (was absolutely positioned right)
+- Header CTA hover: no vertical movement
+- Career Path and Credentials cards removed from about
+- Construction banner and bottom CTA removed from home
+- Scene 7 final line: "Helping organizations turn AI potential into business outcomes" in impact font
 
 ### v2.0 — June 15, 2026
 - Introduced glass design system (Option 2 Plus)

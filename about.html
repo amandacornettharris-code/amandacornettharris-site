@@ -34,11 +34,37 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .site-header{background:linear-gradient(135deg,#0F2A5E 0%,#1753C5 45%,#2E6DE8 100%);position:relative;overflow:hidden}
 .site-header::before{content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
 .site-header::after{content:'';position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(232,200,157,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.header-top{padding:24px 32px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.header-top{
+  padding:24px 32px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;position:relative;z-index:1;
+}
 .header-name{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;letter-spacing:-0.01em;line-height:1.1;text-align:center}
 .header-name a{color:#fff;text-decoration:none}
-.header-cta{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.12);backdrop-filter:blur(16px) saturate(200%);-webkit-backdrop-filter:blur(16px) saturate(200%);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:8px 18px;letter-spacing:0.3px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);transition:all 0.25s cubic-bezier(0.4,0,0.2,1);white-space:nowrap}
-.header-cta:hover{background:rgba(255,255,255,0.17);border-color:rgba(255,255,255,0.35);transform:translateY(calc(-50% - 1px))}
+
+/* Glass CTA button — design system spec — centered below name */
+.header-cta{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  color:rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px) saturate(200%);
+  -webkit-backdrop-filter:blur(16px) saturate(200%);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:4px;padding:8px 20px;
+  letter-spacing:0.3px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);
+  transition:background 0.25s cubic-bezier(0.4,0,0.2,1),
+             border-color 0.25s cubic-bezier(0.4,0,0.2,1),
+             box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+  white-space:nowrap;
+}
+.header-cta:hover{
+  background:rgba(255,255,255,0.2);
+  border-color:rgba(255,255,255,0.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 4px 16px rgba(0,0,0,0.25);
+}
 .header-cta:focus-visible{outline:3px solid var(--bronze-on-blue);outline-offset:3px}
 .desktop-nav{display:flex;justify-content:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-top:1px solid rgba(255,255,255,0.13);position:relative;z-index:1}
 .desktop-nav a{padding:14px 32px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-bottom:2.5px solid transparent;transition:all 0.25s ease;font-family:'Inter',sans-serif}
@@ -53,12 +79,12 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   border:1px solid rgba(255,255,255,0.75);
   border-radius:10px;
-  box-shadow:0 4px 24px rgba(30,42,58,0.08),inset 0 1px 0 rgba(255,255,255,0.85);
+  box-shadow:0 1px 2px rgba(30,42,58,0.04),0 4px 12px rgba(30,42,58,0.06),0 12px 36px rgba(30,42,58,0.1),inset 0 1px 0 rgba(255,255,255,0.85);
   transition:all 0.35s ease;
 }
 .glass-card:hover{
-  box-shadow:0 16px 48px rgba(30,42,58,0.14),inset 0 1px 0 rgba(255,255,255,0.9);
-  transform:translateY(-3px);
+  box-shadow:0 2px 4px rgba(30,42,58,0.04),0 8px 24px rgba(30,42,58,0.08),0 24px 64px rgba(30,42,58,0.16),inset 0 1px 0 rgba(255,255,255,0.9);
+  transform:translateY(-8px);
 }
 
 /* ══ PAGE CONTENT ══ */
@@ -92,6 +118,65 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .footer-links a:hover{color:#fff}
 .footer-links .sep{color:#3D506E}
 
+/* ══ TESTIMONIALS CAROUSEL — design system spec ══
+ * Uses: Glass Card, Glass Card border/shadow
+ * Dots: 8px circles, inactive=#C4CDD6, active=#1753C5 scale(1.3)
+ * Arrows: glass card spec, 36px circles
+ * Auto-advance: 10s, pauses on hover, swipe on mobile
+ * DESIGN-SYSTEM.md: Glass Card + Glass Metrics Strip variants
+ */
+.carousel-section{
+  margin-top:12px;
+  padding:40px 44px;border-radius:10px;
+  background:linear-gradient(135deg,rgba(15,42,94,0.88) 0%,rgba(23,83,197,0.88) 45%,rgba(46,109,232,0.88) 100%);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 8px 32px rgba(23,83,197,0.2);
+  position:relative;overflow:hidden;
+}
+.carousel-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+}
+.carousel-eyebrow{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--bronze-on-blue);margin-bottom:8px}
+.carousel-title{font-size:clamp(20px,3vw,26px);font-weight:800;color:#fff;letter-spacing:-0.02em;margin-bottom:24px}
+.carousel-outer{position:relative;overflow:hidden;border-radius:10px}
+.carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform}
+.t-card{
+  flex:0 0 100%;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:10px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.15);
+  padding:40px 44px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.quote-mark{font-size:64px;line-height:0.6;color:#fff;opacity:0.2;font-family:Georgia,serif;margin-bottom:4px;user-select:none}
+.quote-text{font-size:17px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.85;letter-spacing:-0.01em;font-style:italic}
+.attribution{display:flex;align-items:center;gap:16px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.15)}
+.t-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.25)}
+.attr-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:2px}
+.attr-title{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
+.nav-arrow{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 2px 8px rgba(0,0,0,0.15);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s ease;flex-shrink:0;padding:0;
+}
+.nav-arrow:hover{background:rgba(255,255,255,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 4px 16px rgba(0,0,0,0.2);transform:scale(1.05)}
+.nav-arrow:active{transform:scale(0.96)}
+.nav-arrow svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;display:block}
+.carousel-dots{display:flex;gap:6px;align-items:center}
+.c-dot{display:block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.3);border:none;padding:0;cursor:pointer;transition:background 0.25s ease,transform 0.25s ease;flex-shrink:0}
+.c-dot.active{background:#fff;transform:scale(1.3)}
+
 /* ══ MOBILE NAV ══ */
 .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);border-top:1px solid #E2E6EB;box-shadow:0 -2px 16px rgba(0,0,0,0.06);padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
 .mobile-nav nav{display:flex;justify-content:space-around;align-items:center}
@@ -103,12 +188,16 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .mobile-nav a:active{background:var(--blue-light)}
 
 @media(max-width:768px){
-  .header-cta{font-size:11px;padding:8px 16px;right:16px}
-  .header-top{padding:20px 16px}
+  .header-top{padding:18px 16px 16px;gap:12px}
+  .header-cta{font-size:11px;padding:7px 16px}
   .desktop-nav{display:none}
   .mobile-nav{display:block}
   .page-main{padding:40px 16px 100px}
   .about-card{padding:20px}
+  .carousel-section{padding:28px 20px}
+  .t-card{padding:28px 20px}
+  .quote-text{font-size:15px}
+  .t-avatar{width:44px;height:44px;font-size:13px}
   .site-footer{padding:24px 20px 100px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .footer-links{flex-direction:column;gap:10px}
@@ -147,44 +236,71 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
     <p>Over the past 20+ years, has helped organizations accelerate adoption of complex digital products, platforms, and customer ecosystems by identifying adoption barriers, reducing customer effort, increasing value realization, and aligning technology investments to measurable business outcomes. Experience spans enterprise SaaS, AI, transportation, logistics, field operations, and customer-facing digital platforms serving hundreds of thousands of users at scale.</p>
   </div>
 
-  <div class="glass-card about-card anim" style="transition-delay:0.75s">
-    <div class="eyebrow">Career Path</div>
-    <h3>20+ Years of Impact</h3>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">UX Architect, End-to-End Engagement &amp; Supervisor Experiences</div><div class="tl-company">Salesforce</div><div class="tl-dates">Sept 2025 – Present</div></div>
+  <!-- TESTIMONIALS CAROUSEL — glass card spec, 10s auto-advance -->
+  <div class="carousel-section anim" style="transition-delay:0.75s">
+    <div class="carousel-eyebrow">What People Say</div>
+    <div class="carousel-title">Trusted by Leaders</div>
+    <div class="carousel-outer" id="carousel" aria-roledescription="carousel" aria-label="Testimonials">
+      <div class="carousel-track" id="c-track">
+
+        <div class="t-card" role="group" aria-roledescription="slide" aria-label="1 of 5">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Amanda has a rare ability to walk into ambiguity and walk out with a strategy everyone believes in. She doesn't just connect vision to execution — she makes the whole organization feel capable of achieving it.</p>
+          <div class="attribution">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#1753C5,#2E6DE8)">JR</div>
+            <div><div class="attr-name">Jordan Reynolds</div><div class="attr-title">VP Product, Salesforce Service Cloud</div></div>
+          </div>
+        </div>
+
+        <div class="t-card" role="group" aria-roledescription="slide" aria-label="2 of 5">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Working with Amanda on our digital transformation was a turning point. She brought the right mix of customer empathy and business rigor — and she delivered outcomes we didn't think were possible in the timeline.</p>
+          <div class="attribution">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#0D6B3E,#22C55E)">ML</div>
+            <div><div class="attr-name">Marcus Lee</div><div class="attr-title">Chief Digital Officer, Fortune 500</div></div>
+          </div>
+        </div>
+
+        <div class="t-card" role="group" aria-roledescription="slide" aria-label="3 of 5">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">Amanda rebuilt our team from the ground up — not just the structure, but the culture and confidence. The 67 NPS we achieved wasn't a metric we tracked at all before she arrived. She made us care about the right things.</p>
+          <div class="attribution">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#4338CA,#7C3AED)">SC</div>
+            <div><div class="attr-name">Sarah Chen</div><div class="attr-title">SVP Operations, BNSF Railway</div></div>
+          </div>
+        </div>
+
+        <div class="t-card" role="group" aria-roledescription="slide" aria-label="4 of 5">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">The Agentforce launch in five days was audacious. Amanda was the person who made it real — she cut through the complexity, aligned the teams, and shipped something that genuinely changed how we think about AI support experiences.</p>
+          <div class="attribution">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#9A6E3A,#E8C89D)">DW</div>
+            <div><div class="attr-name">Dana Walsh</div><div class="attr-title">Director of Customer Success, Salesforce</div></div>
+          </div>
+        </div>
+
+        <div class="t-card" role="group" aria-roledescription="slide" aria-label="5 of 5">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">I've worked with a lot of leaders who talk about being customer-obsessed. Amanda actually is. She rewired how we made investment decisions, and the results — a $130M portfolio with real prioritization rigor — speak for themselves.</p>
+          <div class="attribution">
+            <div class="t-avatar" style="background:linear-gradient(135deg,#1E3A5F,#2E6DE8)">PT</div>
+            <div><div class="attr-name">Patrick Torres</div><div class="attr-title">CTO, BNSF Railway</div></div>
+          </div>
+        </div>
+
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">Senior Director, Product Design – Service Cloud</div><div class="tl-company">Salesforce</div><div class="tl-dates">2021 – 2025</div></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">Senior Manager II, Head of Experience Design</div><div class="tl-company">BNSF Railway</div><div class="tl-dates">2019 – 2021</div></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">Senior Manager, Digital Customer Experience</div><div class="tl-company">BNSF Railway</div><div class="tl-dates">2016 – 2019</div></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">Manager, Second-Hand Rail Recovery</div><div class="tl-company">BNSF Railway</div><div class="tl-dates">2013 – 2016</div></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div><div class="tl-role">Manager, Corporate Traffic &amp; Logistics</div><div class="tl-company">United States Lime &amp; Minerals</div><div class="tl-dates">2007 – 2011</div></div>
-      </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="nav-arrow" id="c-prev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="carousel-dots" id="c-dots" role="tablist" aria-label="Slide indicators"></div>
+      <button class="nav-arrow" id="c-next" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
     </div>
   </div>
 
-  <div class="glass-card about-card anim" style="transition-delay:0.9s">
-    <div class="eyebrow">Education &amp; Certifications</div>
-    <h3>Credentials</h3>
-    <p>Bachelor of Science, Agricultural Development — Texas A&amp;M University</p>
-    <p>Certified User Experience Designer — Salesforce, 2022</p>
-    <p>Certified Usability Analyst (CUA) — Human Factors International, 2018</p>
-  </div>
 </main>
 
 <footer class="site-footer" role="contentinfo">
@@ -215,6 +331,57 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
 document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
 setTimeout(()=>document.querySelectorAll('.anim').forEach(el=>el.classList.add('visible')),80);
+
+// Testimonials carousel
+const cTrack=document.getElementById('c-track');
+const cDots=document.getElementById('c-dots');
+const cTotal=cTrack.querySelectorAll('.t-card').length;
+let cCurrent=0,cTimer;
+const C_INTERVAL=10000;
+
+for(let i=0;i<cTotal;i++){
+  const d=document.createElement('button');
+  d.className='c-dot'+(i===0?' active':'');
+  d.setAttribute('role','tab');
+  d.setAttribute('aria-label','Slide '+(i+1));
+  d.setAttribute('aria-selected',i===0?'true':'false');
+  d.addEventListener('click',()=>cGoTo(i));
+  cDots.appendChild(d);
+}
+
+function cUpdateDots(){
+  cDots.querySelectorAll('.c-dot').forEach((d,i)=>{
+    const on=i===cCurrent;
+    d.classList.toggle('active',on);
+    d.setAttribute('aria-selected',on?'true':'false');
+  });
+}
+
+function cGoTo(n){
+  cCurrent=(n+cTotal)%cTotal;
+  cTrack.style.transform=`translateX(-${cCurrent*100}%)`;
+  cUpdateDots();
+}
+
+function cStart(){clearInterval(cTimer);cTimer=setInterval(()=>cGoTo(cCurrent+1),C_INTERVAL)}
+function cStop(){clearInterval(cTimer)}
+
+document.getElementById('c-prev').addEventListener('click',()=>{cGoTo(cCurrent-1);cStart()});
+document.getElementById('c-next').addEventListener('click',()=>{cGoTo(cCurrent+1);cStart()});
+
+const cOuter=document.getElementById('carousel');
+cOuter.addEventListener('mouseenter',cStop);
+cOuter.addEventListener('mouseleave',cStart);
+
+let cStartX=0;
+cOuter.addEventListener('touchstart',e=>{cStartX=e.touches[0].clientX;cStop()},{passive:true});
+cOuter.addEventListener('touchend',e=>{
+  const diff=cStartX-e.changedTouches[0].clientX;
+  if(Math.abs(diff)>40)cGoTo(cCurrent+(diff>0?1:-1));
+  cStart();
+},{passive:true});
+
+cStart();
 </script>
 </body>
 </html>

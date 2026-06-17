@@ -35,11 +35,37 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .site-header{background:linear-gradient(135deg,#0F2A5E 0%,#1753C5 45%,#2E6DE8 100%);position:relative;overflow:hidden}
 .site-header::before{content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
 .site-header::after{content:'';position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(232,200,157,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-.header-top{padding:24px 32px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.header-top{
+  padding:24px 32px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;position:relative;z-index:1;
+}
 .header-name{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;letter-spacing:-0.01em;line-height:1.1;text-align:center}
 .header-name a{color:#fff;text-decoration:none}
-.header-cta{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.12);backdrop-filter:blur(16px) saturate(200%);-webkit-backdrop-filter:blur(16px) saturate(200%);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:8px 18px;letter-spacing:0.3px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);transition:all 0.25s cubic-bezier(0.4,0,0.2,1);white-space:nowrap}
-.header-cta:hover{background:rgba(255,255,255,0.17);border-color:rgba(255,255,255,0.35);transform:translateY(calc(-50% - 1px))}
+
+/* Glass CTA button — design system spec — centered below name */
+.header-cta{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  color:rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(16px) saturate(200%);
+  -webkit-backdrop-filter:blur(16px) saturate(200%);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:4px;padding:8px 20px;
+  letter-spacing:0.3px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);
+  transition:background 0.25s cubic-bezier(0.4,0,0.2,1),
+             border-color 0.25s cubic-bezier(0.4,0,0.2,1),
+             box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+  white-space:nowrap;
+}
+.header-cta:hover{
+  background:rgba(255,255,255,0.2);
+  border-color:rgba(255,255,255,0.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 4px 16px rgba(0,0,0,0.25);
+}
 .header-cta:focus-visible{outline:3px solid var(--bronze-on-blue);outline-offset:3px}
 .desktop-nav{display:flex;justify-content:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-top:1px solid rgba(255,255,255,0.13);position:relative;z-index:101}
 .desktop-nav a{padding:14px 32px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-bottom:2.5px solid transparent;transition:all 0.25s ease;font-family:'Inter',sans-serif}
@@ -67,13 +93,13 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   border:1px solid rgba(255,255,255,0.75);
   border-radius:10px;overflow:hidden;
-  box-shadow:0 4px 24px rgba(30,42,58,0.08),inset 0 1px 0 rgba(255,255,255,0.85);
+  box-shadow:0 1px 2px rgba(30,42,58,0.04),0 4px 12px rgba(30,42,58,0.06),0 12px 36px rgba(30,42,58,0.1),inset 0 1px 0 rgba(255,255,255,0.85);
   transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
   display:flex;flex-direction:column;
 }
 .card:hover{
-  box-shadow:0 16px 48px rgba(30,42,58,0.14),inset 0 1px 0 rgba(255,255,255,0.9);
-  transform:translateY(-5px);
+  box-shadow:0 2px 4px rgba(30,42,58,0.04),0 8px 24px rgba(30,42,58,0.08),0 24px 64px rgba(30,42,58,0.16),inset 0 1px 0 rgba(255,255,255,0.9);
+  transform:translateY(-8px);
 }
 .card.expanded{grid-column:1/-1;transform:none!important}
 
@@ -169,8 +195,8 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .mobile-nav a:active{background:var(--blue-light)}
 
 @media(max-width:768px){
-  .header-cta{font-size:11px;padding:8px 16px;right:16px}
-  .header-top{padding:20px 16px}
+  .header-top{padding:18px 16px 16px;gap:12px}
+  .header-cta{font-size:11px;padding:7px 16px}
   .desktop-nav{display:none}
   .mobile-nav{display:block}
   .page-main{padding:32px 16px 100px}

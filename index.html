@@ -4,148 +4,154 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Amanda Cornett Harris</title>
-<meta name="description" content="Customer Value, AI Transformation & Product and Design Strategy Executive. Building zero-to-one products and transformation initiatives that drive adoption and business value."/>
+<meta name="description" content="Customer Value, AI Transformation & Product and Design Strategy Executive. Helping organizations turn AI potential into business outcomes."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 /*
  * DESIGN SYSTEM: DESIGN-SYSTEM.md v2.0
  * Components used: Glass Header, Glass Nav, Glass CTA Button,
- *   Glass Construction Banner, Glass Footer, Mobile Bottom Nav
+ *   Hero Brand Film (7 scenes), Glass Footer, Mobile Bottom Nav
  * Page: Home (index.html)
  */
 
 /* ── RESET & TOKENS ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --blue:#1753C5;--blue-dark:#0F3D94;--blue-hover:#1E5FD9;--blue-light:#E8F0FE;
+  --blue:#1753C5;--blue-dark:#0F2A5E;--blue-bright:#2E6DE8;--blue-light:#E8F0FE;--blue-glow:#5B9BF0;
   --bronze:#9A6E3A;--bronze-on-blue:#E8C89D;
   --charcoal:#1E2A3A;--charcoal-mid:#3D4F63;
   --white:#FFFFFF;--page-bg:#F4F5F7;
   --gray-icon:#8A95A5;--gray-icon-text:#6B7685;
-  /* glass card tokens */
-  --glass-card-bg:rgba(255,255,255,0.55);
-  --glass-card-border:1px solid rgba(255,255,255,0.75);
-  --glass-card-shadow:0 4px 24px rgba(30,42,58,0.08),inset 0 1px 0 rgba(255,255,255,0.85);
-  --glass-card-shadow-hover:0 16px 48px rgba(30,42,58,0.14),inset 0 1px 0 rgba(255,255,255,0.9);
 }
 body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--page-bg);color:var(--charcoal);display:flex;flex-direction:column;min-height:100vh;line-height:1.5;overflow-x:hidden}
 
 /* ── SKIP LINK ── */
-.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;font-size:14px;font-weight:600;text-decoration:none;color:var(--white)}
-.skip-link:focus{left:16px;top:16px;width:auto;height:auto;z-index:9999;padding:12px 20px;background:var(--blue);color:var(--white);border-radius:4px}
-
-/* ── ANIMATIONS ── */
-.anim{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-.anim.visible{opacity:1;transform:translateY(0)}
-.anim-scale{opacity:0;transform:scaleX(0);transform-origin:left;transition:opacity 0.5s ease,transform 0.5s ease}
-.anim-scale.visible{opacity:1;transform:scaleX(1)}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;font-size:14px;font-weight:600;text-decoration:none;color:var(--white);z-index:100}
+.skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:12px 20px;background:var(--blue);color:var(--white);border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* ══════════════════════════════════════
    GLASS HEADER — shared chrome spec
 ══════════════════════════════════════ */
 .site-header{
-  background:linear-gradient(135deg,#0F2A5E 0%,#1753C5 45%,#2E6DE8 100%);
+  background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 45%,var(--blue-bright) 100%);
   position:relative;overflow:hidden;
 }
-.site-header::before{
-  content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;
-  background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;
-}
-.site-header::after{
-  content:'';position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;
-  background:radial-gradient(circle,rgba(232,200,157,0.07) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;
-}
-.header-top{padding:24px 32px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.site-header::before{content:'';position:absolute;top:-80px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.site-header::after{content:'';position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(232,200,157,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.header-top{padding:24px 32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;z-index:1}
 .header-name{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;letter-spacing:-0.01em;line-height:1.1;text-align:center}
 .header-name a{color:#fff;text-decoration:none}
-
-/* Glass CTA button — design system spec */
-.header-cta{
-  position:absolute;right:28px;top:50%;transform:translateY(-50%);
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
-  color:rgba(255,255,255,0.9);
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(16px) saturate(200%);
-  -webkit-backdrop-filter:blur(16px) saturate(200%);
-  border:1px solid rgba(255,255,255,0.25);
-  border-radius:4px;padding:8px 18px;
-  letter-spacing:0.3px;text-transform:uppercase;
-  text-decoration:none;cursor:pointer;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);
-  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);white-space:nowrap;
-}
-.header-cta:hover{background:rgba(255,255,255,0.17);border-color:rgba(255,255,255,0.35);transform:translateY(calc(-50% - 1px))}
+.header-cta{display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.9);background:rgba(255,255,255,0.12);backdrop-filter:blur(16px) saturate(200%);-webkit-backdrop-filter:blur(16px) saturate(200%);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:8px 20px;letter-spacing:0.3px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);transition:background 0.25s cubic-bezier(0.4,0,0.2,1),border-color 0.25s cubic-bezier(0.4,0,0.2,1),box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);white-space:nowrap}
+.header-cta:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4);box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 4px 16px rgba(0,0,0,0.25)}
 .header-cta:focus-visible{outline:3px solid var(--bronze-on-blue);outline-offset:3px}
-
-/* Glass nav — design system spec */
-.desktop-nav{
-  display:flex;justify-content:center;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-top:1px solid rgba(255,255,255,0.13);
-  position:relative;z-index:1;
-}
-.desktop-nav a{
-  padding:14px 32px;font-size:12px;font-weight:600;
-  color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;
-  text-decoration:none;border-bottom:2.5px solid transparent;
-  transition:all 0.25s ease;font-family:'Inter',sans-serif;
-}
+.desktop-nav{display:flex;justify-content:center;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-top:1px solid rgba(255,255,255,0.13);position:relative;z-index:1}
+.desktop-nav a{padding:14px 32px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-bottom:2.5px solid transparent;transition:all 0.25s ease;font-family:'Inter',sans-serif}
 .desktop-nav a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.35)}
 .desktop-nav a.active{color:#fff;font-weight:700;border-bottom-color:#fff}
 .desktop-nav a:focus-visible{outline:3px solid var(--bronze-on-blue);outline-offset:-2px}
 
-/* ── MAIN CONTENT ── */
-.site-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 24px;text-align:center;background:var(--page-bg)}
-.bronze-line{width:52px;height:3px;background:var(--bronze);border-radius:2px;margin-bottom:44px}
-.hero-headline{font-size:clamp(30px,5vw,52px);font-weight:800;color:var(--charcoal);line-height:1.15;max-width:680px;margin:0 auto 28px;letter-spacing:-0.02em}
-.hero-headline .hl{color:var(--blue)}
-.hero-body{font-size:18px;color:var(--charcoal-mid);line-height:1.85;max-width:620px;margin-bottom:24px}
-
-/* Glass construction banner — design system spec */
-.construction-banner{
-  max-width:660px;width:100%;margin:36px auto;padding:36px 44px;border-radius:10px;
-  background:linear-gradient(135deg,rgba(15,42,94,0.88) 0%,rgba(23,83,197,0.88) 45%,rgba(46,109,232,0.88) 100%);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid rgba(255,255,255,0.2);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 8px 32px rgba(23,83,197,0.2);
-  position:relative;overflow:hidden;
+/* ══════════════════════════════════════
+   HERO BRAND FILM — 7 scenes
+══════════════════════════════════════ */
+.hero-film{
+  flex:1;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 45%,var(--blue-bright) 100%);
+  min-height:70vh;
 }
-.construction-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent)}
-.construction-banner h3{font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--bronze-on-blue);line-height:1.3;margin-bottom:12px}
-.construction-banner p{font-size:15px;color:rgba(255,255,255,0.83);line-height:1.75}
-.construction-banner .date{font-size:12px;color:var(--bronze-on-blue);font-weight:600;letter-spacing:0.06em;margin-top:14px}
+.hero-film::before{content:'';position:absolute;top:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-film::after{content:'';position:absolute;bottom:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(232,200,157,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.scene.active{opacity:1;pointer-events:auto}
 
-/* Page CTA button */
-.cta-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:13px;font-weight:700;font-family:'Inter',sans-serif;
-  color:var(--blue);background:transparent;text-decoration:none;
-  letter-spacing:0.08em;padding:14px 36px;
-  border:2px solid var(--blue);border-radius:4px;text-transform:uppercase;
-  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);cursor:pointer;
-}
-.cta-btn:hover{color:#fff;background:var(--blue);transform:translateY(-2px);box-shadow:0 6px 20px rgba(23,83,197,0.25)}
-.cta-btn:active{transform:translateY(0)}
-.cta-btn:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
+/* S1 */
+.s1-line{width:0;height:1px;background:var(--bronze-on-blue);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:width 1.2s cubic-bezier(0.25,0.46,0.45,0.94)}
+.s1-line.on{width:280px}
+.s1-line.fracture{background:transparent;box-shadow:-60px -8px 0 0 rgba(232,200,157,0.3),-20px 12px 0 0 rgba(232,200,157,0.2),40px -5px 0 0 rgba(232,200,157,0.25),80px 10px 0 0 rgba(232,200,157,0.15),-90px 3px 0 0 rgba(232,200,157,0.1);width:360px;transition:all 0.6s ease}
+.s1-hero{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);font-size:24px;font-weight:300;color:#fff;letter-spacing:0.05em;opacity:0;transition:opacity 0.6s ease;white-space:nowrap}
+.s1-hero.on{opacity:1}
+.chaos-words{position:absolute;inset:0;overflow:hidden}
+.cw{position:absolute;font-size:12px;font-weight:700;color:rgba(255,255,255,0);letter-spacing:0.15em;text-transform:uppercase;transition:color 0.5s ease}
+.cw.on{color:rgba(255,255,255,0.65)}
+.chaos-glass{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;padding:24px 28px;background:rgba(255,255,255,0.06);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(255,255,255,0.12);border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.1);opacity:0;transition:opacity 0.8s ease;display:flex;flex-direction:column;gap:8px;text-align:center}
+.chaos-glass.on{opacity:1}
+.chaos-glass span{font-size:12px;font-weight:700;color:#fff;letter-spacing:0.18em;text-transform:uppercase;line-height:2.2}
+
+/* S2 */
+.s2-dot{width:4px;height:4px;border-radius:50%;background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.4s ease,width 0.8s ease,height 0.8s ease,box-shadow 1s ease}
+.s2-dot.on{opacity:1;box-shadow:0 0 60px 20px rgba(255,255,255,0.15),0 0 120px 40px rgba(255,255,255,0.05)}
+.s2-dot.pulse{width:8px;height:8px;box-shadow:0 0 80px 30px rgba(255,255,255,0.2),0 0 160px 60px rgba(255,255,255,0.08)}
+.s2-lines{position:absolute;inset:0}
+.s2-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transform:scaleX(0);transition:transform 1s cubic-bezier(0.25,0.46,0.45,0.94)}
+.s2-line.on{transform:scaleX(1)}
+.s2-text{position:absolute;font-size:22px;font-weight:300;color:rgba(255,255,255,0);letter-spacing:0.02em;transition:color 0.6s ease,transform 0.6s ease;transform:translateY(12px)}
+.s2-text.on{color:#fff;transform:translateY(0)}
+.s2-text.dim{color:rgba(255,255,255,0.45)}
+.s2-em{color:var(--bronze-on-blue);font-weight:500}
+
+/* S3+S4+S5 cycling titles */
+.cycling-title{position:absolute;font-size:32px;font-weight:800;letter-spacing:-0.02em;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(16px);color:#fff}
+.cycling-title.on{opacity:1;transform:translateY(0)}
+.cycling-title.out{opacity:0;transform:translateY(-16px)}
+.cycling-title.bronze{color:var(--bronze-on-blue)}
+.scene-sub{position:absolute;bottom:30%;left:50%;transform:translate(-50%,0);font-size:16px;font-weight:400;color:rgba(255,255,255,0);letter-spacing:0.04em;text-align:center;transition:color 0.8s ease;line-height:1.8}
+.scene-sub.on{color:rgba(255,255,255,0.85)}
+.bronze-bar{position:absolute;top:36%;left:50%;transform:translate(-50%,0);width:52px;height:3px;background:var(--bronze-on-blue);border-radius:2px;opacity:0;transition:opacity 0.5s ease}
+.bronze-bar.on{opacity:0.5}
+
+/* S4 */
+.s4-heading{position:absolute;font-size:28px;font-weight:800;color:#fff;letter-spacing:-0.02em;opacity:0;transition:opacity 0.6s ease;text-align:center;line-height:1.5}
+.s4-heading.on{opacity:1}
+.s4-note{position:absolute;font-size:16px;font-weight:300;color:rgba(255,255,255,0.85);opacity:0;transition:opacity 0.6s ease;text-align:center;line-height:1.8}
+.s4-note.on{opacity:1}
+.s4-em{color:var(--bronze-on-blue);font-weight:500}
+
+/* S5 */
+.s5-product{position:absolute;font-size:24px;font-weight:700;letter-spacing:-0.01em;opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;transform:translateY(14px);color:var(--bronze-on-blue)}
+.s5-product.on{opacity:1;transform:translateY(0)}
+.s5-product.out{opacity:0;transform:translateY(-14px)}
+.s5-text{position:absolute;font-size:18px;font-weight:300;color:rgba(255,255,255,0);letter-spacing:0.02em;transition:color 0.6s ease;text-align:center;line-height:2}
+.s5-text.on{color:rgba(255,255,255,0.85)}
+
+/* S6 metrics */
+.metrics-grid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mg-inner{display:flex;gap:48px;flex-wrap:wrap;justify-content:center;max-width:900px}
+.mg-item{display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;transition:opacity 0.6s ease,transform 0.6s ease;transform:translateY(20px)}
+.mg-item.on{opacity:1;transform:translateY(0)}
+.mg-val{font-size:32px;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.mg-lbl{font-size:10px;font-weight:600;color:var(--bronze-on-blue);letter-spacing:0.12em;text-transform:uppercase;text-align:center}
+
+/* S7 close */
+.close-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px}
+.close-bar{width:52px;height:3px;background:var(--bronze-on-blue);border-radius:2px;opacity:0;transition:opacity 0.6s ease;margin-bottom:24px}
+.close-bar.on{opacity:0.5}
+.close-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;opacity:0;transition:opacity 1s ease;box-shadow:0 0 0 3px rgba(255,255,255,0.25),0 8px 32px rgba(0,0,0,0.3);margin-bottom:20px}
+.close-photo.on{opacity:1}
+.close-name{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;letter-spacing:-0.01em;opacity:0;transition:opacity 0.8s ease;text-align:center}
+.close-name.on{opacity:1}
+.close-pillars{font-size:12px;font-weight:600;color:var(--bronze-on-blue);letter-spacing:0.15em;text-transform:uppercase;opacity:0;transition:opacity 0.6s ease;text-align:center;margin-top:14px}
+.close-pillars.on{opacity:1}
+.close-values{font-size:12px;font-weight:600;color:var(--bronze-on-blue);letter-spacing:0.15em;text-transform:uppercase;opacity:0;transition:opacity 0.6s ease;text-align:center;margin-top:10px}
+.close-values.on{opacity:1}
+.close-impact{font-size:clamp(22px,3.5vw,32px);font-weight:800;color:#fff;letter-spacing:-0.02em;opacity:0;transition:opacity 1s ease;text-align:center;line-height:1.4;margin-top:28px;max-width:600px}
+.close-impact.on{opacity:1}
+
+/* Film controls */
+.film-controls{position:absolute;bottom:20px;right:20px;display:flex;gap:8px;z-index:10}
+.fc-btn{width:36px;height:36px;border-radius:4px;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 2px 8px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s}
+.fc-btn:hover{background:rgba(255,255,255,0.15)}
+.fc-btn:focus-visible{outline:3px solid var(--bronze-on-blue);outline-offset:3px}
+.fc-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fc-btn.paused .ico-pause{display:none}.fc-btn.paused .ico-play{display:block}
+.fc-btn.playing .ico-pause{display:block}.fc-btn.playing .ico-play{display:none}
+.film-label{position:absolute;bottom:24px;left:20px;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.15em;text-transform:uppercase}
 
 /* ══════════════════════════════════════
    GLASS FOOTER — design system spec
 ══════════════════════════════════════ */
-.site-footer{
-  background:rgba(30,42,58,0.92);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-top:1px solid rgba(255,255,255,0.07);
-  padding:28px 40px;display:flex;flex-direction:column;gap:14px;
-}
+.site-footer{background:rgba(30,42,58,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.07);padding:28px 40px;display:flex;flex-direction:column;gap:14px}
 .footer-disclaimers{display:flex;flex-direction:column;gap:6px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .footer-disclaimers p{font-size:11px;color:#7A8A9E;line-height:1.65;font-style:italic;margin:0}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
@@ -156,7 +162,7 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .footer-links a:focus-visible{outline:3px solid var(--bronze);outline-offset:3px}
 .footer-links .sep{color:#3D506E}
 
-/* ── MOBILE BOTTOM NAV ── */
+/* ── MOBILE NAV ── */
 .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);border-top:1px solid #E2E6EB;box-shadow:0 -2px 16px rgba(0,0,0,0.06);padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
 .mobile-nav nav{display:flex;justify-content:space-around;align-items:center}
 .mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;padding:6px 14px;border-radius:8px;transition:all 0.2s ease;-webkit-tap-highlight-color:transparent}
@@ -166,15 +172,36 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 .mobile-nav a.active span{color:var(--blue);font-weight:700}
 .mobile-nav a:active{background:var(--blue-light)}
 
-/* ── RESPONSIVE ── */
+/* Reduced motion fallback */
+.aria-announce{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+@media(prefers-reduced-motion:reduce){
+  .scene,.s1-line,.s1-hero,.cw,.chaos-glass,.s2-dot,.s2-line,.s2-text,.cycling-title,.scene-sub,.bronze-bar,.s4-heading,.s4-note,.s5-product,.s5-text,.mg-item,.close-name,.close-photo,.close-pillars,.close-values,.close-impact,.close-bar{transition:none}
+  .hero-film{display:none}
+  .reduced-fallback{display:flex!important}
+}
+.reduced-fallback{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 40px;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 45%,var(--blue-bright) 100%);color:#fff;gap:20px;flex:1}
+.reduced-fallback h2{font-size:clamp(24px,4vw,36px);font-weight:800}
+.reduced-fallback p{font-size:16px;font-weight:300;line-height:1.85;max-width:600px;color:rgba(255,255,255,0.85)}
+.reduced-fallback .bronze{color:var(--bronze-on-blue)}
+.reduced-fallback .rf-bar{width:52px;height:3px;background:var(--bronze-on-blue);border-radius:2px}
+
 @media(max-width:768px){
-  .header-cta{font-size:11px;padding:8px 16px;right:16px}
-  .header-top{padding:20px 16px}
+  .header-top{padding:18px 16px 16px;gap:12px}
+  .header-cta{font-size:11px;padding:7px 16px}
   .desktop-nav{display:none}
   .mobile-nav{display:block}
-  .site-main{padding:48px 20px 100px}
-  .hero-body{font-size:16px}
-  .construction-banner{padding:28px 24px}
+  .hero-film{min-height:60vh}
+  .s1-hero{font-size:18px}
+  .s2-text{font-size:17px}
+  .cycling-title{font-size:24px}
+  .s4-heading{font-size:22px}
+  .s5-product{font-size:20px}
+  .mg-inner{gap:28px}
+  .mg-val{font-size:24px}
+  .close-impact{font-size:20px;padding:0 20px}
+  .close-photo{width:96px;height:96px;margin-bottom:16px}
+  .chaos-glass{width:260px;padding:18px 20px}
   .site-footer{padding:24px 20px 100px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .footer-links{flex-direction:column;gap:10px}
@@ -184,11 +211,12 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
+<div id="announce" class="aria-announce" aria-live="polite" aria-atomic="true"></div>
 
 <header class="site-header" role="banner">
   <div class="header-top">
-    <h1 class="header-name anim" style="transition-delay:0.1s"><a href="index.html">Amanda Cornett Harris</a></h1>
-    <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="header-cta anim" style="transition-delay:0.3s" aria-label="Connect on LinkedIn (opens in new tab)">
+    <h1 class="header-name"><a href="index.html">Amanda Cornett Harris</a></h1>
+    <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="header-cta" aria-label="Connect on LinkedIn (opens in new tab)">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       Let's Connect
     </a>
@@ -201,21 +229,89 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
   </nav>
 </header>
 
-<main id="main" class="site-main" role="main">
-  <div class="bronze-line anim-scale" style="transition-delay:0.4s"></div>
-  <h2 class="hero-headline anim" style="transition-delay:0.5s">I specialize in turning bold ideas<br>into <span class="hl">operating realities</span>.</h2>
-  <p class="hero-body anim" style="transition-delay:0.7s">Throughout my career, I've built new businesses, launched enterprise capabilities, transformed customer experiences, and led complex organizational change across Fortune 500 environments.</p>
-  <p class="hero-body anim" style="transition-delay:0.85s">My unique background spanning business strategy, product, design, customer experience, and operations allows me to connect vision to execution — and innovation to adoption.</p>
-  <p class="hero-body anim" style="transition-delay:1.0s">Whether creating AI-powered customer experiences, scaling enterprise platforms, leading transformation initiatives, or building businesses outside of corporate life, I am energized by opportunities to create meaningful impact and unlock growth.</p>
-  <div class="construction-banner anim" style="transition-delay:1.15s">
-    <h3>This site is under construction in partnership with Claude.</h3>
-    <p>Please explore existing content and check back daily for updates.</p>
-    <div class="date">Updated 6/15/26</div>
+<!-- Reduced motion static fallback -->
+<div class="reduced-fallback" id="static-content" role="region" aria-label="Brand introduction">
+  <div class="rf-bar"></div>
+  <h2>Amanda Cornett Harris</h2>
+  <p><span class="bronze">Product. Strategy. Design. Transformation.</span></p>
+  <p>Helping organizations turn AI potential into business outcomes.</p>
+</div>
+
+<!-- HERO BRAND FILM -->
+<main id="main" class="hero-film" role="main" aria-label="Animated brand introduction">
+  <div class="film-label" id="lbl" aria-hidden="true">Scene 1 / 7</div>
+
+  <div class="scene active" id="s1">
+    <div class="s1-hero" id="s1h">When transformation stalls...</div>
+    <div class="s1-line" id="s1l"></div>
+    <div class="chaos-words">
+      <div class="cw" style="top:15%;left:10%">DISCONNECTED TEAMS</div>
+      <div class="cw" style="top:25%;left:60%">COMPETING PRIORITIES</div>
+      <div class="cw" style="top:42%;left:6%">FRAGMENTED JOURNEYS</div>
+      <div class="cw" style="top:55%;left:58%">FAILED INITIATIVES</div>
+      <div class="cw" style="top:72%;left:18%">ADOPTION DROP-OFFS</div>
+      <div class="cw" style="top:82%;left:52%">DISCONNECTED SYSTEMS</div>
+    </div>
+    <div class="chaos-glass" id="s1g"><span>LOW TRUST</span><span>LOW ADOPTION</span><span>UNCLEAR OWNERSHIP</span><span>MISALIGNED TEAMS</span></div>
   </div>
-  <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="cta-btn anim" style="transition-delay:1.3s" aria-label="Connect on LinkedIn (opens in new tab)">
-    Let's Connect
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
+
+  <div class="scene" id="s2">
+    <div class="s2-dot" id="s2d"></div>
+    <div class="s2-lines">
+      <div class="s2-line" style="top:30%;left:10%;width:80%"></div>
+      <div class="s2-line" style="top:50%;left:15%;width:70%;transition-delay:0.3s"></div>
+      <div class="s2-line" style="top:70%;left:5%;width:90%;transition-delay:0.6s"></div>
+      <div class="s2-line" style="top:40%;left:20%;width:60%;transform:rotate(25deg);transition-delay:0.4s"></div>
+      <div class="s2-line" style="top:60%;left:25%;width:50%;transform:rotate(-15deg);transition-delay:0.7s"></div>
+    </div>
+    <div class="s2-text" id="s2a" style="top:28%;left:50%;transform:translate(-50%,12px)">Some leaders optimize <span class="s2-em">products</span>.</div>
+    <div class="s2-text" id="s2b" style="top:40%;left:50%;transform:translate(-50%,12px)">Some leaders optimize <span class="s2-em">operations</span>.</div>
+    <div class="s2-text" id="s2c" style="top:52%;left:50%;transform:translate(-50%,12px)">Some leaders optimize <span class="s2-em">strategy</span>.</div>
+    <div class="s2-text" id="s2d2" style="top:68%;left:50%;transform:translate(-50%,12px);font-weight:500">Few connect <span class="s2-em">all three</span>.</div>
+  </div>
+
+  <div class="scene" id="s3">
+    <div class="bronze-bar" id="s3bar"></div>
+    <div class="cycling-title" id="s3t" style="top:44%;left:50%;transform:translate(-50%,16px)"></div>
+    <div class="scene-sub" id="s3sub">Not different careers.<br>Compounding capabilities.</div>
+  </div>
+
+  <div class="scene" id="s4">
+    <div class="s4-heading" id="s4h" style="top:26%;left:50%;transform:translate(-50%,0)"></div>
+    <div class="cycling-title" id="s4t" style="top:44%;left:50%;transform:translate(-50%,16px)"></div>
+    <div class="s4-note" id="s4n" style="top:62%;left:50%;transform:translate(-50%,0)"></div>
+  </div>
+
+  <div class="scene" id="s5">
+    <div class="bronze-bar" id="s5bar"></div>
+    <div class="s5-product" id="s5p" style="top:44%;left:50%;transform:translate(-50%,14px)"></div>
+    <div class="s5-text" id="s5t" style="bottom:20%;left:50%;transform:translate(-50%,0);width:80%"></div>
+  </div>
+
+  <div class="scene" id="s6">
+    <div class="metrics-grid"><div class="mg-inner" id="s6grid"></div></div>
+  </div>
+
+  <div class="scene" id="s7">
+    <div class="close-wrap">
+      <div class="close-bar" id="s7bar"></div>
+      <img src="images/amanda-headshot.jpg" alt="Amanda Cornett Harris" class="close-photo" id="s7photo" onerror="this.style.display='none'"/>
+      <div class="close-name" id="s7name">Amanda Cornett Harris</div>
+      <div class="close-pillars" id="s7pillars">Product. Strategy. Design. Transformation.</div>
+      <div class="close-values" id="s7values">Hard Work. Integrity. People. Customers.</div>
+      <div class="close-impact" id="s7impact">Helping organizations turn AI potential into business outcomes.</div>
+    </div>
+  </div>
+
+  <div class="film-controls">
+    <button class="fc-btn playing" id="ppBtn" aria-label="Pause animation">
+      <svg class="ico-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      <svg class="ico-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="#fff" stroke="none"/></svg>
+    </button>
+    <button class="fc-btn" id="rpBtn" aria-label="Replay animation">
+      <svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 105.64-8.36L1 10"/></svg>
+    </button>
+  </div>
 </main>
 
 <footer class="site-footer" role="contentinfo">
@@ -243,9 +339,145 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--pag
 </nav>
 
 <script>
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-document.querySelectorAll('.anim,.anim-scale').forEach(el=>obs.observe(el));
-setTimeout(()=>document.querySelectorAll('.anim,.anim-scale').forEach(el=>el.classList.add('visible')),80);
+const $=id=>document.getElementById(id);
+const ann=m=>{$('announce').textContent=m};
+let T=[],paused=false,pQ=[];
+function clr(){T.forEach(clearTimeout);T=[];pQ=[]}
+function d(fn,ms){if(paused){pQ.push({fn,ms});return}T.push(setTimeout(fn,ms))}
+function goScene(id,n){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');$('lbl').textContent='SCENE '+n+' / 7'}
+
+function scene1(){
+  ann('Scene 1. When transformation stalls.');
+  goScene('s1',1);
+  const l=$('s1l'),h=$('s1h'),g=$('s1g'),cws=document.querySelectorAll('.cw');
+  l.className='s1-line';h.classList.remove('on');g.classList.remove('on');cws.forEach(c=>c.classList.remove('on'));
+  d(()=>l.classList.add('on'),400);
+  d(()=>h.classList.add('on'),1000);
+  d(()=>{h.classList.remove('on');l.classList.add('fracture')},3800);
+  d(()=>cws.forEach((c,i)=>d(()=>c.classList.add('on'),i*280)),4500);
+  d(()=>g.classList.add('on'),6500);
+  d(scene2,9500);
+}
+
+function scene2(){
+  ann('Scene 2. Some leaders optimize products, operations, strategy. Few connect all three.');
+  goScene('s2',2);
+  const dot=$('s2d'),lns=document.querySelectorAll('.s2-line'),tx=['s2a','s2b','s2c','s2d2'];
+  dot.className='s2-dot';lns.forEach(l=>l.classList.remove('on'));
+  tx.forEach(id=>{$(id).className='s2-text';$(id).style.transform='translate(-50%,12px)'});
+  d(()=>dot.classList.add('on'),500);
+  d(()=>{dot.classList.add('pulse');lns.forEach(l=>l.classList.add('on'))},1400);
+  d(()=>{$(tx[0]).classList.add('on');$(tx[0]).style.transform='translate(-50%,0)'},2500);
+  d(()=>{$(tx[1]).classList.add('on');$(tx[1]).style.transform='translate(-50%,0)'},4200);
+  d(()=>{$(tx[2]).classList.add('on');$(tx[2]).style.transform='translate(-50%,0)'},5900);
+  d(()=>{tx.slice(0,3).forEach(id=>$(id).classList.add('dim'));$(tx[3]).classList.add('on');$(tx[3]).style.transform='translate(-50%,0)'},7800);
+  d(scene3,10500);
+}
+
+function scene3(){
+  ann('Scene 3. Railroad. Supply Chain. Industrial Operations. Enterprise Software.');
+  goScene('s3',3);
+  const el=$('s3t'),sub=$('s3sub'),bar=$('s3bar');
+  sub.classList.remove('on');bar.classList.remove('on');
+  d(()=>bar.classList.add('on'),300);
+  const items=['Railroad','Supply Chain','Industrial Operations','Enterprise Software'];
+  let i=0;
+  function next(){
+    if(i>=items.length){d(()=>sub.classList.add('on'),500);d(scene4,3000);return}
+    el.className='cycling-title';el.textContent=items[i];el.style.transform='translate(-50%,16px)';
+    d(()=>{el.classList.add('on');el.style.transform='translate(-50%,0)'},50);
+    d(()=>{el.classList.remove('on');el.classList.add('out')},1600);
+    i++;d(next,2000);
+  }
+  d(next,700);
+}
+
+function scene4(){
+  ann('Scene 4. A new force emerges. Artificial Intelligence. The next organizational transformation.');
+  goScene('s4',4);
+  const h=$('s4h'),t=$('s4t'),n=$('s4n');
+  h.classList.remove('on');t.className='cycling-title';n.classList.remove('on');
+  d(()=>{h.innerHTML='A new force emerges.';h.classList.add('on')},600);
+  d(()=>h.classList.remove('on'),3000);
+  d(()=>{t.textContent='Artificial Intelligence';t.classList.add('bronze','on');t.style.transform='translate(-50%,0)'},3800);
+  d(()=>{n.innerHTML='Not as a technology.<br>As the next <span class="s4-em">organizational transformation</span>.';n.classList.add('on')},5200);
+  d(()=>{n.classList.remove('on');t.classList.remove('on');t.classList.add('out')},8500);
+  const forces=['Agents','Humans','Workflows','Knowledge','Data','Conversations','Decision Systems'];
+  let i=0;
+  function nextForce(){
+    if(i>=forces.length){
+      d(()=>{h.innerHTML='Every generation faces a defining transformation.';h.classList.add('on')},400);
+      d(()=>h.classList.remove('on'),3400);
+      const eras=['Industrialization','Digitization','Artificial Intelligence'];
+      let j=0;
+      function nextEra(){
+        if(j>=eras.length){d(scene5,2000);return}
+        t.className='cycling-title'+(j===2?' bronze':'');t.textContent=eras[j];t.style.transform='translate(-50%,16px)';
+        d(()=>{t.classList.add('on');t.style.transform='translate(-50%,0)'},50);
+        d(()=>{t.classList.remove('on');t.classList.add('out')},1600);
+        j++;d(nextEra,2000);
+      }
+      d(nextEra,4000);
+      return;
+    }
+    t.className='cycling-title';t.textContent=forces[i];t.style.transform='translate(-50%,16px)';
+    d(()=>{t.classList.add('on');t.style.transform='translate(-50%,0)'},50);
+    d(()=>{t.classList.remove('on');t.classList.add('out')},900);
+    i++;d(nextForce,1200);
+  }
+  d(nextForce,9500);
+}
+
+function scene5(){
+  ann('Scene 5. Agentforce. Customer Zero. Agentic Service. Few know how to operationalize AI. Fewer still know how to scale it.');
+  goScene('s5',5);
+  const p=$('s5p'),t=$('s5t'),bar=$('s5bar');
+  t.classList.remove('on');bar.classList.remove('on');
+  d(()=>bar.classList.add('on'),300);
+  const products=['Agentforce','Customer 0','Agentic Service','Command Center','Supervisor Experiences','Digital Engagement','Unified Platforms'];
+  let i=0;
+  function nextProd(){
+    if(i>=products.length){
+      d(()=>{t.innerHTML='While many organizations are experimenting with AI...<br>Few know how to <span style="color:var(--bronze-on-blue);font-weight:500">operationalize</span> it.<br>Fewer still know how to <span style="color:var(--bronze-on-blue);font-weight:500">scale</span> it.';t.classList.add('on')},600);
+      d(scene6,6000);
+      return;
+    }
+    p.className='s5-product';p.textContent=products[i];p.style.transform='translate(-50%,14px)';
+    d(()=>{p.classList.add('on');p.style.transform='translate(-50%,0)'},50);
+    d(()=>{p.classList.remove('on');p.classList.add('out')},1200);
+    i++;d(nextProd,1600);
+  }
+  d(nextProd,700);
+}
+
+function scene6(){
+  ann('Scene 6. 2.2 million AI interactions. 82% self-service resolution. 100 million value created. 584 thousand agents enabled. 2.8 billion messages supported.');
+  goScene('s6',6);
+  const grid=$('s6grid');grid.innerHTML='';
+  const metrics=[{val:'2.2M+',lbl:'AI-Powered Interactions'},{val:'82%',lbl:'Self-Service Resolution'},{val:'$100M+',lbl:'Annualized Value Created'},{val:'584K+',lbl:'Agents Enabled'},{val:'2.8B+',lbl:'Messages Supported'}];
+  metrics.forEach((m,i)=>{const el=document.createElement('div');el.className='mg-item';el.innerHTML=`<div class="mg-val">${m.val}</div><div class="mg-lbl">${m.lbl}</div>`;grid.appendChild(el);d(()=>el.classList.add('on'),800+i*600)});
+  d(scene7,800+metrics.length*600+4000);
+}
+
+function scene7(){
+  ann('Scene 7. Amanda Cornett Harris. Product. Strategy. Design. Transformation. Helping organizations turn AI potential into business outcomes.');
+  goScene('s7',7);
+  const els=['s7bar','s7photo','s7name','s7pillars','s7values','s7impact'];
+  els.forEach(id=>$(id).classList.remove('on'));
+  els.forEach((id,i)=>d(()=>$(id).classList.add('on'),600+i*800));
+}
+
+function togglePause(){
+  const btn=$('ppBtn');
+  if(paused){paused=false;btn.classList.remove('paused');btn.classList.add('playing');btn.setAttribute('aria-label','Pause animation');ann('Animation resumed');pQ.forEach(item=>d(item.fn,item.ms));pQ=[]}
+  else{paused=true;btn.classList.remove('playing');btn.classList.add('paused');btn.setAttribute('aria-label','Play animation');ann('Animation paused');T.forEach(clearTimeout);T=[]}
+}
+function replay(){paused=false;$('ppBtn').classList.remove('paused');$('ppBtn').classList.add('playing');$('ppBtn').setAttribute('aria-label','Pause animation');clr();scene1()}
+$('ppBtn').addEventListener('click',togglePause);
+$('rpBtn').addEventListener('click',replay);
+document.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();togglePause()}if(e.key==='Escape'){e.preventDefault();replay()}});
+
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)scene1();
 </script>
 </body>
 </html>
