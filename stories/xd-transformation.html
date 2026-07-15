@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Transforming Experience Design — Amanda Cornett Harris</title>
+<meta name="description" content="How Amanda Harris transformed BNSF's Experience Design team from an unfunded, mission-confused group into the organization's most impactful design function."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-height:1.5}
+
+/* ── NAV ── */
+.nav{background:#FAFAF7;border-bottom:1px solid #E8E4DC;padding:0 48px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.nav-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1E2A3A;letter-spacing:-0.01em;padding:18px 0;text-decoration:none}
+.nav-links{display:flex}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:#8A8A7A;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:20px 24px;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a.active{color:#9A6E3A;border-bottom-color:#9A6E3A}
+.nav-links a:hover{color:#1E2A3A}
+
+/* ── BACK LINK ── */
+.back{max-width:780px;margin:0 auto;padding:32px 48px 0}
+.back a{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A8A7A;text-decoration:none;transition:color 0.2s}
+.back a:hover{color:#9A6E3A}
+.back a svg{transition:transform 0.2s}
+.back a:hover svg{transform:translateX(-3px)}
+
+/* ── STORY HERO ── */
+.story-hero{max-width:780px;margin:0 auto;padding:40px 48px 0}
+.story-co{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.story-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#1E2A3A;line-height:1.05;letter-spacing:-0.025em;margin-bottom:24px}
+.story-title em{font-style:italic;color:#9A6E3A}
+.story-lede{font-family:'DM Sans',sans-serif;font-size:17px;color:#5A6678;line-height:1.8;font-weight:300;max-width:620px;margin-bottom:40px}
+
+/* ── METRICS BAR ── */
+.metrics-bar{border-top:1px solid #E8E4DC;border-bottom:1px solid #E8E4DC;padding:28px 48px;max-width:780px;margin:0 auto;display:flex;gap:48px}
+.metric{}
+.metric-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#1753C5;line-height:1;letter-spacing:-0.02em}
+.metric-lbl{font-family:'DM Sans',sans-serif;font-size:9px;color:#8A8A7A;letter-spacing:0.12em;text-transform:uppercase;margin-top:4px}
+
+/* ── STORY BODY ── */
+.story-body{max-width:780px;margin:0 auto;padding:48px 48px 0}
+.story-section{margin-bottom:48px}
+.section-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.section-heading{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1E2A3A;letter-spacing:-0.01em;margin-bottom:16px;line-height:1.2}
+.body-text{font-family:'DM Sans',sans-serif;font-size:15px;color:#5A6678;line-height:1.85;font-weight:300;margin-bottom:16px}
+.body-text strong{color:#1E2A3A;font-weight:600}
+
+/* ── PULL QUOTE ── */
+.pull{display:flex;gap:20px;align-items:flex-start;padding:32px 0;border-top:1px solid #F0EDE6;border-bottom:1px solid #F0EDE6;margin:32px 0}
+.pull-bar{width:3px;background:#9A6E3A;flex-shrink:0;align-self:stretch;min-height:48px}
+.pull-inner{}
+.pull-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#3D4F63;line-height:1.65;margin-bottom:8px}
+.pull-attr{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A6E3A}
+
+/* ── BEFORE / AFTER ── */
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E4DC;border:1px solid #E8E4DC;border-radius:8px;overflow:hidden;margin:24px 0}
+.ba-cell{background:#fff;padding:28px 32px}
+.ba-cell.after{background:#F5F2EC}
+.ba-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:12px}
+.ba-label.before-lbl{color:#B8B0A0}
+.ba-item{font-family:'DM Sans',sans-serif;font-size:13px;color:#5A6678;line-height:1.7;font-weight:300;display:flex;gap:8px;margin-bottom:6px}
+.ba-item::before{content:'→';color:#9A6E3A;font-weight:600;flex-shrink:0}
+.ba-cell.after .ba-item::before{content:'✓';color:#1753C5}
+
+/* ── SERVICES GRID ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.service-chip{background:#fff;border:1px solid #E8E4DC;border-radius:6px;padding:16px 20px}
+.service-chip-name{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1E2A3A;margin-bottom:4px}
+.service-chip-desc{font-family:'DM Sans',sans-serif;font-size:10px;color:#8A8A7A;line-height:1.5}
+
+/* ── SNAPSHOT STATS ── */
+.snapshot{background:#1E2A3A;border-radius:8px;padding:32px;margin:32px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.snap-item{text-align:center}
+.snap-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#E8C89D;line-height:1}
+.snap-lbl{font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:0.12em;text-transform:uppercase;margin-top:6px}
+
+/* ── DECK LINK ── */
+.deck-cta{display:flex;align-items:center;gap:20px;background:#fff;border:1.5px solid #E8E4DC;border-radius:8px;padding:24px 28px;margin:32px 0;text-decoration:none;transition:all 0.25s;cursor:pointer}
+.deck-cta:hover{border-color:#9A6E3A;box-shadow:0 4px 20px rgba(154,110,58,0.1)}
+.deck-icon{width:44px;height:44px;background:#F5F2EC;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.deck-text{}
+.deck-text-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#9A6E3A;margin-bottom:4px}
+.deck-text-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1E2A3A}
+.deck-text-sub{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;margin-top:2px}
+.deck-arrow{margin-left:auto;font-family:'DM Sans',sans-serif;font-size:18px;color:#9A6E3A}
+
+/* ── NAV BETWEEN STORIES ── */
+.story-nav{border-top:1px solid #E8E4DC;padding:32px 48px;max-width:780px;margin:48px auto 0;display:flex;justify-content:space-between;align-items:center}
+.story-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none}
+.story-nav-link.prev{align-items:flex-start}
+.story-nav-link.next{align-items:flex-end}
+.story-nav-dir{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#9A6E3A}
+.story-nav-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#1E2A3A;transition:color 0.2s}
+.story-nav-link:hover .story-nav-title{color:#9A6E3A}
+
+/* ── FOOTER ── */
+.site-footer{background:#1E2A3A;padding:48px;margin-top:64px}
+.footer-inner{max-width:780px;margin:0 auto}
+.footer-disclaimer{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.75;font-style:italic;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
+.footer-connect-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25)}
+.footer-links{display:flex;gap:24px;align-items:center}
+.footer-link{color:rgba(255,255,255,0.55);text-decoration:none;display:flex;align-items:center;transition:color 0.2s;font-family:'DM Sans',sans-serif;font-size:12px}
+.footer-link:hover{color:#fff}
+
+@media(max-width:768px){
+  .nav{padding:0 20px}
+  .back,.story-hero,.metrics-bar,.story-body,.story-nav{padding-left:20px;padding-right:20px}
+  .story-title{font-size:32px}
+  .metrics-bar{flex-wrap:wrap;gap:24px}
+  .before-after{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .snapshot{grid-template-columns:1fr 1fr}
+  .site-footer{padding:32px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="../index.html" class="nav-name">Amanda Cornett Harris</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../impact-stories.html" class="active">Impact Stories</a>
+    <a href="../personal.html">Personal</a>
+  </div>
+</nav>
+
+<!-- BACK -->
+<div class="back">
+  <a href="../impact-stories.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    Back to Impact Stories
+  </a>
+</div>
+
+<!-- HERO -->
+<div class="story-hero">
+  <div class="story-co">BNSF Railway</div>
+  <h1 class="story-title">Transforming<br><em>Experience Design</em></h1>
+  <p class="story-lede">At North America's largest railroad, the Experience Design team was unfunded, mission-confused, and without organizational impact. Through a relentless focus on people, process, and measurable outcomes, Amanda transformed it into a 17-person powerhouse driving UX transformation across 40+ portfolios — and delivering results that reached from the boardroom to the field.</p>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-bar">
+  <div class="metric"><div class="metric-num">320+</div><div class="metric-lbl">Engagements in 2020</div></div>
+  <div class="metric"><div class="metric-num">17</div><div class="metric-lbl">Person Team Built</div></div>
+  <div class="metric"><div class="metric-num">40+</div><div class="metric-lbl">Portfolios Served</div></div>
+  <div class="metric"><div class="metric-num">67</div><div class="metric-lbl">NPS · Exceeds Industry Avg.</div></div>
+</div>
+
+<!-- BODY -->
+<div class="story-body">
+
+  <div class="story-section">
+    <div class="section-label">The Situation</div>
+    <h2 class="section-heading">Two teams. No shared mission. No organizational credibility.</h2>
+    <p class="body-text">When Amanda took over BNSF's Experience Design function in 2019, she inherited two separate teams — a UI/UX group and a Design Thinking group — that had been combined in 2017 but never truly unified. The organization offered 2 services, lacked a clear value proposition, and had limited standing with the business.</p>
+    <p class="body-text">The team existed, but it didn't matter yet.</p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Transformation</div>
+    <h2 class="section-heading">From 2 services to 7. From overlooked to indispensable.</h2>
+    <p class="body-text">Amanda rebuilt the team's operating model from the ground up — introducing <strong>pipeline management, relationship managers, quality checkpoints, CSAT, and NPS</strong> as the infrastructure of a real internal consultancy. She expanded the service portfolio from 2 to 7 distinct offerings, each designed to meet the business where it was.</p>
+
+    <div class="services-grid">
+      <div class="service-chip"><div class="service-chip-name">Design Thinking</div><div class="service-chip-desc">Tackle big, hard, unknown problems</div></div>
+      <div class="service-chip"><div class="service-chip-name">UX & UI Design</div><div class="service-chip-desc">GEL, wireframes, screen design, personas</div></div>
+      <div class="service-chip"><div class="service-chip-name">User Research & Systems Thinking</div><div class="service-chip-desc">Prototype testing, field observations, behavioral research</div></div>
+      <div class="service-chip"><div class="service-chip-name">Project Readiness</div><div class="service-chip-desc">Business process discovery, proposal blueprinting</div></div>
+      <div class="service-chip"><div class="service-chip-name">Ideation & Innovation</div><div class="service-chip-desc">XD Bootcamp, Trackathon, HCD training</div></div>
+      <div class="service-chip"><div class="service-chip-name">Tech Evangelism</div><div class="service-chip-desc">New tech scouting, virtual facilitation, remote support</div></div>
+      <div class="service-chip"><div class="service-chip-name">Internal Services</div><div class="service-chip-desc">TS communications, executive presentations</div></div>
+    </div>
+
+    <p class="body-text">She also introduced <strong>2 Relationship Managers</strong> — a concept borrowed from customer success — to build sustained, accountable partnerships with business units rather than one-off engagements.</p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">Before & After</div>
+    <div class="before-after">
+      <div class="ba-cell">
+        <div class="ba-label before-lbl">Before</div>
+        <div class="ba-item">2 services, 2 siloed teams</div>
+        <div class="ba-item">No pipeline management</div>
+        <div class="ba-item">No accountability framework</div>
+        <div class="ba-item">Limited business credibility</div>
+        <div class="ba-item">No field presence</div>
+      </div>
+      <div class="ba-cell after">
+        <div class="ba-label">After</div>
+        <div class="ba-item">7 services, unified team of 17</div>
+        <div class="ba-item">Full pipeline + relationship management</div>
+        <div class="ba-item">CSAT, NPS, quality checkpoints</div>
+        <div class="ba-item">Strategic partner to 12 departments, 8 divisions</div>
+        <div class="ba-item">Field impact: HFREI reductions, safety programs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">2020 Snapshot</div>
+    <h2 class="section-heading">320+ engagements. Every corner of the organization.</h2>
+    <p class="body-text">In a single year, the transformed team delivered across every major function — from UX design and icon libraries to executive communications, field safety programs, and innovation sprints.</p>
+    <div class="snapshot">
+      <div class="snap-item"><div class="snap-num">12</div><div class="snap-lbl">Departments</div></div>
+      <div class="snap-item"><div class="snap-num">8</div><div class="snap-lbl">Divisions</div></div>
+      <div class="snap-item"><div class="snap-num">146</div><div class="snap-lbl">Icon designs</div></div>
+      <div class="snap-item"><div class="snap-num">43</div><div class="snap-lbl">Tech evangelism engagements</div></div>
+      <div class="snap-item"><div class="snap-num">400%</div><div class="snap-lbl">ROI on UI CoP</div></div>
+      <div class="snap-item"><div class="snap-num">71</div><div class="snap-lbl">'21 project readiness requests</div></div>
+    </div>
+    <p class="body-text">The team's NPS of <strong>67</strong> exceeded the consulting industry average of 51 — a direct reflection of the cultural and operational transformation Amanda led.</p>
+  </div>
+
+  <div class="pull">
+    <div class="pull-bar"></div>
+    <div class="pull-inner">
+      <div class="pull-text">"The decision to hold…design sessions, building a common plan and purpose, has resulted in a strong functioning team. We are delivering quality solutions with great teamwork and participation across Joint Facilities and TS team."</div>
+      <div class="pull-attr">Lisa Fisher · Fmr. Manager II, Application Development · BNSF Railway</div>
+    </div>
+  </div>
+
+  <div class="pull">
+    <div class="pull-bar"></div>
+    <div class="pull-inner">
+      <div class="pull-text">"Team had a misguided, preconceived idea that less is faster. (XD) helped us see it's really about the experience, not about the race."</div>
+      <div class="pull-attr">Doug Gruben · Manager II, Application Development · BNSF Railway</div>
+    </div>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Artifact</div>
+    <h2 class="section-heading">See the full transformation deck.</h2>
+    <p class="body-text">The Experience Design Team Transformation Deck documents the full arc — from origins through 2020 results and the 2021 strategic focus areas.</p>
+    <a href="../docs/xd-transformation-deck.pdf" target="_blank" rel="noreferrer" class="deck-cta">
+      <div class="deck-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="deck-text">
+        <div class="deck-text-label">Source Document</div>
+        <div class="deck-text-name">Experience Design Team Transformation Deck</div>
+        <div class="deck-text-sub">BNSF Railway · 2020 · PDF</div>
+      </div>
+      <div class="deck-arrow">↗</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- STORY NAVIGATION -->
+<div class="story-nav">
+  <a href="bnsf-dex.html" class="story-nav-link prev">
+    <span class="story-nav-dir">← Previous</span>
+    <span class="story-nav-title">BNSF DEX Transformation</span>
+  </a>
+  <a href="rail-recovery.html" class="story-nav-link next">
+    <span class="story-nav-dir">Next →</span>
+    <span class="story-nav-title">Rail Recovery Turnaround</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-disclaimer">All work examples shown are accessible via public domain or are summative communications and do not compromise protected company IP.</p>
+    <div class="footer-connect-label">Connect</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Amanda Cornett Harris</span>
+      <div class="footer-links">
+        <a href="mailto:amandacornettharris@gmail.com" class="footer-link">amandacornettharris@gmail.com</a>
+        <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="footer-link" aria-label="LinkedIn" style="margin-left:8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
