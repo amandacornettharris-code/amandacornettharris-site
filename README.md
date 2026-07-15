@@ -1,69 +1,81 @@
 # Amanda Cornett Harris — Portfolio Site
 
-**Live site:** [amandacornettharris.ai](https://amandacornettharris.ai)
+Personal portfolio site for Amanda Cornett Harris — Customer Adoption, AI Transformation & Product Strategy Executive. 20+ years building zero-to-one products, platforms, and transformations across AI, enterprise SaaS, and industrial operations at scale.
 
-## Overview
-Personal portfolio site for Amanda Cornett Harris — Customer Adoption, AI Transformation & Product Strategy Executive. Built in collaboration with Claude.
+## Live Site
+
+Target: [amandacornettharris.ai](https://amandacornettharris.ai) — confirm domain is live before sharing.
 
 ## Tech Stack
-- **Frontend:** HTML, CSS, vanilla JavaScript
-- **Fonts:** Inter (Google Fonts)
-- **Hosting:** Netlify (auto-deploys from `main`)
-- **Design System:** Custom — documented in `DESIGN-SYSTEM.md`
 
-## Pages
-| File | Page | Status |
-|---|---|---|
-| `index.html` | Home | ✅ Live |
-| `impact-stories.html` | Impact Stories | ✅ Live |
-| `about.html` | About | ✅ Live (old header — needs update) |
-| `personal.html` | Personal | 🚧 Placeholder |
+- **Frontend:** Vanilla HTML, CSS — no framework, no build step
+- **Fonts:** Playfair Display + DM Sans (Google Fonts)
+- **Hosting:** Netlify — auto-deploys from `main` branch (~60 sec after push)
+- **Deploy workflow:** Amanda copies full file contents into GitHub web editor → commit → Netlify deploys
 
-## Folder Structure
+## File Structure
+
 ```
 amandacornettharris-site/
-├── index.html
-├── about.html
-├── impact-stories.html
-├── personal.html
-├── images/
-│   ├── agentforce-hero.jpg
-│   ├── xd-team-hero.jpg
-│   └── customer-cx-hero.jpg
-├── DESIGN-SYSTEM.md
-├── CHANGELOG.md
-└── README.md
+├── index.html                  Home
+├── about.html                  About Amanda
+├── impact-stories.html         Impact Stories (featured + grid)
+├── personal.html               Personal (horses, community, faith, family, outdoors)
+├── stories/
+│   ├── xd-transformation.html  ✅ Built
+│   ├── help-salesforce.html    ⚠ Needs build
+│   ├── command-center.html     ⚠ Needs build
+│   ├── bnsf-digital-cx.html    ⚠ Needs build
+│   ├── trackathon.html         ⚠ Needs build
+│   ├── rail-recovery.html      ⚠ Needs build
+│   ├── bnsf-dex.html           ⚠ Needs build
+│   ├── account-status.html     ⚠ Content TBD
+│   └── hfrei-reduction.html    ⚠ Needs build
+├── docs/                       PDF artifacts (Amanda adds manually)
+├── images/                     Photos (Amanda adds manually)
+├── DESIGN-SYSTEM.md            Full design spec
+├── HANDOFF.md                  Session history + working conventions
+├── IA.md                       Information architecture
+├── CHANGELOG.md                Change log
+└── README.md                   This file
 ```
 
-## Deployment
-Every push to `main` auto-deploys to Netlify.
+## Design System
 
-**To update a page:**
-1. Edit the file on GitHub (pencil icon)
-2. Paste updated code
+See `DESIGN-SYSTEM.md` for the full spec. Quick reference:
+
+| Token | Value | Use |
+|---|---|---|
+| Page cream | `#FAFAF7` | Page background |
+| Charcoal | `#1E2A3A` | Primary text, footer bg |
+| Blue | `#1753C5` | Metric numbers |
+| Bronze | `#9A6E3A` | Active nav, labels, accents |
+| Border | `#E8E4DC` | All dividers |
+| Headline font | Playfair Display 700/900 | All headings |
+| Body font | DM Sans 300/400/500/600 | All body + UI |
+
+## Deployment
+
+Every push to `main` triggers a Netlify deploy.
+
+**Amanda's update workflow:**
+1. Open the file on GitHub (pencil icon → edit)
+2. Select all → paste updated file content
 3. Commit to `main`
 4. Netlify deploys in ~60 seconds
 
-Amanda deploys by copy-pasting code directly into GitHub's web editor (no git CLI, no build step, no framework — every HTML file is standalone).
+Every HTML file is self-contained with inline `<style>`. No shared stylesheet, no build step.
 
-## Images
-Hero images for Impact Story cards should be screenshots of PDF cover slides:
-- `agentforce-hero.jpg` — TDX presentation slide 1 (blue/purple with robot)
-- `xd-team-hero.jpg` — BNSF Experience Design Team slide 1 (green with team photo)
-- `customer-cx-hero.jpg` — BNSF Digital Customer Experience slide 1 (locomotive)
+## Adding Content
 
-Place in the `images/` folder at root level. Not yet deployed — pages currently fall back to gradient placeholders via `onerror` on the `<img>` tags.
+**Photos:** Upload to `images/` via GitHub → add file. Reference as `images/filename.jpg`.
 
-## Design System
-See `DESIGN-SYSTEM.md` for full component documentation including:
-- Color palette
-- Typography
-- Button system (5 variants × 3 sizes × 4 states)
-- Impact Story cards
-- Page chrome (header, nav, footer)
+**PDF artifacts:** Upload to `docs/` via GitHub → add file. Reference as `docs/filename.pdf`.
+
+**New story sub-pages:** Use `stories/xd-transformation.html` as the template. Relative paths: `../index.html`, `../impact-stories.html`, `../images/`, `../docs/`.
 
 ## Contact
+
 Amanda Cornett Harris
 - Email: amandacornettharris@gmail.com
-- LinkedIn: linkedin.com/in/amandacharris
-- Phone: 918-208-8884
+- LinkedIn: [linkedin.com/in/amandacharris](https://www.linkedin.com/in/amandacharris/)

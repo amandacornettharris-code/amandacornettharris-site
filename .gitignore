@@ -1,0 +1,10 @@
+# Tooling — never commit
+.claude/
+.cursor/
+.superpowers/
+
+# Resume — sensitive, not for public repo
+Amanda_Cornett_Harris_Resume_June_2026.txt
+
+# OS
+.DS_Store
