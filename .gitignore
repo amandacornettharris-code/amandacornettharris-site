@@ -6,5 +6,8 @@
 # Resume — sensitive, not for public repo
 Amanda_Cornett_Harris_Resume_June_2026.txt
 
+# Story working files — internal source/fact-check notes (some reference confidential material); never publish
+.story-source/
+
 # OS
 .DS_Store

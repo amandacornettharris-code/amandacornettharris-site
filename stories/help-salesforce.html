@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Help.Salesforce.com — Amanda Cornett Harris</title>
+<meta name="description" content="How Salesforce Help — a navigation-first support site with 60M visits a year — became Salesforce's first agentic conversational experience and its live Agentforce Customer Zero proof point, in under a month."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-height:1.5}
+
+/* ── NAV ── */
+.nav{background:#FAFAF7;border-bottom:1px solid #E8E4DC;padding:0 48px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.nav-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1E2A3A;letter-spacing:-0.01em;padding:18px 0;text-decoration:none}
+.nav-links{display:flex}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;color:#8A8A7A;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:20px 24px;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a.active{color:#9A6E3A;border-bottom-color:#9A6E3A}
+.nav-links a:hover{color:#1E2A3A}
+
+/* ── BACK LINK ── */
+.back{max-width:780px;margin:0 auto;padding:32px 48px 0}
+.back a{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A8A7A;text-decoration:none;transition:color 0.2s}
+.back a:hover{color:#9A6E3A}
+.back a svg{transition:transform 0.2s}
+.back a:hover svg{transform:translateX(-3px)}
+
+/* ── STORY HERO ── */
+.story-hero{max-width:780px;margin:0 auto;padding:40px 48px 0}
+.story-co{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.story-title{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:#1E2A3A;line-height:1.08;letter-spacing:-0.025em;margin-bottom:24px}
+.story-title em{font-style:italic;color:#9A6E3A}
+.story-lede{font-family:'DM Sans',sans-serif;font-size:17px;color:#5A6678;line-height:1.8;font-weight:300;max-width:640px;margin-bottom:40px}
+
+/* ── METRICS BAR ── */
+.metrics-bar{border-top:1px solid #E8E4DC;border-bottom:1px solid #E8E4DC;padding:28px 48px;max-width:780px;margin:0 auto;display:flex;gap:48px}
+.metric{}
+.metric-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#1753C5;line-height:1;letter-spacing:-0.02em}
+.metric-lbl{font-family:'DM Sans',sans-serif;font-size:9px;color:#8A8A7A;letter-spacing:0.12em;text-transform:uppercase;margin-top:4px}
+
+/* ── STORY BODY ── */
+.story-body{max-width:780px;margin:0 auto;padding:48px 48px 0}
+.story-section{margin-bottom:48px}
+.section-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.section-heading{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1E2A3A;letter-spacing:-0.01em;margin-bottom:16px;line-height:1.2}
+.body-text{font-family:'DM Sans',sans-serif;font-size:15px;color:#5A6678;line-height:1.85;font-weight:300;margin-bottom:16px}
+.body-text strong{color:#1E2A3A;font-weight:600}
+.fn{font-size:0.7em;font-weight:500;color:#9A6E3A;text-decoration:none;vertical-align:super;line-height:0;padding:0 1px}
+.fn:hover{text-decoration:underline}
+
+/* ── PULL QUOTE ── */
+.pull{display:flex;gap:20px;align-items:flex-start;padding:32px 0;border-top:1px solid #F0EDE6;border-bottom:1px solid #F0EDE6;margin:32px 0}
+.pull-bar{width:3px;background:#9A6E3A;flex-shrink:0;align-self:stretch;min-height:48px}
+.pull-inner{}
+.pull-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#3D4F63;line-height:1.65;margin-bottom:8px}
+.pull-attr{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A6E3A}
+
+/* ── BEFORE / AFTER ── */
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E4DC;border:1px solid #E8E4DC;border-radius:8px;overflow:hidden;margin:24px 0}
+.ba-cell{background:#fff;padding:28px 32px}
+.ba-cell.after{background:#F5F2EC}
+.ba-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:12px}
+.ba-label.before-lbl{color:#B8B0A0}
+.ba-item{font-family:'DM Sans',sans-serif;font-size:13px;color:#5A6678;line-height:1.7;font-weight:300;display:flex;gap:8px;margin-bottom:6px}
+.ba-item::before{content:'→';color:#9A6E3A;font-weight:600;flex-shrink:0}
+.ba-cell.after .ba-item::before{content:'✓';color:#1753C5}
+
+/* ── ROLE / SERVICES GRID ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.service-chip{background:#fff;border:1px solid #E8E4DC;border-radius:6px;padding:16px 20px}
+.service-chip-name{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1E2A3A;margin-bottom:4px}
+.service-chip-desc{font-family:'DM Sans',sans-serif;font-size:10px;color:#8A8A7A;line-height:1.5}
+
+/* ── SNAPSHOT STATS (point-in-time) ── */
+.snapshot{background:#1E2A3A;border-radius:8px;padding:32px;margin:24px 0}
+.snapshot-caption{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#E8C89D;margin-bottom:20px;text-align:center}
+.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.snap-item{text-align:center}
+.snap-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#E8C89D;line-height:1}
+.snap-lbl{font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:0.12em;text-transform:uppercase;margin-top:6px}
+.snapshot-note{font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-align:center;margin-top:20px;font-style:italic;line-height:1.6}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;margin:24px 0 8px;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:#E8E4DC}
+.tl-item{position:relative;padding-bottom:28px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-28px;top:5px;width:12px;height:12px;border-radius:50%;background:#FAFAF7;border:2px solid #9A6E3A}
+.tl-item.turn::before{background:#1753C5;border-color:#1753C5}
+.tl-date{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A6E3A;margin-bottom:4px}
+.tl-label{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1E2A3A;line-height:1.25;margin-bottom:6px}
+.tl-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:#5A6678;line-height:1.7;font-weight:300}
+
+/* ── DECK LINK ── */
+.deck-cta{display:flex;align-items:center;gap:20px;background:#fff;border:1.5px solid #E8E4DC;border-radius:8px;padding:24px 28px;margin:16px 0;text-decoration:none;transition:all 0.25s;cursor:pointer}
+.deck-cta:hover{border-color:#9A6E3A;box-shadow:0 4px 20px rgba(154,110,58,0.1)}
+.deck-icon{width:44px;height:44px;background:#F5F2EC;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.deck-text{}
+.deck-text-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#9A6E3A;margin-bottom:4px}
+.deck-text-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1E2A3A;line-height:1.35}
+.deck-text-sub{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;margin-top:2px}
+.deck-arrow{margin-left:auto;font-family:'DM Sans',sans-serif;font-size:18px;color:#9A6E3A;align-self:flex-start}
+
+/* ── SOURCES / FOOTNOTES ── */
+.sources{border-top:1px solid #E8E4DC;padding-top:24px;margin-top:8px}
+.sources-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#8A8A7A;margin-bottom:14px}
+.sources ol{list-style:none;counter-reset:fn}
+.sources li{counter-increment:fn;font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;line-height:1.7;font-weight:300;padding-left:22px;position:relative;margin-bottom:6px}
+.sources li::before{content:counter(fn);position:absolute;left:0;top:0;font-size:9px;font-weight:600;color:#9A6E3A}
+.sources li.star::before{content:'*'}
+.sources li.star{color:#5A6678;margin-top:10px;padding-top:10px;border-top:1px dashed #E8E4DC}
+
+/* ── NAV BETWEEN STORIES ── */
+.story-nav{border-top:1px solid #E8E4DC;padding:32px 48px;max-width:780px;margin:48px auto 0;display:flex;justify-content:space-between;align-items:center}
+.story-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none}
+.story-nav-link.prev{align-items:flex-start}
+.story-nav-link.next{align-items:flex-end}
+.story-nav-dir{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#9A6E3A}
+.story-nav-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#1E2A3A;transition:color 0.2s}
+.story-nav-link:hover .story-nav-title{color:#9A6E3A}
+
+/* ── FOOTER ── */
+.site-footer{background:#1E2A3A;padding:48px;margin-top:64px}
+.footer-inner{max-width:780px;margin:0 auto}
+.footer-disclaimer{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.75;font-style:italic;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px}
+.footer-connect-label{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:16px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25)}
+.footer-links{display:flex;gap:24px;align-items:center}
+.footer-link{color:rgba(255,255,255,0.55);text-decoration:none;display:flex;align-items:center;transition:color 0.2s;font-family:'DM Sans',sans-serif;font-size:12px}
+.footer-link:hover{color:#fff}
+
+@media(max-width:768px){
+  .nav{padding:0 20px}
+  .back,.story-hero,.metrics-bar,.story-body,.story-nav{padding-left:20px;padding-right:20px}
+  .story-title{font-size:30px}
+  .metrics-bar{flex-wrap:wrap;gap:24px}
+  .before-after{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .snapshot-grid{grid-template-columns:1fr 1fr}
+  .site-footer{padding:32px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="../index.html" class="nav-name">Amanda Cornett Harris</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../impact-stories.html" class="active">Impact Stories</a>
+    <a href="../personal.html">Personal</a>
+  </div>
+</nav>
+
+<!-- BACK -->
+<div class="back">
+  <a href="../impact-stories.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    Back to Impact Stories
+  </a>
+</div>
+
+<!-- HERO -->
+<div class="story-hero">
+  <div class="story-co">Salesforce</div>
+  <h1 class="story-title">Help.Salesforce.com: From an Outdated Chat UI to Salesforce's First <em>Agentic Conversational Experience</em></h1>
+  <p class="story-lede">How a navigation-first support site — 60 million visits a year, 2 million support cases, a chat feature nobody built for — became Salesforce's live proof point for Agentforce, in under a month.</p>
+</div>
+
+<!-- METRICS (cumulative / lifetime) -->
+<div class="metrics-bar">
+  <div class="metric"><div class="metric-num">82%</div><div class="metric-lbl">Self-Service Resolution</div></div>
+  <div class="metric"><div class="metric-num">2.2M+</div><div class="metric-lbl">AI-Powered Interactions</div></div>
+  <div class="metric"><div class="metric-num">15</div><div class="metric-lbl">Person Founding Team</div></div>
+  <div class="metric"><div class="metric-num">&lt;1mo</div><div class="metric-lbl">Concept to Launch</div></div>
+</div>
+
+<!-- BODY -->
+<div class="story-body">
+
+  <div class="story-section">
+    <div class="section-label">The Starting Point</div>
+    <h2 class="section-heading">Built for a different era of self-service.</h2>
+    <p class="body-text">Salesforce Help wasn't broken, exactly — it was just built for a different era of self-service. Every year, customers made <strong>60 million visits</strong>, sifted through <strong>755,000 support articles</strong>, and still opened <strong>2 million support cases</strong> because self-service didn't get them to an answer. Chat existed on the site, but it was a secondary feature: limited in function, buried in the experience, disconnected from where customers actually needed help.<a href="#fn1" class="fn">1</a></p>
+    <p class="body-text">That was the state of things through most of 2024.</p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Insight — Months Before Anyone Asked</div>
+    <h2 class="section-heading">Conversation, not navigation, would be the interface.</h2>
+    <p class="body-text">Working with our Product VP (now SVP) on the Service Cloud design team, I identified early that conversation — not navigation — would be the primary way customers experienced and adopted Agentforce. Chat wasn't a feature to incrementally improve; it was going to be the interface Agentforce got judged by, whether we were ready or not.<a href="#fn2" class="fn">2</a></p>
+    <p class="body-text">In late October 2024, I led a deep product and design sprint that produced designs, a point of view, and committed product plans for a conversation-first, agent-forward help experience — and we communicated that plan widely before Salesforce's own internal Agentforce Kick-Off.<a href="#fn2" class="fn">2</a></p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Turn — November 5, 2024</div>
+    <h2 class="section-heading">Customer Zero, and five days on the clock.</h2>
+    <p class="body-text">At Agentforce Kick-Off (AKO), Marc Benioff declared that Help.Salesforce.com would become Salesforce's live "Customer Zero" showcase — the company's own proof point for Agentforce, in front of customers and the market.<a href="#fn2" class="fn">2</a></p>
+    <p class="body-text">The parameters were blunt: redesign the UI, prioritize Customer Zero — and you've got <strong>5 days</strong> to lock design and specs.<a href="#fn3" class="fn">3</a> A cross-functional team formed almost overnight: the MIAW (Messaging In-App &amp; Web) team and the Customer Success team, previously working in separate lanes, became — in the words of the project retro — "one team, overnight."<a href="#fn4" class="fn">4</a> I led design for that 15-person founding group.<a href="#fn5" class="fn">5</a></p>
+
+    <div class="pull">
+      <div class="pull-bar"></div>
+      <div class="pull-inner">
+        <div class="pull-text">"Integrate Agentforce into Salesforce Help AND make self-service easier for customers experiencing an issue."</div>
+        <div class="pull-attr">Leadership's ask, verbatim — Project retrospective</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Build — 5 Days to Spec, 1 Month to Ship</div>
+    <h2 class="section-heading">Deliberately simple tooling. Work done in the open.</h2>
+    <p class="body-text">The team kept tooling deliberately simple: <strong>Figma</strong> for design specs, a shared <strong>Google Sheet</strong> ("Chat x Help Prioritization") to sequence feature work, and a single <strong>Slack channel</strong> as "our everything place" — where design, product, and engineering worked in the open, in real time.<a href="#fn6" class="fn">6</a></p>
+    <p class="body-text">I described my own role across three levels, reflected in the project retrospective:<a href="#fn7" class="fn">7</a></p>
+    <div class="services-grid">
+      <div class="service-chip"><div class="service-chip-name">As an individual</div><div class="service-chip-desc">Understand the technology, form an informed opinion, improve the end-to-end experience anywhere I could — in both breadth and depth.</div></div>
+      <div class="service-chip"><div class="service-chip-name">As a people leader</div><div class="service-chip-desc">Empower the team's Messaging Lead Designer, unblock the critical path, check titles at the door and work as a coalition.</div></div>
+      <div class="service-chip"><div class="service-chip-name">As an enterprise influencer</div><div class="service-chip-desc">Communicate up, down, and sideways; find the smartest people and get out of their way; forge partnerships across orgs; own executive summary and escalation.</div></div>
+    </div>
+    <p class="body-text">From concept to shipped product, in under a month — ahead of Investor Day.<a href="#fn2" class="fn">2</a></p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">The Outcome</div>
+    <h2 class="section-heading">A search box became a conversation.</h2>
+    <p class="body-text">The rebuilt experience replaced a static "how can we help?" search box with a conversational Agentforce interface, front and center on the homepage.<a href="#fn8" class="fn">8</a></p>
+
+    <div class="before-after">
+      <div class="ba-cell">
+        <div class="ba-label before-lbl">Before</div>
+        <div class="ba-item">Navigation-first support site</div>
+        <div class="ba-item">Static "how can we help?" search box</div>
+        <div class="ba-item">Chat limited, buried, disconnected</div>
+        <div class="ba-item">755K articles to sift through</div>
+        <div class="ba-item">2M support cases a year</div>
+      </div>
+      <div class="ba-cell after">
+        <div class="ba-label">After</div>
+        <div class="ba-item">Conversation-first experience</div>
+        <div class="ba-item">Agentforce interface, front and center</div>
+        <div class="ba-item">Chat as the primary interface</div>
+        <div class="ba-item">Answers surfaced through dialogue</div>
+        <div class="ba-item">82% resolved through self-service</div>
+      </div>
+    </div>
+
+    <p class="body-text">In the weeks after launch, the live site tracked its own adoption in real time — climbing across two point-in-time snapshots as adoption continued:<a href="#fn9" class="fn">9</a></p>
+
+    <div class="snapshot">
+      <div class="snapshot-caption">Point-in-time · Live site counters</div>
+      <div class="snapshot-grid">
+        <div class="snap-item"><div class="snap-num">397,646 → 421,891</div><div class="snap-lbl">Agentforce Conversations</div></div>
+        <div class="snap-item"><div class="snap-num">534,794 → 550,638</div><div class="snap-lbl">Support Requests Handled by Humans</div></div>
+      </div>
+      <div class="snapshot-note">These are point-in-time snapshots from the live page counter — distinct from the cumulative lifetime figures below.</div>
+    </div>
+
+    <p class="body-text">Measured cumulatively, the rebuilt experience now drives <strong>82% self-service resolution</strong> across <strong>2.2M+ AI-powered interactions</strong> — lifetime figures independently confirmed in Bernard Slowey's June all-hands.<a href="#fn10" class="fn">10</a></p>
+
+    <p class="body-text">The underlying strategy and framework — reframing the experience around five mindset shifts (navigation→conversation, content management→knowledge engineering, siloed specialist→cross-functional coalition, fixed UI→flexible engagement, building features→designing outcomes) — reached customers directly at TDX. <strong>I co-authored that presentation for the team to deliver on stage;</strong> Emily Winslow and Nimma Bhusri presented it.<a href="#fn11" class="fn">11</a></p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">What Came Next</div>
+    <h2 class="section-heading">The work didn't stop at launch.</h2>
+    <p class="body-text">Amanda continued as a named co-author on Salesforce's forward-looking roadmap for the next generation of chat and conversational experiences.<a href="#fnstar" class="fn">*</a></p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">Reflection</div>
+    <h2 class="section-heading">A bet on how AI products actually get adopted.</h2>
+    <p class="body-text">This wasn't a redesign. It was a bet on how AI products actually get adopted — made months before the moment demanded it, then executed at founding-team speed once it did. Frictionless self-service activation, rapid iteration, and treating a help center as a growth engine rather than a cost center: the same instincts that drive product-led growth in consumer and B2B SaaS, applied here to reshape how millions of enterprise customers experienced AI for the first time.</p>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">Timeline</div>
+    <h2 class="section-heading">From navigation site to Customer Zero.</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Pre-2024 · Ongoing</div>
+        <div class="tl-label">A traditional navigation-based site</div>
+        <div class="tl-desc">Salesforce Help operates as a navigation-first site: 60M visits/yr, 755K articles, 2M cases/yr. Chat exists but is limited, buried, and disconnected from user need.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Prior to Oct 2024</div>
+        <div class="tl-label">The insight forms</div>
+        <div class="tl-desc">Working with the Product VP (now SVP), Amanda identifies conversation — not navigation — as the likely primary interface for Agentforce adoption.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Late Oct 2024</div>
+        <div class="tl-label">A deep product &amp; design sprint</div>
+        <div class="tl-desc">Amanda leads a sprint producing designs, vision, and committed product plans for a conversation-first help experience. Plans communicated widely ahead of AKO.</div>
+      </div>
+      <div class="tl-item turn">
+        <div class="tl-date">Nov 5, 2024 · Agentforce Kick-Off</div>
+        <div class="tl-label">Benioff names it "Customer Zero"</div>
+        <div class="tl-desc">Marc Benioff declares Help.Salesforce.com will be Agentforce's live "Customer Zero" showcase — the company's own proof point.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Nov 2024 · Immediately after</div>
+        <div class="tl-label">Five days to spec; one team overnight</div>
+        <div class="tl-desc">Leadership's ask formalized: integrate Agentforce, redesign the UI, prioritize Customer Zero — 5 days to spec. The MIAW team and Customer Success team merge into one team overnight.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Nov 2024 · Sprint window</div>
+        <div class="tl-label">15-person founding team builds</div>
+        <div class="tl-desc">A 15-person founding team (Amanda leading design) works from concept to shipped product. Tooling kept deliberately simple: Figma, Google Sheets, Slack.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">~Nov–Dec 2024 · Under 1 month</div>
+        <div class="tl-label">Launch — ahead of Investor Day</div>
+        <div class="tl-desc">The conversation-first, Agentforce-powered chat experience launches on Help.Salesforce.com, ahead of Investor Day.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Post-launch</div>
+        <div class="tl-label">Adoption climbs, tracked live</div>
+        <div class="tl-desc">The live site shows adoption climbing across two point-in-time counter snapshots (397,646→421,891 Agentforce conversations; 534,794→550,638 support requests handled by humans).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">TDX 2025</div>
+        <div class="tl-label">The framework reaches customers</div>
+        <div class="tl-desc">The 5 Mindset Shifts framework built from this work is presented to customers at TDX. Amanda co-authored the presentation; Emily Winslow and Nimma Bhusri delivered it on stage.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">June all-hands</div>
+        <div class="tl-label">Cumulative results confirmed</div>
+        <div class="tl-desc">Bernard Slowey's all-hands independently confirms 82% self-service resolution and 2.2M+ AI-powered interactions enabled — cumulative lifetime figures.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">Source Material</div>
+    <h2 class="section-heading">The record behind the story.</h2>
+    <a href="../docs/help-salesforce-deck.pdf" target="_blank" rel="noreferrer" class="deck-cta">
+      <div class="deck-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="deck-text">
+        <div class="deck-text-label">Source Document</div>
+        <div class="deck-text-name">Impact Story: Help.Salesforce.com</div>
+        <div class="deck-text-sub">Salesforce · PDF</div>
+      </div>
+      <div class="deck-arrow">↗</div>
+    </a>
+    <a href="../docs/5-key-mindset-shifts.pdf" target="_blank" rel="noreferrer" class="deck-cta">
+      <div class="deck-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="deck-text">
+        <div class="deck-text-label">Source Document</div>
+        <div class="deck-text-name">5 Key Mindset Shifts For Building Agentforce Experiences</div>
+        <div class="deck-text-sub">Presented at TDX · PDF</div>
+      </div>
+      <div class="deck-arrow">↗</div>
+    </a>
+
+    <div class="sources">
+      <div class="sources-label">Sources</div>
+      <ol>
+        <li id="fn1">Baseline metrics — Impact Story deck; Mindset Shifts deck.</li>
+        <li id="fn2">Amanda, direct account.</li>
+        <li id="fn3">Impact Story deck; Mindset Shifts deck (verbatim, "5 days").</li>
+        <li id="fn4">Project retrospective — "one team, overnight."</li>
+        <li id="fn5">Résumé line — "15-person founding SWAT team."</li>
+        <li id="fn6">Impact Story deck; Mindset Shifts deck (tooling).</li>
+        <li id="fn7">Project retrospective — "My Part," Amanda's own words.</li>
+        <li id="fn8">Impact Story deck — before/after screenshots.</li>
+        <li id="fn9">Impact Story deck; Mindset Shifts deck — live-counter snapshots.</li>
+        <li id="fn10">Résumé line + Bernard Slowey June all-hands — cumulative figures.</li>
+        <li id="fn11">Mindset Shifts deck (TDX-branded, speaker slide); Amanda, direct (co-authored the presentation).</li>
+        <li id="fnstar" class="star">This forward-looking roadmap work is documented in material marked Confidential and available for Salesforce internal sharing only. It contains unreleased product roadmap concepts and is intentionally not linked, hosted, or described in specifics on this page.</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<!-- STORY NAVIGATION -->
+<div class="story-nav">
+  <a href="../impact-stories.html" class="story-nav-link prev">
+    <span class="story-nav-dir">← All Stories</span>
+    <span class="story-nav-title">Impact Stories</span>
+  </a>
+  <a href="command-center.html" class="story-nav-link next">
+    <span class="story-nav-dir">Next →</span>
+    <span class="story-nav-title">Command Center</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-disclaimer">All work examples shown are accessible via public domain or are summative communications and do not compromise protected company IP.</p>
+    <div class="footer-connect-label">Connect</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Amanda Cornett Harris</span>
+      <div class="footer-links">
+        <a href="mailto:amandacornettharris@gmail.com" class="footer-link">amandacornettharris@gmail.com</a>
+        <a href="https://www.linkedin.com/in/amandacharris/" target="_blank" rel="noreferrer" class="footer-link" aria-label="LinkedIn" style="margin-left:8px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
