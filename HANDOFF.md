@@ -1,13 +1,25 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
-Last updated: 2026-07-15. All four main pages are live on the editorial design.
-The remaining work is the story sub-pages (7 unbuilt; Help.Salesforce.com now links to a
-deck PDF instead of a sub-page).
+Last updated: 2026-07-16. All four main pages are live on the editorial design.
+Two story sub-pages are now built (`xd-transformation.html`, `help-salesforce.html`);
+the remaining 6 are unbuilt.
 
-**Deck-link pattern:** A featured card's "Read the story" CTA can point to a PDF in `docs/`
-instead of a sub-page — see the Help.Salesforce.com card (`docs/help-salesforce-deck.pdf`,
-opens in a new tab via `target="_blank" rel="noreferrer"`). Use hyphenated, space-free
-filenames in `docs/` so hrefs need no URL-encoding. When Amanda uploads via GitHub's web
-editor, confirm the branch is `main` and the file lands in `docs/`.
+**Deck-link pattern (available, not currently used by any card):** A featured card's
+"Read the story" CTA *can* point to a PDF in `docs/` instead of a sub-page, opening in a
+new tab via `target="_blank" rel="noreferrer"`. Use hyphenated, space-free filenames in
+`docs/` so hrefs need no URL-encoding. The Help.Salesforce.com card briefly used this, but
+now links to the built `stories/help-salesforce.html` sub-page; the deck lives on that page
+under "Source Material" instead. When Amanda uploads a PDF via GitHub's web editor, confirm
+the branch is `main` and the file lands in `docs/`.
+
+**Featured-card image convention:** All three featured "spotlight" cards keep their hero
+image on the **same (right) edge** — the `nth-child(even)` grid-swap was removed so headlines
+align down one left axis (lower eye-tracking load). Real product screenshots go through
+`img.story-photo` (`object-fit:cover; object-position:center`). Because the card image panel
+is narrow/portrait (~340px) and screenshots are wide, don't drop a raw browser grab in — it
+crops to junk. Instead: strip all browser/site chrome, then compose the product hero as a
+rounded, shadowed frame centered on a matching brand gradient (see
+`images/help-salesforce-hero.png`, built from the deck's slide 1 via PIL). The 3 spotlight
+cards are DUPLICATED verbatim in BOTH `index.html` and `impact-stories.html` — edit both.
 
 ---
 
@@ -50,7 +62,7 @@ amandacornettharris-site/
 ├── personal.html               ✅ LIVE — editorial design
 ├── stories/
 │   ├── xd-transformation.html  ✅ BUILT — editorial design, live (template for the rest)
-│   ├── help-salesforce.html    ⏭️ Superseded — card links to docs/help-salesforce-deck.pdf, not this page
+│   ├── help-salesforce.html    ✅ BUILT — card links here; deck under "Source Material"
 │   ├── command-center.html     ⚠️ Not built — linked from index + impact-stories
 │   ├── bnsf-digital-cx.html    ⚠️ Not built — linked from index + impact-stories
 │   ├── trackathon.html         ⚠️ Not built — linked from impact-stories
@@ -60,9 +72,11 @@ amandacornettharris-site/
 │   └── hfrei-reduction.html    ⚠️ Not built — content available (PDF pg 6)
 ├── docs/
 │   ├── SITE-ARCHITECTURE.md    ✅ Current — full page/nav/file structure reference
-│   ├── help-salesforce-deck.pdf    ✅ In repo — the Help.Salesforce.com story deck (10 pages)
+│   ├── help-salesforce-deck.pdf    ✅ In repo — Help.Salesforce.com Impact Story deck (10 pages); linked from the sub-page
+│   ├── 5-key-mindset-shifts.pdf    ✅ In repo — TDX deck; linked from Help.SF sub-page "Source Material"
 │   └── xd-transformation-deck.pdf  ← Amanda must add this manually to repo
-├── images/                     ← All photos go here; currently empty
+├── images/
+│   └── help-salesforce-hero.png    ✅ Card hero for Help.SF (framed slide-1 product shot on gradient)
 ├── DESIGN-SYSTEM.md            ✅ Current — full editorial design spec
 ├── HANDOFF.md                  This file
 ├── IA.md                       ✅ Current — information architecture
@@ -112,11 +126,12 @@ impact-stories, personal). Since the initial redesign, two follow-up changes shi
 **What IS done:**
 - All four main pages — editorial design, live
 - `stories/xd-transformation.html` — full story sub-page (canonical template)
+- `stories/help-salesforce.html` — full story sub-page (Help.Salesforce.com)
 - `DESIGN-SYSTEM.md`, `docs/SITE-ARCHITECTURE.md`, `IA.md` — current
 
 **What still needs to be built:**
-- The 8 unbuilt story sub-pages (see §6). All are already linked from
-  impact-stories.html (and three from index.html), so those links currently 404.
+- The 6 unbuilt story sub-pages (see §6). All are already linked from
+  impact-stories.html (and two from index.html), so those links currently 404.
 
 Use `stories/xd-transformation.html` as the canonical template for story sub-pages.
 Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
@@ -127,7 +142,7 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 
 | File | Story | Status | Notes |
 |---|---|---|---|
-| `stories/help-salesforce.html` | Help.Salesforce.com | ⏭️ Not needed | Featured card's "Read the story" links to `docs/help-salesforce-deck.pdf` (new tab) instead of a sub-page. Link lives in BOTH index.html and impact-stories.html. |
+| `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template. Featured card (in BOTH index + impact-stories) links here. Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; keep cumulative 82%/2.2M+ visually distinct from point-in-time counters (397,646/534,794, 421,891/550,638). |
 | `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card |
 | `stories/bnsf-digital-cx.html` | BNSF Digital CX | ⚠️ Build needed | BNSF; featured card |
 | `stories/trackathon.html` | Trackathon | ⚠️ Build needed | BNSF |
@@ -157,7 +172,8 @@ bnsf-dex → xd-transformation → account-status → hfrei-reduction
 
 - [ ] PDF: `docs/xd-transformation-deck.pdf` — must be added to GitHub repo manually
 - [ ] Account Status story: company name, what she did, result/metric
-- [ ] Product screenshots for impact story cards (card image placeholders are gray boxes)
+- [ ] Product screenshots for the Command Center + BNSF cards (still CSS placeholders; the
+      Help.Salesforce.com card now uses a real framed screenshot — see image convention in intro)
 - [ ] Professional headshot (about page, homepage)
 - [ ] Personal page photos: horses, community, faith, family, outdoors
 
