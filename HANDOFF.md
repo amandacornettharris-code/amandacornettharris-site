@@ -1,7 +1,8 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
 Last updated: 2026-07-16. All four main pages are live on the editorial design.
 Two story sub-pages are now built (`xd-transformation.html`, `help-salesforce.html`);
-the remaining 6 are unbuilt.
+the remaining 6 are unbuilt. The Help.Salesforce.com sub-page no longer carries a
+Sources/footnotes section (removed) — its metrics are the site's live public counters.
 
 **Deck-link pattern (available, not currently used by any card):** A featured card's
 "Read the story" CTA *can* point to a PDF in `docs/` instead of a sub-page, opening in a
@@ -142,7 +143,7 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 
 | File | Story | Status | Notes |
 |---|---|---|---|
-| `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template. Featured card (in BOTH index + impact-stories) links here. Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; keep cumulative 82%/2.2M+ visually distinct from point-in-time counters (397,646/534,794, 421,891/550,638). |
+| `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template. Featured card (in BOTH index + impact-stories) links here. Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Metrics now use the site's live public counters: **4.75M+ Agentforce conversations** and **2.3M+ requests handled by humans** (chat + Agentforce, cumulative since October 2024, "as of July '26" disclaimer). The Sources/footnotes section was removed. Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; **NEVER reintroduce the 82% self-service / co-sourced 2.2M+ stat — internal evidence shows it's contrived and it was deliberately removed.** |
 | `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card |
 | `stories/bnsf-digital-cx.html` | BNSF Digital CX | ⚠️ Build needed | BNSF; featured card |
 | `stories/trackathon.html` | Trackathon | ⚠️ Build needed | BNSF |
