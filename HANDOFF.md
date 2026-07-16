@@ -1,5 +1,6 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
-Last updated: 2026-07-14. Reflects the editorial redesign completed in the July 2026 sessions.
+Last updated: 2026-07-15. All four main pages are live on the editorial design.
+The remaining work is the story sub-pages (8 of 9 unbuilt).
 
 ---
 
@@ -36,20 +37,20 @@ bio/experience content. Site should complement it, not duplicate verbatim.
 
 ```
 amandacornettharris-site/
-├── index.html                  ⚠️ OLD design — needs rebuild to editorial spec
-├── about.html                  ⚠️ OLD design — needs rebuild to editorial spec
-├── impact-stories.html         ⚠️ OLD design — needs rebuild to editorial spec
-├── personal.html               ⚠️ OLD design — needs rebuild to editorial spec
+├── index.html                  ✅ LIVE — editorial design
+├── about.html                  ✅ LIVE — editorial design + testimonial carousel
+├── impact-stories.html         ✅ LIVE — editorial design
+├── personal.html               ✅ LIVE — editorial design
 ├── stories/
-│   ├── xd-transformation.html  ✅ BUILT — editorial design, live
-│   ├── help-salesforce.html    ⚠️ Stub or missing — needs build
-│   ├── command-center.html     ⚠️ Stub or missing — needs build
-│   ├── bnsf-digital-cx.html    ⚠️ Stub or missing — needs build
-│   ├── trackathon.html         ⚠️ Stub or missing — needs build
-│   ├── rail-recovery.html      ⚠️ Stub or missing — needs build
-│   ├── bnsf-dex.html           ⚠️ Stub or missing — needs build
-│   ├── account-status.html     ⚠️ Content TBD — Amanda has not provided details
-│   └── hfrei-reduction.html    ⚠️ Content available (PDF pg 6) — needs build
+│   ├── xd-transformation.html  ✅ BUILT — editorial design, live (template for the rest)
+│   ├── help-salesforce.html    ⚠️ Not built — linked from index + impact-stories
+│   ├── command-center.html     ⚠️ Not built — linked from index + impact-stories
+│   ├── bnsf-digital-cx.html    ⚠️ Not built — linked from index + impact-stories
+│   ├── trackathon.html         ⚠️ Not built — linked from impact-stories
+│   ├── rail-recovery.html      ⚠️ Not built — linked from impact-stories
+│   ├── bnsf-dex.html           ⚠️ Not built — linked from impact-stories
+│   ├── account-status.html     ⚠️ Not built — content TBD (Amanda to provide)
+│   └── hfrei-reduction.html    ⚠️ Not built — content available (PDF pg 6)
 ├── docs/
 │   ├── SITE-ARCHITECTURE.md    ✅ Current — full page/nav/file structure reference
 │   └── xd-transformation-deck.pdf  ← Amanda must add this manually to repo
@@ -93,27 +94,21 @@ visible focus rings on all interactive elements.
 
 ---
 
-## 5. Current state: the redesign is in mockups, not live HTML
+## 5. Current state: main pages live, story sub-pages are the remaining work
 
-The editorial redesign was completed as browser companion mockups and one story sub-page.
-**The four main HTML files (index, about, impact-stories, personal) still have the old design.**
+The editorial redesign is **live across all four main pages** (index, about,
+impact-stories, personal). Since the initial redesign, two follow-up changes shipped:
+- **Testimonial carousel on `about.html`** — Broadsheet style with blue accent
+- **Mobile nav** — stacked layout + active underline, applied to all pages
 
-**What IS done (new editorial design):**
-- `stories/xd-transformation.html` — full story sub-page, ready to paste
-- `DESIGN-SYSTEM.md` — fully rewritten for editorial direction
-- `docs/SITE-ARCHITECTURE.md` — new, documents full site structure
-- `IA.md` — updated for new architecture
+**What IS done:**
+- All four main pages — editorial design, live
+- `stories/xd-transformation.html` — full story sub-page (canonical template)
+- `DESIGN-SYSTEM.md`, `docs/SITE-ARCHITECTURE.md`, `IA.md` — current
 
-**What still needs to be built (in priority order):**
-1. `impact-stories.html` — 3 featured cards + 6 grid cards (mockup exists as reference)
-2. `index.html` — editorial hero, metrics, pull quote, 3 featured work cards
-3. `about.html` — bio, visual timeline, How I Work section
-4. `personal.html` — 5 photo sections (horses, community, faith, family, outdoors)
-5. 8 remaining story sub-pages (see §6)
-
-**Reference mockups** (in browser companion session, not on disk):
-- Homepage mockup: hero grid, Benioff pull quote, 3 work cards
-- Impact stories mockup: featured alternating layout + 6-card grid
+**What still needs to be built:**
+- The 8 unbuilt story sub-pages (see §6). All are already linked from
+  impact-stories.html (and three from index.html), so those links currently 404.
 
 Use `stories/xd-transformation.html` as the canonical template for story sub-pages.
 Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
