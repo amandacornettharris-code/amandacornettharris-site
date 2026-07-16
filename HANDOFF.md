@@ -164,8 +164,11 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 - Footer identical to all pages
 
 **Story navigation order** (for prev/next links):
-help-salesforce → command-center → bnsf-digital-cx → trackathon → rail-recovery →
+command-center → help-salesforce → bnsf-digital-cx → trackathon → rail-recovery →
 bnsf-dex → xd-transformation → account-status → hfrei-reduction
+
+Featured-card order (index.html + impact-stories.html): Command Center first, then
+Help.Salesforce.com, then BNSF Digital CX — Command Center is the more recent work.
 
 ---
 
