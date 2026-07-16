@@ -1,6 +1,13 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
 Last updated: 2026-07-15. All four main pages are live on the editorial design.
-The remaining work is the story sub-pages (8 of 9 unbuilt).
+The remaining work is the story sub-pages (7 unbuilt; Help.Salesforce.com now links to a
+deck PDF instead of a sub-page).
+
+**Deck-link pattern:** A featured card's "Read the story" CTA can point to a PDF in `docs/`
+instead of a sub-page — see the Help.Salesforce.com card (`docs/help-salesforce-deck.pdf`,
+opens in a new tab via `target="_blank" rel="noreferrer"`). Use hyphenated, space-free
+filenames in `docs/` so hrefs need no URL-encoding. When Amanda uploads via GitHub's web
+editor, confirm the branch is `main` and the file lands in `docs/`.
 
 ---
 
@@ -43,7 +50,7 @@ amandacornettharris-site/
 ├── personal.html               ✅ LIVE — editorial design
 ├── stories/
 │   ├── xd-transformation.html  ✅ BUILT — editorial design, live (template for the rest)
-│   ├── help-salesforce.html    ⚠️ Not built — linked from index + impact-stories
+│   ├── help-salesforce.html    ⏭️ Superseded — card links to docs/help-salesforce-deck.pdf, not this page
 │   ├── command-center.html     ⚠️ Not built — linked from index + impact-stories
 │   ├── bnsf-digital-cx.html    ⚠️ Not built — linked from index + impact-stories
 │   ├── trackathon.html         ⚠️ Not built — linked from impact-stories
@@ -53,6 +60,7 @@ amandacornettharris-site/
 │   └── hfrei-reduction.html    ⚠️ Not built — content available (PDF pg 6)
 ├── docs/
 │   ├── SITE-ARCHITECTURE.md    ✅ Current — full page/nav/file structure reference
+│   ├── help-salesforce-deck.pdf    ✅ In repo — the Help.Salesforce.com story deck (10 pages)
 │   └── xd-transformation-deck.pdf  ← Amanda must add this manually to repo
 ├── images/                     ← All photos go here; currently empty
 ├── DESIGN-SYSTEM.md            ✅ Current — full editorial design spec
@@ -119,7 +127,7 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 
 | File | Story | Status | Notes |
 |---|---|---|---|
-| `stories/help-salesforce.html` | Help.Salesforce.com | ⚠️ Build needed | Salesforce; featured card |
+| `stories/help-salesforce.html` | Help.Salesforce.com | ⏭️ Not needed | Featured card's "Read the story" links to `docs/help-salesforce-deck.pdf` (new tab) instead of a sub-page. Link lives in BOTH index.html and impact-stories.html. |
 | `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card |
 | `stories/bnsf-digital-cx.html` | BNSF Digital CX | ⚠️ Build needed | BNSF; featured card |
 | `stories/trackathon.html` | Trackathon | ⚠️ Build needed | BNSF |
