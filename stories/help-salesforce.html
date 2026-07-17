@@ -55,41 +55,14 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
 .pull-text{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#3D4F63;line-height:1.65;margin-bottom:8px}
 .pull-attr{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A6E3A}
 
-/* ── BEFORE / AFTER ── */
-.before-after{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E4DC;border:1px solid #E8E4DC;border-radius:8px;overflow:hidden;margin:24px 0}
-.ba-cell{background:#fff;padding:28px 32px}
-.ba-cell.after{background:#F5F2EC}
-.ba-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9A6E3A;margin-bottom:12px}
-.ba-label.before-lbl{color:#B8B0A0}
-.ba-item{font-family:'DM Sans',sans-serif;font-size:13px;color:#5A6678;line-height:1.7;font-weight:300;display:flex;gap:8px;margin-bottom:6px}
-.ba-item::before{content:'→';color:#9A6E3A;font-weight:600;flex-shrink:0}
-.ba-cell.after .ba-item::before{content:'✓';color:#1753C5}
-
-/* ── ROLE / SERVICES GRID ── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
-.service-chip{background:#fff;border:1px solid #E8E4DC;border-radius:6px;padding:16px 20px}
-.service-chip-name{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;color:#1E2A3A;margin-bottom:4px}
-.service-chip-desc{font-family:'DM Sans',sans-serif;font-size:10px;color:#8A8A7A;line-height:1.5}
-
-/* ── SNAPSHOT STATS (point-in-time) ── */
-.snapshot{background:#1E2A3A;border-radius:8px;padding:32px;margin:24px 0}
-.snapshot-caption{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#E8C89D;margin-bottom:20px;text-align:center}
-.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.snap-item{text-align:center}
-.snap-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#E8C89D;line-height:1}
-.snap-lbl{font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:0.12em;text-transform:uppercase;margin-top:6px}
-.snapshot-note{font-family:'DM Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-align:center;margin-top:20px;font-style:italic;line-height:1.6}
-
-/* ── TIMELINE ── */
-.timeline{position:relative;margin:24px 0 8px;padding-left:28px}
-.timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:#E8E4DC}
-.tl-item{position:relative;padding-bottom:28px}
-.tl-item:last-child{padding-bottom:0}
-.tl-item::before{content:'';position:absolute;left:-28px;top:5px;width:12px;height:12px;border-radius:50%;background:#FAFAF7;border:2px solid #9A6E3A}
-.tl-item.turn::before{background:#1753C5;border-color:#1753C5}
-.tl-date{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9A6E3A;margin-bottom:4px}
-.tl-label{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1E2A3A;line-height:1.25;margin-bottom:6px}
-.tl-desc{font-family:'DM Sans',sans-serif;font-size:13px;color:#5A6678;line-height:1.7;font-weight:300}
+/* ── FIGURES (framed, on cream) ── */
+.figure{margin:32px 0;border:1px solid #E8E4DC;border-radius:10px;background:#fff;padding:14px;box-shadow:0 6px 28px rgba(30,42,58,0.05)}
+.figure img{width:100%;display:block;border-radius:5px;border:1px solid #F0EDE6}
+.fig-tag{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#9A6E3A;margin-bottom:10px}
+.fig-tag.before-tag{color:#B8B0A0}
+.figcap{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;line-height:1.6;margin-top:12px;font-style:italic;letter-spacing:0.02em}
+.figure-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
+.figure-pair .figure{margin:0}
 
 /* ── DECK LINK ── */
 .deck-cta{display:flex;align-items:center;gap:20px;background:#fff;border:1.5px solid #E8E4DC;border-radius:8px;padding:24px 28px;margin:16px 0;text-decoration:none;transition:all 0.25s;cursor:pointer}
@@ -126,9 +99,7 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
   .back,.story-hero,.metrics-bar,.story-body,.story-nav{padding-left:20px;padding-right:20px}
   .story-title{font-size:30px}
   .metrics-bar{flex-wrap:wrap;gap:24px}
-  .before-after{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
-  .snapshot-grid{grid-template-columns:1fr 1fr}
+  .figure-pair{grid-template-columns:1fr;gap:24px}
   .site-footer{padding:32px 20px}
 }
 </style>
@@ -176,22 +147,25 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
   <div class="story-section">
     <div class="section-label">The Starting Point</div>
     <h2 class="section-heading">Built for a different era of self-service.</h2>
-    <p class="body-text">Salesforce Help wasn't broken, exactly — it was just built for a different era of self-service. Every year, customers made <strong>60 million visits</strong>, sifted through <strong>755,000 support articles</strong>, and still opened <strong>2 million support cases</strong> because self-service didn't get them to an answer. Chat existed on the site, but it was a secondary feature: limited in function, buried in the experience, disconnected from where customers actually needed help.</p>
-    <p class="body-text">That was the state of things through most of 2024.</p>
+    <p class="body-text">Salesforce Help wasn't broken — it was built for a different era. Customers made <strong>60 million visits a year</strong>, sifted through 755,000 articles, and still opened <strong>2 million support cases</strong> because self-service didn't get them to an answer. Chat existed, but it was buried, limited, and disconnected from where help was actually needed.</p>
   </div>
 
   <div class="story-section">
-    <div class="section-label">The Insight — Months Before Anyone Asked</div>
+    <div class="section-label">The Insight</div>
     <h2 class="section-heading">Conversation, not navigation, would be the interface.</h2>
-    <p class="body-text">Working with our Product VP (now SVP) on the Service Cloud design team, I identified early that conversation — not navigation — would be the primary way customers experienced and adopted Agentforce. Chat wasn't a feature to incrementally improve; it was going to be the interface Agentforce got judged by, whether we were ready or not.</p>
-    <p class="body-text">In late October 2024, I led a deep product and design sprint that produced designs, a point of view, and committed product plans for a conversation-first, agent-forward help experience — and we communicated that plan widely before Salesforce's own internal Agentforce Kick-Off.</p>
+    <p class="body-text">Working with our Product VP (now SVP), I called it early: conversation — not navigation — would be how customers experienced and judged Agentforce. In late October 2024, I led a design sprint that produced the vision, designs, and committed plans for a conversation-first help experience, and socialized them widely — before anyone asked for it.</p>
+
+    <div class="figure">
+      <div class="fig-tag before-tag">Before</div>
+      <img src="../images/hsf-before.png" alt="The original Help.Salesforce.com homepage: a navigation-first layout headed by a static &quot;How can we help?&quot; search box above a grid of product-documentation tiles."/>
+      <div class="figcap">The site as it stood through most of 2024 — a static "How can we help?" search box over rows of navigation.</div>
+    </div>
   </div>
 
   <div class="story-section">
-    <div class="section-label">The Turn — November 5, 2024</div>
+    <div class="section-label">The Turn · November 5, 2024</div>
     <h2 class="section-heading">Customer Zero, and five days on the clock.</h2>
-    <p class="body-text">At Agentforce Kick-Off (AKO), Marc Benioff declared that Help.Salesforce.com would become Salesforce's live "Customer Zero" showcase — the company's own proof point for Agentforce, in front of customers and the market.</p>
-    <p class="body-text">The parameters were blunt: redesign the UI, prioritize Customer Zero — and you've got <strong>5 days</strong> to lock design and specs. A cross-functional team formed almost overnight: the MIAW (Messaging In-App &amp; Web) team and the Customer Success team, previously working in separate lanes, became — in the words of the project retro — "one team, overnight." I led design for that 15-person founding group.</p>
+    <p class="body-text">At Agentforce Kick-Off, Marc Benioff named Help.Salesforce.com Agentforce's live <strong>"Customer Zero"</strong> — the company's own proof point, in front of the market. The brief was blunt: redesign the UI, <strong>5 days</strong> to lock specs, a month to ship. The Messaging and Customer Success teams became, in the retro's words, "one team, overnight." I led design for the 15-person founding group.</p>
 
     <div class="pull">
       <div class="pull-bar"></div>
@@ -203,125 +177,30 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
   </div>
 
   <div class="story-section">
-    <div class="section-label">The Build — 5 Days to Spec, 1 Month to Ship</div>
-    <h2 class="section-heading">Deliberately simple tooling. Work done in the open.</h2>
-    <p class="body-text">The team kept tooling deliberately simple: <strong>Figma</strong> for design specs, a shared <strong>Google Sheet</strong> ("Chat x Help Prioritization") to sequence feature work, and a single <strong>Slack channel</strong> as "our everything place" — where design, product, and engineering worked in the open, in real time.</p>
-    <p class="body-text">I described my own role across three levels, reflected in the project retrospective:</p>
-    <div class="services-grid">
-      <div class="service-chip"><div class="service-chip-name">As an individual</div><div class="service-chip-desc">Understand the technology, form an informed opinion, improve the end-to-end experience anywhere I could — in both breadth and depth.</div></div>
-      <div class="service-chip"><div class="service-chip-name">As a people leader</div><div class="service-chip-desc">Empower the team's Messaging Lead Designer, unblock the critical path, check titles at the door and work as a coalition.</div></div>
-      <div class="service-chip"><div class="service-chip-name">As an enterprise influencer</div><div class="service-chip-desc">Communicate up, down, and sideways; find the smartest people and get out of their way; forge partnerships across orgs; own executive summary and escalation.</div></div>
-    </div>
-    <p class="body-text">From concept to shipped product, in under a month — ahead of Investor Day.</p>
-  </div>
-
-  <div class="story-section">
     <div class="section-label">The Outcome</div>
     <h2 class="section-heading">A search box became a conversation.</h2>
-    <p class="body-text">The rebuilt experience replaced a static "how can we help?" search box with a conversational Agentforce interface, front and center on the homepage.</p>
+    <p class="body-text">We replaced the search box with a conversational Agentforce interface, front and center — clicks became turns of a dialogue.</p>
 
-    <div class="before-after">
-      <div class="ba-cell">
-        <div class="ba-label before-lbl">Before</div>
-        <div class="ba-item">Navigation-first support site</div>
-        <div class="ba-item">Static "how can we help?" search box</div>
-        <div class="ba-item">Chat limited, buried, disconnected</div>
-        <div class="ba-item">755K articles to sift through</div>
-        <div class="ba-item">2M support cases a year</div>
-      </div>
-      <div class="ba-cell after">
-        <div class="ba-label">After</div>
-        <div class="ba-item">Conversation-first experience</div>
-        <div class="ba-item">Agentforce interface, front and center</div>
-        <div class="ba-item">Chat as the primary interface</div>
-        <div class="ba-item">Answers surfaced through dialogue</div>
-        <div class="ba-item">Millions of conversations resolved in-experience</div>
-      </div>
+    <div class="figure">
+      <img src="../images/hsf-nav-to-convo.png" alt="A side-by-side composite: the old navigation-first homepage on the left overlapping the redesigned conversational &quot;How can Agentforce help?&quot; homepage on the right."/>
+      <div class="figcap">The reframe, in one image: the old navigation site giving way to a conversation-first homepage.</div>
     </div>
 
-    <p class="body-text">In the weeks after launch, the live site tracked its own adoption in real time — climbing across two point-in-time snapshots as adoption continued:</p>
-
-    <div class="snapshot">
-      <div class="snapshot-caption">Point-in-time · Live site counters</div>
-      <div class="snapshot-grid">
-        <div class="snap-item"><div class="snap-num">397,646 → 421,891</div><div class="snap-lbl">Agentforce Conversations</div></div>
-        <div class="snap-item"><div class="snap-num">534,794 → 550,638</div><div class="snap-lbl">Support Requests Handled by Humans</div></div>
-      </div>
-      <div class="snapshot-note">Early snapshots from the same live page counter — the trajectory that would climb to 4.75M+ conversations by July '26.</div>
+    <div class="figure">
+      <div class="fig-tag">After · Live</div>
+      <img src="../images/hsf-chat.png" alt="The live Agentforce chat on Help.Salesforce.com: a customer asks &quot;How can I set up an Agent?&quot; and Agentforce replies with step-by-step setup instructions."/>
+      <div class="figcap">The shipped experience: Agentforce answering a real support question in-line, no navigation required.</div>
     </div>
 
-    <p class="body-text">Measured cumulatively, the live experience has now powered <strong>4.75M+ Agentforce conversations</strong> and <strong>2.3M+ support requests handled by humans</strong> — the site's own public counters, chat + Agentforce combined, since October 2024 (as of July '26).</p>
+    <p class="body-text">Measured on the site's own public counters, the live experience has now powered <strong>4.75M+ Agentforce conversations</strong> and <strong>2.3M+ support requests handled by humans</strong> — chat + Agentforce combined, since October 2024 (as of July '26). Making chat the primary interface set the stage for the voice agents that came next, work I continued as a named co-author on Salesforce's conversational roadmap.</p>
 
-    <p class="body-text">The underlying strategy and framework — reframing the experience around five mindset shifts (navigation→conversation, content management→knowledge engineering, siloed specialist→cross-functional coalition, fixed UI→flexible engagement, building features→designing outcomes) — reached customers directly at TDX. <strong>I co-authored that presentation for the team to deliver on stage;</strong> Emily Winslow and Nimma Bhusri presented it.</p>
-  </div>
-
-  <div class="story-section">
-    <div class="section-label">What Came Next</div>
-    <h2 class="section-heading">The work didn't stop at launch.</h2>
-    <p class="body-text">Conversation was the beginning, not the end. Making chat the primary interface set the stage for what came next — voice agents — and Amanda continued as a named co-author on Salesforce's forward-looking roadmap for the next generation of conversational and voice experiences.</p>
+    <p class="body-text">The strategy behind it — five mindset shifts, from navigation→conversation to building features→designing outcomes — reached customers at TDX. <strong>I co-authored that presentation;</strong> Emily Winslow and Nimma Bhusri delivered it on stage.</p>
   </div>
 
   <div class="story-section">
     <div class="section-label">Reflection</div>
-    <h2 class="section-heading">A bet on how AI products actually get adopted.</h2>
-    <p class="body-text">This wasn't a redesign. It was a bet on how AI products actually get adopted — made months before the moment demanded it, then executed at founding-team speed once it did. Frictionless self-service activation, rapid iteration, and treating a help center as a growth engine rather than a cost center: the same instincts that drive product-led growth in consumer and B2B SaaS, applied here to reshape how millions of enterprise customers experienced AI for the first time.</p>
-  </div>
-
-  <div class="story-section">
-    <div class="section-label">Timeline</div>
-    <h2 class="section-heading">From navigation site to Customer Zero.</h2>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-date">Pre-2024 · Ongoing</div>
-        <div class="tl-label">A traditional navigation-based site</div>
-        <div class="tl-desc">Salesforce Help operates as a navigation-first site: 60M visits/yr, 755K articles, 2M cases/yr. Chat exists but is limited, buried, and disconnected from user need.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Prior to Oct 2024</div>
-        <div class="tl-label">The insight forms</div>
-        <div class="tl-desc">Working with the Product VP (now SVP), Amanda identifies conversation — not navigation — as the likely primary interface for Agentforce adoption.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Late Oct 2024</div>
-        <div class="tl-label">A deep product &amp; design sprint</div>
-        <div class="tl-desc">Amanda leads a sprint producing designs, vision, and committed product plans for a conversation-first help experience. Plans communicated widely ahead of AKO.</div>
-      </div>
-      <div class="tl-item turn">
-        <div class="tl-date">Nov 5, 2024 · Agentforce Kick-Off</div>
-        <div class="tl-label">Benioff names it "Customer Zero"</div>
-        <div class="tl-desc">Marc Benioff declares Help.Salesforce.com will be Agentforce's live "Customer Zero" showcase — the company's own proof point.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Nov 2024 · Immediately after</div>
-        <div class="tl-label">Five days to spec; one team overnight</div>
-        <div class="tl-desc">Leadership's ask formalized: integrate Agentforce, redesign the UI, prioritize Customer Zero — 5 days to spec. The MIAW team and Customer Success team merge into one team overnight.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Nov 2024 · Sprint window</div>
-        <div class="tl-label">15-person founding team builds</div>
-        <div class="tl-desc">A 15-person founding team (Amanda leading design) works from concept to shipped product. Tooling kept deliberately simple: Figma, Google Sheets, Slack.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">~Nov–Dec 2024 · Under 1 month</div>
-        <div class="tl-label">Launch — ahead of Investor Day</div>
-        <div class="tl-desc">The conversation-first, Agentforce-powered chat experience launches on Help.Salesforce.com, ahead of Investor Day.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">Post-launch</div>
-        <div class="tl-label">Adoption climbs, tracked live</div>
-        <div class="tl-desc">The live site shows adoption climbing across two point-in-time counter snapshots (397,646→421,891 Agentforce conversations; 534,794→550,638 support requests handled by humans).</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">TDX 2025</div>
-        <div class="tl-label">The framework reaches customers</div>
-        <div class="tl-desc">The 5 Mindset Shifts framework built from this work is presented to customers at TDX. Amanda co-authored the presentation; Emily Winslow and Nimma Bhusri delivered it on stage.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-date">As of July 2026</div>
-        <div class="tl-label">Adoption compounds</div>
-        <div class="tl-desc">The live public counters show 4.75M+ Agentforce conversations and 2.3M+ support requests handled by humans — chat + Agentforce combined, cumulative since October 2024.</div>
-      </div>
-    </div>
+    <h2 class="section-heading">A bet on how AI actually gets adopted.</h2>
+    <p class="body-text">This wasn't a redesign. It was a bet on how AI products get adopted — made months early, then executed at founding-team speed once the moment demanded it. Treating a help center as a growth engine, not a cost center: the same product-led instincts, applied to reshape how millions of enterprise customers met AI for the first time.</p>
   </div>
 
   <div class="story-section">

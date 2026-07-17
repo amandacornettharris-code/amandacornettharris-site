@@ -13,18 +13,39 @@
 
 ## Color Palette
 
+### The Two-Role Rule — do not break this
+
+The site runs on **three** colors (blue, bronze, charcoal). A designer argued for two;
+we kept three on one condition, written here so it is never violated: **blue and bronze
+have separate, non-overlapping jobs, and they must never compete on the same element.**
+
+- **Blue (`#1753C5`) = data + primary action.** Metric numbers, statistics, the one
+  primary action in a view. If it's a number that proves impact or the single thing you
+  most want clicked, it's blue.
+- **Bronze (`#9A6E3A`) = editorial structure.** Section labels, eyebrows, hairline rules,
+  pull-quote bars, active-nav underline, figure tags. Bronze frames and organizes; it
+  never carries data and is never the primary action.
+- **Never on the same element.** A single element gets blue *or* bronze, never both
+  fighting for the eye. A bronze section label above a blue metric is correct (different
+  elements, different jobs). A number rendered half-blue-half-bronze, or a button that is
+  bronze *and* sits on a blue field competing for "click me," is not.
+
+If, as pages accumulate, these roles start to blur — bronze creeping onto data, blue
+creeping onto structure — that is the signal the designer was right: collapse to blue as
+the only accent and demote bronze to a hairline. Until then, three colors stand.
+
 ### Primary
 | Name | Hex | Usage |
 |---|---|---|
-| Blue | `#1753C5` | Metric numbers, CTAs, active nav states |
-| Charcoal | `#1E2A3A` | Primary text, footer background, dark UI |
+| Blue | `#1753C5` | Metric/stat numbers; the single primary action in a view |
+| Charcoal | `#1E2A3A` | Primary text, footer background, dark UI, default CTA text |
 | Charcoal Mid | `#5A6678` | Body text, card descriptions |
 | Page Cream | `#FAFAF7` | Page background — warm white, not pure white |
 
 ### Accent
 | Name | Hex | Usage |
 |---|---|---|
-| Bronze | `#9A6E3A` | Active nav, section labels, pull quote bars, CTAs, decorative accents |
+| Bronze | `#9A6E3A` | Editorial structure only: section labels, pull-quote bars, active-nav underline, hairline rules, figure tags, CTA hover |
 | Bronze Warm | `#E8C89D` | Bronze on dark backgrounds (footer, dark hero) |
 | Border | `#E8E4DC` | All borders, dividers, card edges |
 | Muted Text | `#8A8A7A` | Nav links (inactive), stat labels, metadata |

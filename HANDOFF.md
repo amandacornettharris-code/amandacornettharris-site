@@ -1,8 +1,10 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
 Last updated: 2026-07-16. All four main pages are live on the editorial design.
 Two story sub-pages are now built (`xd-transformation.html`, `help-salesforce.html`);
-the remaining 6 are unbuilt. The Help.Salesforce.com sub-page no longer carries a
-Sources/footnotes section (removed) — its metrics are the site's live public counters.
+the remaining 6 are unbuilt. The Help.Salesforce.com sub-page was cut to ~355 body words
+and made visual with three framed real screenshots (see §6); its metrics are the site's
+live public counters. A **Two-Role color rule** (blue = data/action, bronze = editorial
+structure, never competing) is now codified in DESIGN-SYSTEM.md — hold it on every page.
 
 **Deck-link pattern (available, not currently used by any card):** A featured card's
 "Read the story" CTA *can* point to a PDF in `docs/` instead of a sub-page, opening in a
@@ -99,11 +101,11 @@ Think Bloomberg Businessweek profile of the most interesting executive in the ro
 - Body/UI: `DM Sans` — 300, 400, 500, 600
 - Both loaded via Google Fonts
 
-**Colors:**
-- Blue: `#1753C5` — metric numbers, CTAs
-- Charcoal: `#1E2A3A` — primary text, footer bg
+**Colors** (governed by the **Two-Role Rule** in DESIGN-SYSTEM.md — read it before using accent color):
+- Blue: `#1753C5` — **data + primary action only** (metric numbers, the one primary CTA)
+- Bronze: `#9A6E3A` — **editorial structure only** (section labels, pull-quote bars, active-nav underline, hairlines, figure tags). Blue and bronze must NEVER compete on the same element.
+- Charcoal: `#1E2A3A` — primary text, footer bg, default CTA text
 - Page cream: `#FAFAF7` — page background
-- Bronze: `#9A6E3A` — nav active, section labels, pull quote bars, CTAs
 - Border: `#E8E4DC` — all borders and dividers
 
 **Nav:** Sticky, cream bg, name left (Playfair 15px 700), links right (DM Sans 10px uppercase).
@@ -143,7 +145,7 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 
 | File | Story | Status | Notes |
 |---|---|---|---|
-| `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template. Featured card (in BOTH index + impact-stories) links here. Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Metrics now use the site's live public counters: **4.75M+ Agentforce conversations** and **2.3M+ requests handled by humans** (chat + Agentforce, cumulative since October 2024, "as of July '26" disclaimer). The Sources/footnotes section was removed. Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; **NEVER reintroduce the 82% self-service / co-sourced 2.2M+ stat — internal evidence shows it's contrived and it was deliberately removed.** |
+| `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template, then **cut ~68% (1,122→355 body words)** and made visual — 6 tight sections, timeline/services-grid/snapshot/before-after blocks all removed, three real screenshots inserted (`.figure`, framed on cream): `hsf-before.png` (old nav homepage), `hsf-nav-to-convo.png` (navigation→conversation composite, cropped from deck slide), `hsf-chat.png` (live Agentforce chat). Leadership's-ask pull quote kept verbatim. Featured card (in BOTH index + impact-stories) links here; its hero `images/help-salesforce-hero.png` was rebuilt to the agentic-conversation shot ("How can Agentforce help?" bot + prompt box, framed on blue gradient). Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Metrics use the site's live public counters: **4.75M+ Agentforce conversations** and **2.3M+ requests handled by humans** (chat + Agentforce, cumulative since October 2024, "as of July '26" disclaimer). Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; **NEVER reintroduce the 82% self-service / co-sourced 2.2M+ stat — internal evidence shows it's contrived and it was deliberately removed.** |
 | `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card |
 | `stories/bnsf-digital-cx.html` | BNSF Digital CX | ⚠️ Build needed | BNSF; featured card |
 | `stories/trackathon.html` | Trackathon | ⚠️ Build needed | BNSF |
