@@ -1,10 +1,14 @@
 # HANDOFF — Amanda Cornett Harris Portfolio Site
-Last updated: 2026-07-16. All four main pages are live on the editorial design.
-Two story sub-pages are now built (`xd-transformation.html`, `help-salesforce.html`);
-the remaining 6 are unbuilt. The Help.Salesforce.com sub-page was cut to ~355 body words
+Last updated: 2026-07-19. All four main pages are live on the editorial design.
+Three story sub-pages are now built (`xd-transformation.html`, `help-salesforce.html`,
+`bnsf-digital-cx.html`). The Help.Salesforce.com sub-page was cut to ~355 body words
 and made visual with three framed real screenshots (see §6); its metrics are the site's
 live public counters. A **Two-Role color rule** (blue = data/action, bronze = editorial
 structure, never competing) is now codified in DESIGN-SYSTEM.md — hold it on every page.
+
+**See §0 (Active Backlog) for the current build queue.** Keep it updated: as each item
+ships, move it to "Done" with the date and check off its line — the backlog is the
+single source of truth for what's left.
 
 **Deck-link pattern (available, not currently used by any card):** A featured card's
 "Read the story" CTA *can* point to a PDF in `docs/` instead of a sub-page, opening in a
@@ -23,6 +27,37 @@ crops to junk. Instead: strip all browser/site chrome, then compose the product 
 rounded, shadowed frame centered on a matching brand gradient (see
 `images/help-salesforce-hero.png`, built from the deck's slide 1 via PIL). The 3 spotlight
 cards are DUPLICATED verbatim in BOTH `index.html` and `impact-stories.html` — edit both.
+
+---
+
+## 0. Active Backlog
+
+Live queue of what's left to build, in priority order. **Update this as items ship** —
+move completed items to "Recently shipped" with a date. Full narrative detail for the
+BNSF items lives in Claude's project memory (`project_bnsf_story_arc.md`).
+
+**Priority order (Amanda-confirmed 2026-07-19): Account Status is next.**
+
+| # | Item | Type | Status | Blocker / notes |
+|---|---|---|---|---|
+| A | **Account Status** (`account-status.html`) | New spoke | 🔜 Next | Have full content: Feb 2019 launch; billing 1 day earlier on ~$14.4B annual freight → ~$1.1M annual cash flow; **BNSF Achievement Award for outstanding contributions to the BNSF Vision and Values**; team Schinstock/McCrary/Phelps-Roper. Spoke off BNSF hub. Design pending approval (photo-publish + hero-metric + nav-Next decisions open). |
+| B | **Geo-Fence** (spoke) | New spoke | ⛔ Blocked | Need source material/numbers from Amanda. 1st-in-industry shipment Geo-Fence; the customer research Amanda led on the BNSF hub *guided them to it* (research→insight→product) — hub Method section should plant a link once built. |
+| C | **Command Center hero image** | Image swap | ⏳ Waiting | Card art on homepage is CSS placeholder. **Amanda will provide** the image (card + page hero). `command-center.html` also not built yet. |
+| D | **XD Transformation** | Revise | ⏳ Review | `xd-transformation.html` already exists (288 lines). Needs finish/review, NOT build-from-scratch. Confirm with Amanda what's missing. |
+| E | **Rail Recovery** (`rail-recovery.html`) | New page | 📋 Queued | Amanda confirmed "2nd hand rail" = SAME as existing Rail Recovery mini-card (first-of-kind recovered-rail business, 60%→96% completion, $60–80M portfolio). Need content. |
+| F | **Homepage BNSF Card #3 image** | Image swap | 📋 Queued | Swap CSS placeholder → real image in BOTH `index.html` + `impact-stories.html`. Rec: `images/bnsf-current.png`. |
+| G | **About page: Certifications & Awards** | New section | 📋 Queued | Add a section listing Amanda's certifications + awards. Need the actual list from Amanda (zero hallucination). Includes the BNSF Achievement Award. |
+
+**Hub-and-spoke IA (decided 2026-07-19):** BNSF Digital CX is the hub. An app earns its
+own spoke page only if it has all three: (1) distinct narrative arc, (2) hard defensible
+numbers, (3) makes Amanda look different from the hub story. Account Status ✅ and
+Geo-Fence ✅ qualify; the other ~12 apps stay as *evidence inside the hub*, not linked out.
+
+**Recently shipped:**
+- 2026-07-19 — `stories/bnsf-digital-cx.html` (BNSF hub) built: image-forward, ~360 words,
+  5 framed deck crops (`images/bnsf-*.png`), 5-principles list, both "fives," 4-discipline
+  band (Product/Strategy/Design/Leadership), Account Status teaser. Story-nav:
+  help-salesforce ← → account-status.
 
 ---
 
@@ -66,8 +101,8 @@ amandacornettharris-site/
 ├── stories/
 │   ├── xd-transformation.html  ✅ BUILT — editorial design, live (template for the rest)
 │   ├── help-salesforce.html    ✅ BUILT — card links here; deck under "Source Material"
+│   ├── bnsf-digital-cx.html    ✅ BUILT — hub story; 5 framed deck crops; links to account-status
 │   ├── command-center.html     ⚠️ Not built — linked from index + impact-stories
-│   ├── bnsf-digital-cx.html    ⚠️ Not built — linked from index + impact-stories
 │   ├── trackathon.html         ⚠️ Not built — linked from impact-stories
 │   ├── rail-recovery.html      ⚠️ Not built — linked from impact-stories
 │   ├── bnsf-dex.html           ⚠️ Not built — linked from impact-stories
@@ -79,7 +114,9 @@ amandacornettharris-site/
 │   ├── 5-key-mindset-shifts.pdf    ✅ In repo — TDX deck; linked from Help.SF sub-page "Source Material"
 │   └── xd-transformation-deck.pdf  ← Amanda must add this manually to repo
 ├── images/
-│   └── help-salesforce-hero.png    ✅ Card hero for Help.SF (framed slide-1 product shot on gradient)
+│   ├── help-salesforce-hero.png    ✅ Card hero for Help.SF (framed slide-1 product shot on gradient)
+│   ├── hsf-before.png / hsf-chat.png / hsf-nav-to-convo.png  ✅ Help.SF sub-page figures
+│   └── bnsf-current.png / bnsf-legacy.png / bnsf-method.png / bnsf-research.png / bnsf-outcome.png  ✅ BNSF hub figures (deck crops)
 ├── DESIGN-SYSTEM.md            ✅ Current — full editorial design spec
 ├── HANDOFF.md                  This file
 ├── IA.md                       ✅ Current — information architecture
@@ -146,8 +183,8 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 | File | Story | Status | Notes |
 |---|---|---|---|
 | `stories/help-salesforce.html` | Help.Salesforce.com | ✅ Done | Built from the xd-transformation template, then **cut ~68% (1,122→355 body words)** and made visual — 6 tight sections, timeline/services-grid/snapshot/before-after blocks all removed, three real screenshots inserted (`.figure`, framed on cream): `hsf-before.png` (old nav homepage), `hsf-nav-to-convo.png` (navigation→conversation composite, cropped from deck slide), `hsf-chat.png` (live Agentforce chat). Leadership's-ask pull quote kept verbatim. Featured card (in BOTH index + impact-stories) links here; its hero `images/help-salesforce-hero.png` was rebuilt to the agentic-conversation shot ("How can Agentforce help?" bot + prompt box, framed on blue gradient). Two cleared decks linked under "Source Material" (`help-salesforce-deck.pdf`, `5-key-mindset-shifts.pdf`). Metric uses the site's live public counter: **4.75M+ Agentforce conversations** (chat + Agentforce, cumulative since October 2024, "as of July '26" disclaimer). The "2.3M+ Requests Handled by Humans" figure was removed everywhere (hero, both cards, sub-page metrics bar + body — deemed immaterial); keep 4.75M+. Card metrics are now 4.75M+ / 15-person team / &lt;1mo concept-to-launch. Guardrails: never link/describe the "SF Chat Modernization" deck (Salesforce-internal only); TDX presentation was co-authored by Amanda but delivered on stage by Emily Winslow & Nimma Bhusri; **NEVER reintroduce the 82% self-service / co-sourced 2.2M+ stat — internal evidence shows it's contrived and it was deliberately removed.** |
-| `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card |
-| `stories/bnsf-digital-cx.html` | BNSF Digital CX | ⚠️ Build needed | BNSF; featured card |
+| `stories/command-center.html` | Command Center | ⚠️ Build needed | Salesforce; featured card; hero image pending from Amanda |
+| `stories/bnsf-digital-cx.html` | BNSF Digital CX | ✅ Done | BNSF **hub** story; image-forward ~360 words; 5 framed deck crops; 5-principles list + both "fives" + 4-discipline band; Account Status teaser. Spokes: Account Status + Geo-Fence. Homepage Card #3 still CSS placeholder (backlog F). |
 | `stories/trackathon.html` | Trackathon | ⚠️ Build needed | BNSF |
 | `stories/rail-recovery.html` | Rail Recovery Turnaround | ⚠️ Build needed | BNSF |
 | `stories/bnsf-dex.html` | BNSF DEX Transformation | ⚠️ Build needed | BNSF |
