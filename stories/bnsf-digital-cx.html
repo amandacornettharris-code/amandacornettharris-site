@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>BNSF Digital CX — Amanda Cornett Harris</title>
-<meta name="description" content="How a failed $3M app became the case for unifying 110+ fragmented applications into one customer experience — a fully funded 5-year digital transformation across six departments at North America's largest railroad."/>
+<meta name="description" content="How a failed $3M app became the case for unifying 110+ fragmented applications into one customer experience: a fully funded 5-year digital transformation across six departments at North America's largest railroad."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -68,6 +68,8 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
 .fig-tag{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#9A6E3A;margin-bottom:10px}
 .fig-tag.before-tag{color:#B8B0A0}
 .figcap{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;line-height:1.6;margin-top:12px;font-style:italic;letter-spacing:0.02em}
+.fignote{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px dashed #E8E4DC}
+.fignote strong{color:#9A6E3A;font-weight:600}
 
 /* ── DISCIPLINE BAND ── */
 .disciplines{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#E8E4DC;border:1px solid #E8E4DC;border-radius:10px;overflow:hidden;margin:8px 0}
@@ -85,6 +87,15 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
 .teaser-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#1E2A3A;line-height:1.35}
 .teaser-sub{font-family:'DM Sans',sans-serif;font-size:11px;color:#8A8A7A;margin-top:2px}
 .teaser-arrow{margin-left:auto;font-family:'DM Sans',sans-serif;font-size:18px;color:#9A6E3A;align-self:center}
+
+/* ── SOURCE HERO ── */
+.source-hero{display:block;background:#F5F2EC;border:1px solid #E8E4DC;border-left:3px solid #9A6E3A;border-radius:10px;padding:32px 34px;margin:20px 0 16px;text-decoration:none;transition:all 0.25s}
+.source-hero:hover{box-shadow:0 8px 30px rgba(154,110,58,0.12);transform:translateY(-2px)}
+.source-hero-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#9A6E3A;margin-bottom:12px}
+.source-hero-title{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:#1E2A3A;line-height:1.24;margin-bottom:22px}
+.source-hero-quote{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:#3D4F63;line-height:1.5;margin-bottom:10px}
+.source-hero-attr{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8A8A7A;margin-bottom:22px}
+.source-hero-cta{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A6E3A}
 
 /* ── NAV BETWEEN STORIES ── */
 .story-nav{border-top:1px solid #E8E4DC;padding:32px 48px;max-width:780px;margin:48px auto 0;display:flex;justify-content:space-between;align-items:center}
@@ -140,7 +151,7 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
 <div class="story-hero">
   <div class="story-co">BNSF Railway</div>
   <h1 class="story-title">110+ Apps. <em>One Customer Experience.</em></h1>
-  <p class="story-lede">A failed $3M app became the case for a company-wide reframe — and a fully funded, five-year transformation of the digital experience at North America's largest railroad.</p>
+  <p class="story-lede">A failed $3M app became the case for a company-wide reframe, and a fully funded, five-year transformation of the digital experience at North America's largest railroad.</p>
 </div>
 
 <!-- METRICS -->
@@ -156,18 +167,18 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
   <div class="story-section">
     <div class="section-label">The Starting Point</div>
     <h2 class="section-heading">A $3M app that couldn't hold ten users.</h2>
-    <p class="body-text">My first titled product job: a net-new track-and-trace app for intermodal, BNSF's largest business line. Testing told the truth the roadmap wouldn't — it crashed past ten concurrent users. I delivered the news that a project <strong>$3M in, over budget and overdue, would never ship.</strong></p>
+    <p class="body-text">My first titled product job: a net-new track-and-trace app for intermodal, BNSF's largest business line. Testing told the truth the roadmap wouldn't. It crashed past ten concurrent users. I delivered the news that a project <strong>$3M in, over budget and overdue, would never ship.</strong></p>
   </div>
 
   <div class="story-section">
     <div class="section-label">The Diagnosis</div>
     <h2 class="section-heading">It wasn't an intermodal problem.</h2>
-    <p class="body-text">The failed app did what dozens already did — differently. <strong>110+ customer-facing apps, built in silos, giving different answers.</strong> Support spent 3× effort fixing customer errors. CSAT fell. The portal hadn't been touched since 2006 — before the iPhone.</p>
+    <p class="body-text">The failed app did what dozens already did, only differently. <strong>110+ customer-facing apps, built in silos, giving different answers.</strong> Customer Support employed 3 entire teams just to fix customer entry errors. The front door, BNSF's authenticated Customer Portal, hadn't been touched since 2006&hellip; BEFORE the iPhone.</p>
 
     <div class="figure">
       <div class="fig-tag before-tag">Before · Duplicate Tools</div>
-      <img src="../images/bnsf-legacy.png" alt="A collage of overlapping legacy BNSF tools — Track Your Shipment, Shipping Instruction Modifications, Intermodal Lot Location, Waybill Search — each a separate interface doing similar work."/>
-      <div class="figcap">Overlapping tools, one job each — the reason a customer could ask the same question and get different answers.</div>
+      <img src="../images/bnsf-legacy.png" alt="A collage of overlapping legacy BNSF tools (Track Your Shipment, Shipping Instruction Modifications, Intermodal Lot Location, Waybill Search), each a separate interface doing similar work."/>
+      <div class="figcap">Overlapping tools, one job each. The reason a customer could ask the same question and get different answers.</div>
     </div>
   </div>
 
@@ -179,13 +190,14 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
       <div class="pull-bar"></div>
       <div class="pull-inner">
         <div class="pull-text">"We have a BNSF problem, not a department problem."</div>
-        <div class="pull-attr">The pitch — to intermodal, technology, and marketing leadership</div>
+        <div class="pull-attr">The pitch, to intermodal, technology, and marketing leadership</div>
       </div>
     </div>
 
     <div class="figure">
-      <img src="../images/bnsf-current.png" alt="The BNSF 'Current State' strategy slide: 94+ customer-facing apps conceived in silos and largely about BNSF, reframed to 'customers need to do THEIR job, easy to find and do, designed from login' — illustrated by scattered app puzzle pieces assembling into one BNSF."/>
-      <div class="figcap">The strategy, in one image: scattered apps — each about BNSF — assembling into one experience built around the customer's job.</div>
+      <img src="../images/bnsf-current.png" alt="The BNSF 'Current State' strategy slide: 94+ customer-facing apps conceived in silos and largely about BNSF, reframed to 'customers need to do THEIR job, easy to find and do, designed from login', illustrated by scattered app puzzle pieces assembling into one BNSF."/>
+      <div class="figcap">The strategy, in one image: scattered apps, each about BNSF, assembling into one experience built around the customer's job.</div>
+      <div class="fignote"><strong>On the count.</strong> Our initial assessment put the number at 94+ apps. By go-live, deep discovery for the portal launch surfaced well over 110. The "+" is honest: the real total landed at 112 or 113.</div>
     </div>
   </div>
 
@@ -194,11 +206,11 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
     <h2 class="section-heading">Five principles. Six departments. One CoP.</h2>
     <p class="body-text">The pitch landed. I stood up a cross-department Customer Experience Community of Practice, governed by five principles:</p>
     <ol class="principles">
-      <li><strong>Do right by customers</strong> — upgrade the portal first.</li>
+      <li><strong>Do right by customers:</strong> upgrade the portal first.</li>
       <li><strong>Work together</strong>, not against each other.</li>
-      <li><strong>Leverage what we own</strong> — build on Salesforce.</li>
+      <li><strong>Leverage what we own:</strong> build on Salesforce.</li>
       <li><strong>Remove duplication</strong>; enhance where needed.</li>
-      <li><strong>Use data</strong> — and where there's none, talk to customers.</li>
+      <li><strong>Use data</strong>, and where there's none, talk to customers.</li>
     </ol>
   </div>
 
@@ -213,25 +225,25 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
     <div class="figure">
       <div class="fig-tag">Immersive Design Research</div>
       <img src="../images/bnsf-research.png" alt="Left: a whiteboard mapping internal versus customer systems. Right: a sticky-note research wall studying immersive, customer-centered design patterns."/>
-      <div class="figcap">Mapping internal-vs-customer systems, then studying how the best consumer experiences are designed — applied to B2B rail.</div>
+      <div class="figcap">Mapping internal-vs-customer systems, then studying how the best consumer experiences are designed, applied to B2B rail.</div>
     </div>
   </div>
 
   <div class="story-section">
     <div class="section-label">The Outcome</div>
     <h2 class="section-heading">The first portal update since before the iPhone.</h2>
-    <p class="body-text">A funded, five-year strategy across six departments — <strong>14 net-new products</strong>, including the industry's first shipment Geo-Fence — plus apps retired and jobs modernized end to end. <strong>80K+ users. ~$23B in annual business.</strong></p>
+    <p class="body-text">A funded, five-year strategy across six departments: <strong>14 net-new products</strong>, including the industry's first shipment Geo-Fence, plus apps retired and jobs modernized end to end. <strong>80K+ users. ~$23B in annual business.</strong></p>
 
     <div class="figure">
       <div class="fig-tag">After · Live</div>
-      <img src="../images/bnsf-outcome.png" alt="The modernized BNSF customer suite — Trace, Industry Notifications, Railcar Management, Profile, Message Us, Geo-Fence — with a live shipment-tracking dashboard and an executive announcement, 'A Message from Tom Williams: BNSF Customer Tools now Available.'"/>
-      <div class="figcap">One connected suite — Trace, Notifications, Railcar Management, Profile, Message Us, Geo-Fence — announced to customers by the Group VP, Consumer Products.</div>
+      <img src="../images/bnsf-outcome.png" alt="The modernized BNSF customer suite (Trace, Industry Notifications, Railcar Management, Profile, Message Us, Geo-Fence) with a live shipment-tracking dashboard and an executive announcement, 'A Message from Tom Williams: BNSF Customer Tools now Available.'"/>
+      <div class="figcap">One connected suite (Trace, Notifications, Railcar Management, Profile, Message Us, Geo-Fence), announced to customers by the Group VP, Consumer Products.</div>
     </div>
 
     <div class="disciplines">
       <div class="disc"><div class="disc-role">Product</div><div class="disc-what"><strong>14 net-new products</strong>; duplicate apps retired, jobs modernized end to end.</div></div>
       <div class="disc"><div class="disc-role">Strategy</div><div class="disc-what">Reframed a dept fix into a <strong>funded 5-year</strong> company mandate.</div></div>
-      <div class="disc"><div class="disc-role">Design</div><div class="disc-what">First portal redesign since 2006 — built from the customer's job.</div></div>
+      <div class="disc"><div class="disc-role">Design</div><div class="disc-what">First portal redesign since 2006, built from the customer's job.</div></div>
       <div class="disc"><div class="disc-role">Leadership</div><div class="disc-what">Aligned 6 departments; founded a cross-org <strong>CoP</strong>.</div></div>
     </div>
 
@@ -243,6 +255,32 @@ body{background:#FAFAF7;font-family:'DM Sans',sans-serif;color:#1E2A3A;line-heig
         <div class="teaser-label">Recognized Work · Its Own Story</div>
         <div class="teaser-name">Account Status</div>
         <div class="teaser-sub">Earned a BNSF Achievement Award for outstanding contributions to the BNSF Vision and Values →</div>
+      </div>
+      <div class="teaser-arrow">↗</div>
+    </a>
+  </div>
+
+  <div class="story-section">
+    <div class="section-label">Source Material</div>
+    <h2 class="section-heading">The public record.</h2>
+    <p class="body-text">BNSF announced the shift publicly, in the company's own words, with the "one experience" thesis validated by a customer.</p>
+
+    <a href="https://www.bnsf.com/news-media/railtalk/service/customer-experience.html" target="_blank" rel="noreferrer" class="source-hero">
+      <div class="source-hero-label">BNSF Rail Talk · Sept 2023</div>
+      <div class="source-hero-title">Creating a superior customer experience with new, improved technologies</div>
+      <div class="source-hero-quote">"BNSF has everything in one platform&hellip; all in one application. It's convenient and very user friendly."</div>
+      <div class="source-hero-attr">Alexis Arenas-Andrade, Train Service Manager, J.B. Hunt</div>
+      <div class="source-hero-cta">Read the article ↗</div>
+    </a>
+
+    <a href="https://www.bnsf.com/news-media/customer-notifications/notification.page?notId=enhanced-shipment-tracking-on-the-trace-web-tool" target="_blank" rel="noreferrer" class="teaser">
+      <div class="teaser-award">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6E3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div>
+        <div class="teaser-label">BNSF Customer Notification · Jan 2023</div>
+        <div class="teaser-name">Enhanced Shipment Tracking on the Trace Web Tool</div>
+        <div class="teaser-sub">Trace becomes the primary tool, replacing "Track Your Shipment" →</div>
       </div>
       <div class="teaser-arrow">↗</div>
     </a>
