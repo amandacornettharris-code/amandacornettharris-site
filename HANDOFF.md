@@ -54,6 +54,15 @@ numbers, (3) makes Amanda look different from the hub story. Account Status ✅ 
 Geo-Fence ✅ qualify; the other ~12 apps stay as *evidence inside the hub*, not linked out.
 
 **Recently shipped:**
+- 2026-07-19 — Endorsements section (about.html "At Work") given more blue, on-system:
+  the left "person" panel is now soft cool-blue (`#EEF2FA`, the same tint already behind
+  the photo initials) with a matching `#DCE6F5` blue hairline divider (desktop + mobile);
+  the initials-placeholder flipped to a white fill + solid blue (`#1753C5`) ring so it reads
+  as a framed photo against the blue panel. Bronze quote rule (`.t-rule`) left untouched —
+  blue owns the "person" zone, bronze owns the quote structure (Two-Role rule holds).
+- 2026-07-19 — Nav reordered site-wide (all 8 HTML files): **Impact Stories now sits left of
+  "At Work"** → Home · Impact Stories · At Work · In Life. `active`/`aria-current` preserved
+  per page.
 - 2026-07-19 — Nav labels renamed site-wide (all 8 HTML files): **About → "At Work"**,
   **Personal → "In Life"**. Only the visible link text changed; hrefs (`about.html`,
   `personal.html`), `class="active"`, and `aria-current` are unchanged. Page `<title>` tags
