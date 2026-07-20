@@ -54,6 +54,11 @@ numbers, (3) makes Amanda look different from the hub story. Account Status ✅ 
 Geo-Fence ✅ qualify; the other ~12 apps stay as *evidence inside the hub*, not linked out.
 
 **Recently shipped:**
+- 2026-07-19 — Nav labels renamed site-wide (all 8 HTML files): **About → "At Work"**,
+  **Personal → "In Life"**. Only the visible link text changed; hrefs (`about.html`,
+  `personal.html`), `class="active"`, and `aria-current` are unchanged. Page `<title>` tags
+  and the on-page headings on about.html / personal.html were intentionally left as-is
+  (Amanda's request was nav-only).
 - 2026-07-19 — `stories/account-status.html` (BNSF spoke) built + shipped: hero "The Value of
   One Day"; metrics $14.4B billed a day earlier / $1.1M annual cash flow / 2019 relaunched;
   sections The Product (relaunched on modernized SAP-backed mobile-responsive Web 2.0 platform),
