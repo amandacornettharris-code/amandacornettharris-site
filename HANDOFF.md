@@ -36,11 +36,11 @@ Live queue of what's left to build, in priority order. **Update this as items sh
 move completed items to "Recently shipped" with a date. Full narrative detail for the
 BNSF items lives in Claude's project memory (`project_bnsf_story_arc.md`).
 
-**Priority order (Amanda-confirmed 2026-07-19): Account Status is next.**
+**Priority order (Amanda-confirmed 2026-07-19): Account Status shipped; Geo-Fence spoke is the next story to build (source material now in Downloads — Geofence.png, Ops Trace.png, etc.).**
 
 | # | Item | Type | Status | Blocker / notes |
 |---|---|---|---|---|
-| A | **Account Status** (`account-status.html`) | New spoke | 🔜 Next | Have full content: Feb 2019 launch; billing 1 day earlier on ~$14.4B annual freight → ~$1.1M annual cash flow; **BNSF Achievement Award for outstanding contributions to the BNSF Vision and Values**; team Schinstock/McCrary/Phelps-Roper. Spoke off BNSF hub. Design pending approval (photo-publish + hero-metric + nav-Next decisions open). |
+| H | **Wire up Account Status links** | Linking | 📋 Queued | `account-status.html` is built + live but only reachable from the BNSF hub teaser + its own story-nav. Add it to the homepage and/or impact-stories.html so it has a proper entry point. Confirm with Amanda whether it gets a featured card or a mini-card. |
 | B | **Geo-Fence** (spoke) | New spoke | ⛔ Blocked | Need source material/numbers from Amanda. 1st-in-industry shipment Geo-Fence; the customer research Amanda led on the BNSF hub *guided them to it* (research→insight→product) — hub Method section should plant a link once built. |
 | C | **Command Center hero image** | Image swap | ⏳ Waiting | Card art on homepage is CSS placeholder. **Amanda will provide** the image (card + page hero). `command-center.html` also not built yet. |
 | D | **XD Transformation** | Revise | ⏳ Review | `xd-transformation.html` already exists (288 lines). Needs finish/review, NOT build-from-scratch. Confirm with Amanda what's missing. |
@@ -54,6 +54,21 @@ numbers, (3) makes Amanda look different from the hub story. Account Status ✅ 
 Geo-Fence ✅ qualify; the other ~12 apps stay as *evidence inside the hub*, not linked out.
 
 **Recently shipped:**
+- 2026-07-19 — `stories/account-status.html` (BNSF spoke) built + shipped: hero "The Value of
+  One Day"; metrics $14.4B billed a day earlier / $1.1M annual cash flow / 2019 relaunched;
+  sections The Product (relaunched on modernized SAP-backed mobile-responsive Web 2.0 platform),
+  The Mechanism (3-step band + footnote scoping $14.4B to primary billing on primary freight
+  lines, excluding accessorial/auction/special freight), My Role ("I led the leaders" — taught
+  user testing, mentored 2 Finance pros into PMs, shepherded into One BNSF), BNSF Achievement
+  Award text callout (NO award photo — Amanda scrapped it), team photo figure
+  (`images/account-status-team.png`, cropped from deck to just the 2 photos, names caption cut
+  per "the BNSF team" choice), In Context ("one of fourteen"). Story-nav: BNSF hub ← → Geo-Fence
+  (coming soon). Not yet linked from homepage/impact-stories (backlog H).
+- 2026-07-19 — BNSF hub adds (commit f8a86bf): Rail Talk article promoted to Source Material
+  hero card (J.B. Hunt customer quote); Trace notification secondary link; app-count footnote
+  (94+ initial assessment → 112/113 actual, hence "110+"); Diagnosis copy sharpened
+  (Customer Support ran 3 entire teams fixing customer entry errors; authenticated Customer
+  Portal untouched since 2006, before the iPhone); all em dashes stripped from prose.
 - 2026-07-19 — `stories/bnsf-digital-cx.html` (BNSF hub) built: image-forward, ~360 words,
   5 framed deck crops (`images/bnsf-*.png`), 5-principles list, both "fives," 4-discipline
   band (Product/Strategy/Design/Leadership), Account Status teaser. Story-nav:
@@ -106,7 +121,7 @@ amandacornettharris-site/
 │   ├── trackathon.html         ⚠️ Not built — linked from impact-stories
 │   ├── rail-recovery.html      ⚠️ Not built — linked from impact-stories
 │   ├── bnsf-dex.html           ⚠️ Not built — linked from impact-stories
-│   ├── account-status.html     ⚠️ Not built — content TBD (Amanda to provide)
+│   ├── account-status.html     ✅ BUILT — BNSF spoke; "led the leaders" role; team photo; award callout
 │   └── hfrei-reduction.html    ⚠️ Not built — content available (PDF pg 6)
 ├── docs/
 │   ├── SITE-ARCHITECTURE.md    ✅ Current — full page/nav/file structure reference
@@ -116,7 +131,8 @@ amandacornettharris-site/
 ├── images/
 │   ├── help-salesforce-hero.png    ✅ Card hero for Help.SF (framed slide-1 product shot on gradient)
 │   ├── hsf-before.png / hsf-chat.png / hsf-nav-to-convo.png  ✅ Help.SF sub-page figures
-│   └── bnsf-current.png / bnsf-legacy.png / bnsf-method.png / bnsf-research.png / bnsf-outcome.png  ✅ BNSF hub figures (deck crops)
+│   ├── bnsf-current.png / bnsf-legacy.png / bnsf-method.png / bnsf-research.png / bnsf-outcome.png  ✅ BNSF hub figures (deck crops)
+│   └── account-status-team.png  ✅ Account Status team photo (deck crop, 2 photos, names caption removed)
 ├── DESIGN-SYSTEM.md            ✅ Current — full editorial design spec
 ├── HANDOFF.md                  This file
 ├── IA.md                       ✅ Current — information architecture
@@ -189,7 +205,7 @@ Use `DESIGN-SYSTEM.md` as the canonical spec for all design decisions.
 | `stories/rail-recovery.html` | Rail Recovery Turnaround | ⚠️ Build needed | BNSF |
 | `stories/bnsf-dex.html` | BNSF DEX Transformation | ⚠️ Build needed | BNSF |
 | `stories/xd-transformation.html` | Transforming Experience Design | ✅ Done | BNSF; links to PDF artifact |
-| `stories/account-status.html` | Account Status | ⚠️ Content TBD | Amanda to provide company + what + metric |
+| `stories/account-status.html` | Account Status | ✅ Done | BNSF spoke. Hero "The Value of One Day"; $14.4B / $1.1M / 2019 metrics; "led the leaders" role framing (mentored 2 Finance pros into PMs); BNSF Achievement Award text callout (no photo, scrapped); team photo. Nav: hub ← → Geo-Fence (coming soon). Not yet linked from homepage/impact-stories (backlog H). |
 | `stories/hfrei-reduction.html` | HFREI Reduction | ⚠️ Build needed | Content from PDF page 6 |
 
 **Story sub-page template:** `stories/xd-transformation.html`
